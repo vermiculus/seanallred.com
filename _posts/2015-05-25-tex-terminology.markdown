@@ -101,8 +101,8 @@ in TeX primitives or whatever additional support the respective format
 provides.
 
 Since the formats try to be as widely-applicable as they can, you
-likely have seen packages and modules in heavy use for your particular
-application:
+likely have seen specialized packages and modules in heavy use for
+your particular application:
 
 - `\input` (Plain)
 - `\usepackage` (LaTeX)
