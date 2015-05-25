@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "Who's Who in the World of TeX"
-subtitle: "TeX Terminology"
+subtitle: "A review of TeX terminology"
 date: 2015-05-25 12:00:00 -0400
 comments: true
 published: true
