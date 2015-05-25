@@ -20,6 +20,6 @@ came to the realization that I had no idea what I was talking about.
 It was and is a constant learning experience.  It requires you to know
 how the system is organized before you organize it -- a noble
 aspiration, but an unrealistic one.  While I still intend to release
-StackMode as a literate program, the paradigm is not fit for
+it as a literate program some day, the paradigm is not fit for
 experimental development of large software projects within the scope
 of the implementation I am using.

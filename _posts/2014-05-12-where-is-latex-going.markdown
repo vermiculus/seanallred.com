@@ -70,7 +70,8 @@ Similarly, typographers are graphic designers are heart; they cannot be expected
 Thus, an ideal world would have completely separate interfaces for
   the author, the typographer/designer, and a programmer who implements it all.
 This last interface is nearly complete as `expl3`;
-  a full-on, standardized 'API' of sorts to the underlying TeX engine.
+  a full-on, standardized programming environment written entirely in TeX
+  and requiring only the e-TeX primitives.
 Upon this interface lies the whole of LaTeX3 concepts.
 
 Thus, to answer this article's question *where is LaTeX Going?*, the answer is *places*.
