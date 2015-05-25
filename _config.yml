@@ -1,14 +1,22 @@
-# Site settings
-title: Your awesome title
-email: your-email@domain.com
+title: TeXnical Details
+email: code@seanallred.com
 description: > # this means to ignore newlines until "baseurl:"
-  Write an awesome description for your new site here. You can edit this
-  line in _config.yml. It will appear in your document head meta (for
-  Google search results) and in your feed.xml site description.
+  A personal and development blog.  Topics range from TeX and Emacs
+  to social politics to philosophical questions and matters of faith.
 baseurl: "" # the subpath of your site, e.g. /blog/
 url: "http://yourdomain.com" # the base hostname & protocol for your site
-twitter_username: jekyllrb
-github_username:  jekyll
+twitter_username: vermiculus
+github_username:  vermiculus
 
 # Build settings
 markdown: kramdown
+kramdown:
+  use_coderay: true
+  coderay:
+    coderay_line_numbers: nil
+
+redcarpet:
+#  extensions: ["fenced_code_blocks", "footnotes"]
+  extensions: ["footnotes"]
+
+#  LocalWords:  github username vermiculus LocalWords baseurl blog
