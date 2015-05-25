@@ -85,23 +85,24 @@ mathematics.
 
 Formats define much of the syntax you use to write your document.
 
-# Packages and Modules
+# Extensions
 
 Since the community using TeX is much more diverse and specialized
 than any one team can hope to accommodate, the major formats define a
-syntax for using plugins that anyone can write and share (licenses
+syntax for using extensions that anyone can write and share (licenses
 permitting, of course).  They provide additional macros that are
 relevant to a given task or problem.
 
-Depending on the format, there are different ways to use these plugins
-and different names they are called.  In LaTeX, they're called
+Depending on the format, there are different ways to use these
+extensions and different names they go by.  In LaTeX, they're called
 packages.  In ConTeXt, they're called modules.  These are mostly
 arbitrary labels -- in the end, they're all plain-text files written
 in TeX primitives or whatever additional support the respective format
 provides.
 
 Since the formats try to be as widely-applicable as they can, you
-likely have seen plugins in heavy use for your particular application:
+likely have seen packages and modules in heavy use for your particular
+application:
 
 - `\input` (Plain)
 - `\usepackage` (LaTeX)
@@ -109,7 +110,8 @@ likely have seen plugins in heavy use for your particular application:
 
 They represent one of the most distinctive features of TeX systems and
 their applicability to an impossibly diverse range of use-cases.
-There are thousands upon thousands of these plugins available online.
+There are thousands upon thousands of these extensions available
+online.
 
 # Editors
 
@@ -180,18 +182,21 @@ specialized editors allow you to run these commands with a menu item
 or keyboard shortcut instead of opening up a command prompt and typing
 everything by hand.  However, there are many TeX-specific build tools
 that will automatic this process and can be integrated into your
-editor if you wish:
+editor if you wish:[^4]
 
 - `arara` uses 'directives' within a TeX source file itself to
-  record how it should be compiled.[^4]
+  record how it should be compiled.[^5]
 - `latexmk` uses some clever heuristics to determine what the next
   phases of compilation is.
-- `texexec` is the official way to compile ConTeXt documents and is
-  similar in concept to `latexmk`.
 - [`rubber`][rubber], with its clever, hard-to-search name, is another
   `latexmk`-like program.
 
-[^4]: I personally recommend `arara` -- not just because I count the
+[^4]: `mtxrun` is the official way to compile ConTeXt (Mark IV)
+    documents and is similar in concept to `latexmk`.  I don't think
+    it can properly be called 'just' a build system; there is more
+    going on internally.
+
+[^5]: I personally recommend `arara` -- not just because I count the
     developer among my friends, but because it is the only
     TeX-specific tool I've found that doesn't try to guess what you
     want.  I know what I want, the process isn't that complicated once
