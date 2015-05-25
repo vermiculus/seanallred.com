@@ -139,8 +139,9 @@ Some popular editors include,[^2]
 [^2]: These are the official capitalizations; I promise.
 
 The programmer's editors (emacs and vi) also have first-class
-environments for writing TeX -- in most cases above and beyond that of
-any other editor, specialized or not.
+environments for writing with TeX -- in most cases above and beyond
+that of any other editor, specialized or not.  However, I will that
+discussion for another post.
 
 # Helper Tools
 
