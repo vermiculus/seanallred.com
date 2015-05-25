@@ -4,7 +4,6 @@ description: >
   A personal and development blog.  Topics range from TeX and Emacs
   to social politics to philosophical questions and matters of faith.
 baseurl: "" # the subpath of your site, e.g. /blog/
-assets: "http://www.seanallred.com/assets"
 url: "http://www.seanallred.com"
 twitter_username: vermiculus
 github_username:  vermiculus
