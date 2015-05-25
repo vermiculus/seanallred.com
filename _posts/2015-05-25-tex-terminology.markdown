@@ -10,7 +10,7 @@ categories:
 ---
 
 TeX is a great piece of software with a traditionally specific set of
-users: mathematicians, physicians, and computer scientists in the
+users: mathematicians, physicists, and computer scientists in the
 field all at least know what TeX is simply because it is so pervasive
 in that domain.  TeX is a fantastic tool for their job and mentors
 will commonly teach their students how to use the tool to get the job
