@@ -140,8 +140,8 @@ Some popular editors include,[^2]
 
 The programmer's editors (emacs and vi) also have first-class
 environments for writing with TeX -- in most cases above and beyond
-that of any other editor, specialized or not.  However, I will that
-discussion for another post.
+that of any other editor, specialized or not.  However, I will have
+that discussion for another post.
 
 # Helper Tools
 
