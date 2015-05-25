@@ -10,6 +10,7 @@ github_username:  vermiculus
 
 # Build settings
 markdown: kramdown
+highlighter: pygments
 kramdown:
   use_coderay: true
   coderay:
