@@ -44,7 +44,7 @@ programmable --
 
 There are many engines out there beyond Knuth's original TeX:
 
-- e-TeX (upon which most modern engines are based)
+- ε-TeX (upon which most modern engines are based)
 - pdfTeX
 - LuaTeX
 - XeTeX
