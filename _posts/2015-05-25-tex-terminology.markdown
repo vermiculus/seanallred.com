@@ -42,7 +42,7 @@ is of consequence to this article that all TeX engines are
 programmable -- perhaps not strictly by choice.[^6])
 
 [^6]:
-    [Interview with the Netherlands TeX Group (NTG)][tex-turing-complete],
+    [Knuth meets the Netherlands TeX Group (NTG)][tex-turing-complete],
     page 47, second column.  Donald Knuth notes "In some sense I put
     in many of the programming features kicking and screaming," and
     that TeX was made Turing-complete after lobbying by Guy Steele.
