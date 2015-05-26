@@ -278,3 +278,4 @@ Happy TeXing!
 [tex-sx-mistake]: http://tex.stackexchange.com/a/139878/17423
 [tex-ex-editors]: http://tex.stackexchange.com/q/339/17423
 [rubber]: https://launchpad.net/rubber/
+[ctan-helpers]: http://ctan.org/tex-archive/support
