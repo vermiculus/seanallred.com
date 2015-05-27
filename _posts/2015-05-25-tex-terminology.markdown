@@ -132,9 +132,9 @@ that has some level of support for writing a TeX document.[^7]
     the document written.".
 
 [^7]: In the programming world, it's more appropriate to call these
-    integrated development environments (IDEs).  That is, they provide
-    access to everything you need to write your document (except your
-    knowledge, of course).
+    'integrated development environments' (IDEs).  That is, they
+    provide access to everything you need to write your document
+    (except your knowledge, of course).
 
 
 Some popular editors include,[^2]
