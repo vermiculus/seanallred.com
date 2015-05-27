@@ -125,11 +125,16 @@ you write it and what exactly is producing the finished product.
 Naturally, we need a way to use this information and actually write
 the document.[^1] Of course, as TeX uses plain-text files, you can use
 whatever editor you wish, but it would be foolish not to use an editor
-that has some level of support for writing a TeX document.
+that has some level of support for writing a TeX document.[^7]
 
 [^1]: [A wise man once said][tex-sx-mistake], "The most common mistake
     [for beginners] is spending too long on TeX coding and not getting
     the document written.".
+
+[^7]: In the programming world, it's more appropriate to call these
+    integrated development environments (IDEs).  That is, they provide
+    access to everything you need to write your document (except your
+    knowledge, of course).
 
 
 Some popular editors include,[^2]
