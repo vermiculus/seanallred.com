@@ -164,8 +164,9 @@ Here are just a few:
 - The BibTeX format (and the `bibtex` program) provide a solid
   foundation for style-agnostic bibliographies.
 - The BibLaTeX format (and the `biber` program) is a re-write of
-  BibTeX (and `bibtex`) to allow much more powerful and versatile than
-  its predecessor.
+  BibTeX (and `bibtex`) to allow much more powerful and versatile
+  citation management than its predecessor.  It also has native
+  support for international languages.
 - `makeindex` automates indexing, a painful process for anyone who's
   ever had to do so by hand.
 - `excel2latex` converts simple Excel spreadsheets into LaTeX
@@ -185,7 +186,7 @@ The list goes on and on.  For interested parties, there is a
 you should also look into generic text-based templating engines like
 Liquid, XSLT, Velocity, *etc.*
 
-# Build Tools
+# Build tools
 
 Since TeX is a command-line tool at its core, most related tools also
 use the command-line as the 'official' interface.  Most (if not all)

@@ -32,7 +32,7 @@ For this article, I will discuss LaTeX's purpose in this respect
   to the best of its ability
   for everyone that wishes to take advantage of its concepts.
 
-## A Document Preparation System ##
+## A document preparation system ##
 
 What does it mean to be a 'document preparation system'?
 LaTeX works with *documents*.

@@ -90,7 +90,7 @@ your repository to use the `www` subdomain.  After you do this and
 your changes take effect, traffic to `www.bilbo.org` will be
 redirected to your Pages site.
 
-## Further Reading
+## Further reading
 
 - <https://help.github.com/categories/github-pages-basics/>
 - [Simple width fix for Disqus comments with Jekyll](https://gist.github.com/vermiculus/54ff79fc4d98f401bf15)
