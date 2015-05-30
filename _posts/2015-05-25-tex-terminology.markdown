@@ -94,12 +94,12 @@ Formats define much of the syntax you use to write your document:
 {% highlight latex %}
 \documentclass{article}
 \begin{document}
-Hello, world!
+Hello, \textit{world!}
 \end{document}
 {% endhighlight %}
 
-In this example, `\documentclass`, `\begin`, and `\end` are macros
-provided by LaTeX.
+In this example, `\documentclass`, `\begin`, `\textit`, and `\end` are
+macros provided by LaTeX.
 
 # Extensions
 
