@@ -6,6 +6,12 @@ baseurl: "" # the subpath of your site, e.g. /blog/
 url: "http://www.seanallred.com"
 twitter_username: vermiculus
 github_username:  vermiculus
+exclude:
+  - CNAME
+  - Gemfile
+  - Gemfile.lock
+  - CONTRIBUTING.md
+  - README.md
 
 # Build settings
 markdown: kramdown
