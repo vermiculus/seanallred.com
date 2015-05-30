@@ -1,8 +1,7 @@
 title: TeXnical Details
 email: code@seanallred.com
 description: >
-  A personal and development blog.  Topics range from TeX and Emacs
-  to social politics to philosophical questions and matters of faith.
+  A personal and development blog about TeX and related technologies.
 baseurl: "" # the subpath of your site, e.g. /blog/
 url: "http://www.seanallred.com"
 twitter_username: vermiculus
