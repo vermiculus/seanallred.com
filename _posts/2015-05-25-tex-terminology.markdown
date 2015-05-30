@@ -15,10 +15,9 @@ field all at least know what TeX is simply because it is so pervasive
 in that domain.  TeX is a fantastic tool for their job and mentors
 will commonly teach their students how to use the tool to get the job
 done.  However, newcomers to TeX are rarely -- if ever -- given a good
-education on what all the different players: what goes into getting
-them from introduction to installation to a finished product.  I hope
-this article will answer some of these questions you never knew you
-had.
+education on all the different players -- what goes into getting them
+from introduction to installation to a finished product.  I hope this
+article will answer some of these questions you never knew you had.
 
 From the simple to the sublime, we will cover <!-- engines, formats,
 packages and modules, editors, helper tools, build tools,
@@ -31,21 +30,23 @@ of this brave, new world you've entered into.
 
 # Engines
 
-Let's start with the absolute basics.  A TeX engine is the compiled,
-command-line program that ultimately produces your finished document.
-In most cases, this is the PDF that you print or otherwise submit.
-This program understands only the most basic instructions related to
-macros and typesetting -- in the lingo, these are called 'primitives'.
-All documents you write will eventually boil down to these primitives
-to be understood and processed (or 'compiled') by a TeX engine.  (It
-is of consequence to this article that all TeX engines are
-programmable -- perhaps not strictly by choice.[^6])
+Let's start with the absolute basics.  A TeX engine is a compiled
+program.  In that sense, it is just like most of the other programs
+installed on your computer.  This is the program that ultimately
+produces your finished document: in most cases, the PDF that you print
+or otherwise submit.  This program understands only the most basic
+instructions related to macros and typesetting -- in the lingo, these
+are called 'primitives'.  All documents you write will eventually boil
+down to these primitives to be understood and processed (or
+'compiled') by a TeX engine.  (It is of consequence to this article
+that all TeX engines are programmable -- perhaps not strictly by
+choice.[^6])
 
 [^6]:
     [Knuth meets the Netherlands TeX Group (NTG)][tex-turing-complete],
     page 47, second column.  Donald Knuth notes "In some sense I put
-    in many of the programming features kicking and screaming," and
-    that TeX was made Turing-complete after lobbying by Guy Steele.
+    in many of the programming features kicking and screaming".  TeX
+    was made Turing-complete after 'intense' lobbying by Guy Steele.
 
 There are many engines out there beyond Knuth's original TeX:
 
@@ -84,11 +85,21 @@ TeX formats provide more meaningful ways to say the same thing:
 - ...
 
 These are called 'macros'.  Because TeX is programmable, these macros
-can become arbitrarily complex, expressing higher-level concepts like
-emphasis, sectioning, and even complex graphics and higher-order
+can become arbitrarily complex -- expressing higher-level concepts
+like emphasis, sectioning, ... even complex graphics and higher-order
 mathematics.
 
-Formats define much of the syntax you use to write your document.
+Formats define much of the syntax you use to write your document:
+
+{% highlight latex %}
+\documentclass{article}
+\begin{document}
+Hello, world!
+\end{document}
+{% endhighlight %}
+
+In this example, `\documentclass`, `\begin`, and `\end` are macros
+provided by LaTeX.
 
 # Extensions
 
