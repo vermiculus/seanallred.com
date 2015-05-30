@@ -23,6 +23,23 @@ body {
     -webkit-text-size-adjust: 100%;
 }
 
+dt {
+    font-weight: bold;
+}
+
+dd {
+    text-indent: 2em;
+}
+
+sup {
+    vertical-algin: super;
+}
+
+dl {
+    padding-top: -2ex;
+    padding-bottom: 3ex;
+}
+
 
 
 /**
