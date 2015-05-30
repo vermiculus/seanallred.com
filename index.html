@@ -8,6 +8,7 @@ layout: default
 
   <ul class="post-list">
     {% for post in site.posts %}
+    {% if post.off-topic %}{% else %}
       <li>
         <span class="post-meta">{{ post.date | date: "%b %-d, %Y" }}</span>
 
@@ -15,6 +16,23 @@ layout: default
           <a class="post-link" href="{{ post.url | prepend: site.baseurl }}">{{ post.title }}</a>
         </h2>
       </li>
+    {% endif %}
+    {% endfor %}
+  </ul>
+
+  <h1 class="page-heading">Off-Topic</h1>
+
+  <ul class="post-list">
+    {% for post in site.posts %}
+    {% if post.off-topic %}
+      <li>
+        <span class="post-meta">{{ post.date | date: "%b %-d, %Y" }}</span>
+
+        <h2>
+          <a class="post-link" href="{{ post.url | prepend: site.baseurl }}">{{ post.title }}</a>
+        </h2>
+      </li>
+    {% endif %}
     {% endfor %}
   </ul>
 

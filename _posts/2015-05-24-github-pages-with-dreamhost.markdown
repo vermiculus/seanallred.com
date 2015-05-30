@@ -3,6 +3,7 @@ layout: post
 title: "GitHub Pages with DreamHost"
 date: "2015-05-24 21:35:05 -0500"
 comments: true
+off-topic: true
 ---
 
 It's been a long, confusing day as I've migrated some of my old

@@ -3,9 +3,8 @@ layout: post
 title: "Realizing DFAs with Raspberry Pi"
 subtitle: "There's a better way!!"
 comments: true
-categories:
-- cstheory
-- raspberry pi
+off-topic: true
+category: cs-theory
 ---
 I've been working on a [project][pisnort] recently for a friend's research,
   which needed a decently specialized piece of hardware.
