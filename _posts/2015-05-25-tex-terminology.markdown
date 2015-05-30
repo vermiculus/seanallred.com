@@ -254,23 +254,23 @@ friends.
 A note for Linux users: TeX Live is available from the package
 repositories, but it is highly suggested you install from upstream.
 TeX is a very hard thing to 'chop up' for package repositories and
-it's amazing anything can work at all, but it's the process is often
-fraught with issues.  It is much easier (and in the long run, more
-efficient) to simply download the entire TeX Live distribution from
-TUG's website.  Installation on Windows might've been tricky ten years
-ago, but I can vouch that it is seamless at the time of writing.
+it's amazing anything can work at all, but the process is fraught with
+issues.  It is much easier (and in the long run, more efficient) to
+simply download the entire TeX Live distribution from TUG's website.
+Installation on Windows might've been tricky ten years ago, but I can
+vouch that it is seamless at the time of writing.
 
 # CTAN
 
-In the end, distributions get their files from CTAN, The Comprehensive
+In the end, distributions get their files from CTAN, the Comprehensive
 TeX Archive Network.  Distributions don't carry *everything* CTAN has
-for practical/licensing reasons, but a huge chunk of it is.  (A
-standard distribution is currently around 4.5GB.)  CTAN makes sure all
-of these files are always available by managing a network of mirrors,
-or copies, that contain the entire corpus of CTAN's materials.  If
-something is related to TeX, you will likely find it there.  Packages,
-package documentation, tools, formats, and engines are hosted by
-CTAN's generous mirrors.
+for practical/licensing reasons, but a huge chunk of it is included.
+(A standard distribution is currently around 4.5 GB.)  CTAN makes sure
+all of these files are always available by managing a network of
+mirrors, or copies, that contain the entire corpus of CTAN's
+materials.  If something is related to TeX, you will likely find it
+there.  Packages, package documentation, tools, formats, and engines
+are all hosted by CTAN's generous mirrors.
 
 Any files that are not available on CTAN were not uploaded by their
 authors.  CTAN can't make anyone upload anything, so a bit of
