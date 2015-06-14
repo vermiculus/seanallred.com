@@ -1,0 +1,50 @@
+---
+layout: post
+title: "LaTeX3 and expl3"
+date: 2015-06-14 00:00:00 -0400
+comments: true
+github: 6
+published: true
+category: latex3
+---
+
+I've seen a few people here and there refer to LaTeX3 and `expl3`
+interchangeably.  While they're very related, they are distinct from
+each other.
+
+`expl3`
+: The format-independent programming layer powering LaTeX3.  Provides
+tools to make programming in a TeX environment saner.  Under
+development, maintained, and stable.
+
+LaTeX3
+: The new format of LaTeX, successor to LaTeX2e.  Under development
+and not yet released.
+
+`expl3` is ready for primetime, but LaTeX3 is not.  That said, many
+*ideas* from LaTeX3 are available for use in a *status quo* referred
+to as 'LaTeX3 in 2e'.  Packages like `xparse`, `l3keys2e`, and
+`xtemplate` provide an idea of what working in LaTeX3 is going to feel
+like.
+
+It's important to note that the general format of
+
+{% highlight latex %}
+\documentclass{article}
+\begin{document}
+hello, world
+\end{document}
+{% endhighlight %}
+
+will not be changing (lest the project fail to be adopted).  Most of
+the changes will occur on the programming and document-design level.
+
+# Further Reading
+
+* [Difference between LaTeX, LaTeX2e, LaTeX3?][l-2e-3]
+* [What can *I* do to help the LaTeX3 project?][l3-help]
+
+Happy TeXing!
+
+[l-2e-3]: http://tex.stackexchange.com/q/13541/17423
+[l3-help]: http://tex.stackexchange.com/a/46427/17423
