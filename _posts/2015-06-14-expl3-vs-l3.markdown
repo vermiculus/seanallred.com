@@ -30,21 +30,29 @@ like.
 It's important to note that the general format of
 
 {% highlight latex %}
-\documentclass{article}
+\documentclass{<who knows?>}
 \begin{document}
-hello, world
+hello, \emph{world}
 \end{document}
 {% endhighlight %}
 
-will not be changing (lest the project fail to be adopted).  Most of
-the changes will occur on the programming and document-design level.
+is not likely to change (lest the project fail to be adopted).  While
+the top-level input syntax hasn't really been nailed down, I suspect
+most of the changes will be scoped to the programming and
+document-design levels.
 
 # Further Reading
 
 * [Difference between LaTeX, LaTeX2e, LaTeX3?][l-2e-3]
 * [What can *I* do to help the LaTeX3 project?][l3-help]
+* [What new bits have already been implemented in LaTeX3? Will my current documents (with many packages) still compile with LaTeX3?][l3-future]
+* [Why is LaTeX3 taking so long to come out?][l3-time]
+* [LaTeX3: Using the layers (Mittelbach and Wright, 2013)][l3-slides]
 
 Happy TeXing!
 
 [l-2e-3]: http://tex.stackexchange.com/q/13541/17423
 [l3-help]: http://tex.stackexchange.com/a/46427/17423
+[l3-future]: http://tex.stackexchange.com/a/400/17423
+[l3-time]: http://tex.stackexchange.com/q/953/17423
+[l3-slides]: http://latex-project.org/papers/2013-10-24-latex3.pdf
