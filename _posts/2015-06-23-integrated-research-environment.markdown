@@ -22,4 +22,4 @@ And of course, all of this must be well-organized.
 
 # Further Reading
 - http://blog.modelworks.ch/?p=379
-- 
+- https://tincman.wordpress.com/2011/01/04/research-paper-management-with-emacs-org-mode-and-reftex/
