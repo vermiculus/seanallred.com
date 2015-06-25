@@ -13,8 +13,8 @@ interchangeably.  While they're very related, they are distinct from
 each other.
 
 `expl3`
-: The format-independent programming layer powering LaTeX3.  Provides
-tools to make programming in a TeX environment saner.  Under
+: The [format-independent][e-v-3] programming layer powering LaTeX3.
+Provides tools to make programming in a TeX environment saner.  Under
 development, maintained, and stable.
 
 LaTeX3
@@ -51,6 +51,7 @@ document-design levels.
 
 Happy TeXing!
 
+[e-v-3]: http://chat.stackexchange.com/transcript/41?m=20892461#20892461
 [l-2e-3]: http://tex.stackexchange.com/q/13541/17423
 [l3-help]: http://tex.stackexchange.com/a/46427/17423
 [l3-future]: http://tex.stackexchange.com/a/400/17423
