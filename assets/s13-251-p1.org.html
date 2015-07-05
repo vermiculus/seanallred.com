@@ -1,0 +1,864 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN">
+<!-- Created by htmlize-1.47 in css mode. -->
+<html>
+  <head>
+    <title>s13-251-p1.org</title>
+    <style type="text/css">
+    <!--
+      body {
+        color: #F8F8F2;
+        background-color: #272822;
+      }
+      .bold {
+        /* bold */
+        font-weight: bold;
+      }
+      .function-name {
+        /* font-lock-function-name-face */
+        color: #A6E22E;
+      }
+      .italic {
+        /* italic */
+        font-style: italic;
+      }
+      .keyword {
+        /* font-lock-keyword-face */
+        color: #F92672;
+      }
+      .org-block {
+        /* org-block */
+        color: #75715E;
+      }
+      .org-block-background {
+      }
+      .org-block-begin-line {
+        /* org-block-begin-line */
+        color: #75715E;
+      }
+      .org-block-end-line {
+        /* org-block-end-line */
+        color: #75715E;
+      }
+      .org-date {
+        /* org-date */
+        color: #66D9EF;
+        text-decoration: underline;
+      }
+      .org-document-info {
+        /* org-document-info */
+        color: #F8F8F2;
+      }
+      .org-document-info-keyword {
+        /* org-document-info-keyword */
+        color: #75715E;
+      }
+      .org-document-title {
+        /* org-document-title */
+        color: #F8F8F0;
+        font-size: 130%;
+        font-weight: bold;
+      }
+      .org-footnote {
+        /* org-footnote */
+        color: #FD5FF0;
+        text-decoration: underline;
+      }
+      .org-formula {
+        /* org-formula */
+        color: #E6DB74;
+      }
+      .org-level-1 {
+        /* org-level-1 */
+        color: #FD971F;
+        font-size: 130%;
+      }
+      .org-level-2 {
+        /* org-level-2 */
+        color: #A6E22E;
+        font-size: 120%;
+      }
+      .org-level-3 {
+        /* org-level-3 */
+        color: #66D9EF;
+        font-size: 114%;
+      }
+      .org-link {
+        /* org-link */
+        color: #E6DB74;
+        text-decoration: underline;
+      }
+      .org-list-dt {
+        /* org-list-dt */
+        font-weight: bold;
+      }
+      .org-meta-line {
+        /* org-meta-line */
+        color: #75715E;
+      }
+      .org-property-value {
+      }
+      .org-special-keyword {
+        /* org-special-keyword */
+        color: #75715E;
+        font-weight: bold;
+      }
+      .org-table {
+        /* org-table */
+        color: #A6E22E;
+      }
+      .org-verbatim {
+        /* org-verbatim */
+        color: #75715E;
+      }
+      .preprocessor {
+        /* font-lock-preprocessor-face */
+        color: #F92672;
+      }
+      .string {
+        /* font-lock-string-face */
+        color: #E6DB74;
+      }
+      .type {
+        /* font-lock-type-face */
+        color: #66D9EF;
+      }
+      .variable-name {
+        /* font-lock-variable-name-face */
+        color: #FD971F;
+      }
+
+      a {
+        color: inherit;
+        background-color: inherit;
+        font: inherit;
+        text-decoration: inherit;
+      }
+      a:hover {
+        text-decoration: underline;
+      }
+    -->
+    </style>
+  </head>
+  <body>
+    <pre>
+<span class="org-document-info-keyword">#+TITLE:</span> <span class="org-document-title">Solution Sketch
+</span><span class="org-document-info-keyword">#+AUTHOR:</span> <span class="org-document-info">Sean Allred
+</span><span class="org-document-info-keyword">#+DATE:</span> <span class="org-document-info">[2013-02-02 Sat]
+</span>
+<span class="org-level-1">* Disclaimer</span>
+I'm a fallible human being.
+<span class="org-level-1">* The Assignment</span>
+<span class="org-special-keyword">:PROPERTIES:</span>
+<span class="org-special-keyword">:ID:</span> <span class="org-property-value">8B23EA1A-AE81-44EA-8473-325E33D2CBD9</span>
+<span class="org-special-keyword">:END:</span>
+<span class="bold">*Objective:*</span> Create the core of the current programming paradigm --
+objects!
+
+<span class="bold">*Your Task:*</span> In C (not C++!), you will be creating the functionality
+to implement objects, thus retracing the steps of computer scientists
+of 30 years ago.
+
+Specifically, I would like you to create the ability to implement a
+class like we do in C++. Note, that I'm not expecting you to do
+everything that C++ can do with a class, but I am expecting you to be
+able to show me some code that represents the baseline aspects of
+class structures: fields/variables and functions.  The more
+functionality that you can bring to the table, the higher your grade.
+As a summary:
+
+- <span class="org-list-dt">To get an 85 ::</span> A "class" that includes fields and functions; a
+                  piece of demonstration code with a full class
+                  implementation of something simple (Rectangle,
+                  Student, etc.).
+- <span class="org-list-dt">To get a 90 ::</span> Add "instantiation".  This would include multiple
+                 constructors.  An extra 5 points if you handle
+                 multiple constructors as functions with the same name
+                 but different number of parameters.
+- <span class="org-list-dt">To get a 100 ::</span> Add "object" variables to classes.  This will
+                  require you to create two classes, and have one
+                  inside of the other (for instance a Point object
+                  inside of a Shape class).
+- <span class="org-list-dt">To get a 110 ::</span> Add public and private scope
+- <span class="org-list-dt">To get a 120 ::</span> Add inheritance. (no hints from the instructor or
+                  TAs here)
+
+Some quick hints: you are going to need to leverage both structs and
+function pointers for this project.  This project is challenging, do
+not put it off!  You do not need to be able to mimic the syntax of C++
+classes, just the functionality.
+
+<span class="bold">*Deliverables:*</span> your source code and a one-page writeup of the
+ approach that you've taken for your solution.
+
+<span class="bold">*Learning Targets:*</span> struct usage, pointer manipulation, C usage,
+ origin of the object-oriented paradigm.
+
+<span class="bold">*Expectation:*</span> The code should be clean, concise, well-commented, and
+correct.  If you use an outside source, be sure to document that
+source.  Significant use of outside sources will result in a
+deduction.  Grading rubric will be provided a week ahead of the due
+date.  You may work in pairs for this project -- your partner may be
+in your section of in the other 251 section.  Teammate selection
+emails due 1 February by 5pm.
+
+<span class="bold">*DUE:*</span> February 17th, 11:59pm via Blackboard.
+<span class="org-level-1">* Introduction</span>
+What are the main ideas of object-orientism?
+- <span class="org-list-dt">Modularity ::</span> make it a complete package
+- <span class="org-list-dt">Reusability ::</span> never write the same thing twice!
+- <span class="org-list-dt">Encapsulation ::</span> a class is a complete thought
+
+What do each of these mean?  To be <span class="italic">/modular/</span> is to be portable -- the
+code written can be lifted, taken elsewhere, and should still work the
+same (barring technical details).  This does not preclude packages
+with dependencies, but such dependencies should be reasonable and by
+no means restrictive.
+
+To be <span class="italic">/reusable/</span> is similar to being modular, but code reusability
+implies that you won't (manually) duplicate functionality elsewhere in
+the project, i.e. <span class="italic">/inheritance/</span>.
+
+To be <span class="italic">/encapsulated/</span> is to be complete and careful.  Members that
+should be private, such as number of extant Persons, should be made so
+(or perhaps read-only to the outside world).  Members that should only
+be available to `friends' should be made so.  Likewise with public
+members.  Give only enough information to offer the full range of
+motion for your class -- nothing more, nothing less.
+
+But how can we implement these things using only the low-level
+constructs available to us in K&amp;R C?  To understand how to do that, we
+need to delve a little deeper into how a program written in C runs.
+
+The rest of this document will assume that you already have a basic
+working knowledge about C.  Several topics are of paramount
+importance:
+
+- variables and variable declaration
+- basic arithmetical operators
+- a complete understanding of the control constructs <span class="org-verbatim">=if=</span>, <span class="org-verbatim">=while=</span>,
+  and <span class="org-verbatim">=for=</span>
+- function declaration and use
+- structs
+- type casting
+- multiple-source programs (the separation of header from source)
+- programming the C preprocessor (<span class="org-verbatim">=#define=</span>, <span class="org-verbatim">=#undef=</span>, <span class="org-verbatim">=#if=</span>,
+  <span class="org-verbatim">=#ifdef=</span>, <span class="org-verbatim">=#endif=</span>)
+
+and the following are <span class="italic">/highly recommended/</span>:
+
+- <span class="italic">/all/</span> of the C preprocessor directives
+- use of <span class="org-verbatim">=assert()=</span>
+- <span class="org-verbatim">=typedef=</span>
+- <span class="org-verbatim">=static=</span>, <span class="org-verbatim">=const=</span>, and <span class="italic">/all/</span> of the different types (there aren't
+  that many -- look for patterns)
+
+All of these topic (and others) are discussed in depth at <span class="org-link"><a href="http://www.acm.uiuc.edu/webmonkeys/book/c_guide/">the C
+Library Reference Guide</a></span> and at <span class="org-link"><a href="http://www.cplusplus.com/reference/">the C++ Reference Guide</a></span>, both of which
+are worth skimming through at least once.
+
+The rest of this document attempts to explain pointers, memory
+management, and object-oriented techniques in a practical and
+easy-to-understand, easy-to-reference manner.  If you have <span class="italic">/any/</span>
+questions on the material below, please do not hesitate to contact me
+via Facebook.  Who knows?  You might even get another hint out of me.
+
+<span class="bold">*Important:*</span> If you would like me to release the materials (in BCPL)
+upon which this project was based, like the status of mine that shared
+it with you no later than <span class="org-date">[2013-02-13 Wed]</span>.  If more than half the
+roster likes the status, I will promptly release it on this page.
+
+I would like to take this time to personally apologize for this
+project.
+
+Oh!  And don't forget to give Marissa a hard time -- this is all her
+fault somehow.
+<span class="org-level-1">* A Simple Snippet</span>
+<span class="org-special-keyword">:PROPERTIES:</span>
+<span class="org-special-keyword">:ID:</span> <span class="org-property-value">2FD56A76-09C4-4FB7-9D8A-2BE969A95D52</span>
+<span class="org-special-keyword">:END:</span>
+<span class="bold">*Disclaimer:*</span> I don't actually know all this for absolute certain.
+All of this will, of course, depend on the compiler you use.  However,
+the general concepts should be consistent whichever compiler you
+choose to utilize.  For reference, I've gathered this information
+based purely on inferences garnered from the hex-explorer of programs
+being debugged with <span class="org-verbatim">=gdb=</span>.  With that settled, I'm assuming that you
+know the very basics of computer memory, so I'm not going to go over
+that.  Let's take it from the top, going through a simple C program
+that covers all of the necessary points.
+<span class="org-level-2">** The Basics</span>
+First, know that (for our purposes) there are essentially two
+structures always present with a running program: a <span class="bold">*symbols table*</span>
+and the <span class="bold">*memory*</span>.  The symbols table keeps a record of what is defined
+and where it is, while the memory actually holds the defined data.
+These both start out empty.  For the purposes of this document, these
+two structures are going to be combined into one table:
+
+<span class="org-meta-line">#+CAPTION: /Memory/</span>
+<span class="org-meta-line">#+ATTR_HTML: border="2" frame="border"</span>
+<span class="org-table">| Symbol        | Address Block                | Data |</span>
+<span class="org-table">|---------------+------------------------------+------|</span>
+<span class="org-table">| </span><span class="org-table"><span class="org-verbatim">=some_symbol=</span></span><span class="org-table"> | </span><span class="org-formula"><span class="org-verbatim">=0x12345678=</span></span><span class="org-formula"> -- </span><span class="org-formula"><span class="org-verbatim">=0x1234567C=</span></span><span class="org-formula"> </span><span class="org-table">|    0 |</span>
+
+Let's look at this program.
+
+<span class="org-meta-line">#+name: SIMPLE_C_PROGRAM</span>
+<span class="org-block-begin-line">#+begin_src C -n -r
+</span><span class="preprocessor"><span class="org-block-background">  #include</span></span><span class="org-block-background"> </span><span class="string"><span class="org-block-background">&lt;stdio.h&gt;</span></span><span class="org-block-background">                               (ref:include)
+  
+  </span><span class="type"><span class="org-block-background">int</span></span><span class="org-block-background"> </span><span class="function-name"><span class="org-block-background">square</span></span><span class="org-block-background">(</span><span class="type"><span class="org-block-background">int</span></span><span class="org-block-background">);                                 (ref:decl-square)
+</span><span class="org-block-end-line">#+end_src
+</span>
+In <span class="org-link"><a href="(include)">the first line</a></span>, we see the familiar directive <span class="org-verbatim">=#include=</span>.  This
+preprocessor directive simply pulls the file contents of <span class="org-verbatim">=stdio.h=</span>
+(from the standard library) right into your source file.  These
+declare the availability of functions, just as <span class="org-link"><a href="(decl-square)">line 3</a></span> does.  I'm not
+sure about what happens internally, but think of it as if you are
+telling the C compiler, "I don't know what this function should do
+yet, but it's going to look like <span class="italic">/this/</span>."  <span class="org-link"><a href="(decl-square)">Line 3</a></span> is what is called a
+<span class="bold">*function prototype*</span> -- it's a declaration of what a function looks
+like as opposed to what it should do.  Specifically, it allows you to
+use this function before you define what exactly it is.
+
+This is a crucial concept for object-oriented C.  You do not have to
+write the function out before you can use it, you merely have to
+declare its proper use.  Note that this does not mean functions don't
+have to be defined at run-time at the point of use.<span class="org-footnote">[fn:1]</span> In other words,
+all functions must be defined by the actual time they're called (not
+when they're written, but when they're called).
+
+Reviewing the memory table,
+
+<span class="org-meta-line">#+CAPTION: /Memory/</span>
+<span class="org-meta-line">#+ATTR_HTML: border="2" frame="border"</span>
+<span class="org-table">| Symbol            | Address Block | Data |</span>
+<span class="org-table">|-------------------+---------------+------|</span>
+<span class="org-table">| </span><span class="org-table"><span class="org-verbatim">=int square(int)=</span></span><span class="org-table"> | </span><span class="org-formula"><span class="org-verbatim">=0xFF000000=</span></span><span class="org-formula">  </span><span class="org-table">|      |</span>
+
+
+<span class="org-meta-line">#+name: SIMPLE_C_PROGRAM</span>
+<span class="org-block-begin-line">#+begin_src C +n -r
+</span><span class="org-block-background">  </span><span class="type"><span class="org-block-background">int</span></span><span class="org-block-background"> </span><span class="function-name"><span class="org-block-background">main</span></span><span class="org-block-background">(</span><span class="type"><span class="org-block-background">char</span></span><span class="org-block-background"> *</span><span class="variable-name"><span class="org-block-background">argc</span></span><span class="org-block-background">, </span><span class="type"><span class="org-block-background">char</span></span><span class="org-block-background"> **</span><span class="variable-name"><span class="org-block-background">argv</span></span><span class="org-block-background">) {              (ref:main)
+    </span><span class="type"><span class="org-block-background">int</span></span><span class="org-block-background"> </span><span class="variable-name"><span class="org-block-background">x</span></span><span class="org-block-background">;                                         (ref:new-var)
+    x = 4;                                         (ref:set-var)
+    printf(</span><span class="string"><span class="org-block-background">"My number is %d.\n"</span></span><span class="org-block-background">, x);               (ref:retrieve)
+</span><span class="org-block-end-line">#+end_src
+</span>
+The <span class="org-link"><a href="(main)">entry point of our program</a></span> declares that the main function (what
+is run when the program itself is run) takes two arguments: the number
+of arguments and the arguments themselves.  We will cover exactly how
+this information is transferred shortly.  The <span class="org-link"><a href="(new-var)">next line</a></span> declares the
+availability of a variable <span class="org-verbatim">=x=</span>.  At this point, our memory table looks
+a bit cooler:
+
+<span class="org-meta-line">#+CAPTION: /Memory/</span>
+<span class="org-meta-line">#+ATTR_HTML: border="2" frame="border"</span>
+<span class="org-table">| Symbol            | Address Block         | Data |</span>
+<span class="org-table">|-------------------+-----------------------+------|</span>
+<span class="org-table">| </span><span class="org-table"><span class="org-verbatim">=int square(int)=</span></span><span class="org-table"> | </span><span class="org-formula"><span class="org-verbatim">=0xFF000000=</span></span><span class="org-formula"> -- </span><span class="org-formula"><span class="org-verbatim">=0x?=</span></span><span class="org-formula"> </span><span class="org-table">|      |</span>
+<span class="org-table">| </span><span class="org-table"><span class="org-verbatim">=x=</span></span><span class="org-table">               | </span><span class="org-formula"><span class="org-verbatim">=0x00000000=</span></span><span class="org-formula">          </span><span class="org-table">|      |</span>
+
+Notice the memory address of <span class="org-verbatim">=x=</span> -- this is what is known as <span class="org-verbatim">=NULL=</span>.
+A variable at <span class="org-verbatim">=NULL=</span> cannot be used.
+
+<span class="org-link"><a href="(set-var)">After that</a></span>, we simply set <span class="org-verbatim">=x=</span>'s value to <span class="org-verbatim">=4=</span>, and after that, <span class="org-link"><a href="(retrieve)">printf</a></span>
+retrieves the value of <span class="org-verbatim">=x=</span> and formats it on-screen as
+
+<span class="org-block-begin-line">#+BEGIN_EXAMPLE -n
+</span><span class="org-block-background">My number is 4.
+</span><span class="org-meta-line"><span class="org-block-background">
+</span></span><span class="org-block-end-line">#+END_EXAMPLE
+</span>
+Notice that <span class="org-verbatim">=\n=</span> is the <span class="italic">/new-line/</span> character; since it is
+non-printing, this escape sequence denotes the presence of a new line.
+Look up <span class="org-verbatim">=printf=</span> in the specification for a more in-depth discussion.
+Let's take a look at our <span class="italic">/Memory/</span> table now:
+
+<span class="org-meta-line">#+CAPTION: /Memory/</span>
+<span class="org-meta-line">#+ATTR_HTML: border="2" frame="border"</span>
+<span class="org-table">| Symbol            | Address Block                | Data |</span>
+<span class="org-table">|-------------------+------------------------------+------|</span>
+<span class="org-table">| </span><span class="org-table"><span class="org-verbatim">=int square(int)=</span></span><span class="org-table"> | </span><span class="org-formula"><span class="org-verbatim">=0xFF000000=</span></span><span class="org-formula"> -- </span><span class="org-formula"><span class="org-verbatim">=0x?=</span></span><span class="org-formula">        </span><span class="org-table">|      |</span>
+<span class="org-table">| </span><span class="org-table"><span class="org-verbatim">=x=</span></span><span class="org-table">               | </span><span class="org-formula"><span class="org-verbatim">=0xABCDEF00=</span></span><span class="org-formula"> -- </span><span class="org-formula"><span class="org-verbatim">=0xABCDEF03=</span></span><span class="org-formula"> </span><span class="org-table">|    4 |</span>
+
+Besides the function (which we will address, pun intended), we have
+one named variable <span class="org-verbatim">=x=</span>, and it's holding the value <span class="org-verbatim">=4=</span> at memory
+address <span class="org-verbatim">=0xABCDEF01=</span>.  (Obviously, I'm the memory locations in this
+document are somewhat contrived, but the core concepts are consistent;
+it's their interrelations that are important.)
+<span class="org-level-2">** Pointers</span>
+Now we come to the next major portion of our example program:
+
+<span class="org-meta-line">#+name: SIMPLE_C_PROGRAM</span>
+<span class="org-block-begin-line">#+begin_src C +n -r
+</span><span class="org-block-background">    </span><span class="type"><span class="org-block-background">int</span></span><span class="org-block-background"> *</span><span class="variable-name"><span class="org-block-background">x_pointer</span></span><span class="org-block-background"> = &amp;x;                           (ref:new-pointer)
+</span><span class="org-block-end-line">#+end_src
+</span>
+It is here where we find the center of all of the power of C (and the
+secret to its object-oriented application).  We <span class="org-link"><a href="(new-pointer)">declare</a></span> an <span class="org-verbatim">=int=</span>
+<span class="bold">*pointer*</span>.  (Dramatic pause.)
+
+What is a pointer?  Why does it point?  Does it have any purpose in
+existence?  Is its purpose solely to point its accusatory finger
+forever aimlessly?  Funny names aside, a pointer is a special `type'
+of variable.  It's a variation on the type, as it were.  To say I have
+an <span class="org-verbatim">=int=</span> pointer<span class="org-footnote">[fn:2]</span> is to say that I have some variable that contains
+the <span class="italic">/memory address of/</span> a variable of that type which it points to.
+
+If this is your first time hearing about these `pointers,' you are
+likely <span class="italic">/very/</span> confused right now.  Don't worry -- I'll explain.  Let's
+take another look at our <span class="italic">/Memory/</span> table.  We have two variables now:
+
+<span class="org-meta-line">#+CAPTION: /Memory/</span>
+<span class="org-meta-line">#+ATTR_HTML: border="2" frame="border"</span>
+<span class="org-table">| Symbol            | Address Block                | Data         |</span>
+<span class="org-table">|-------------------+------------------------------+--------------|</span>
+<span class="org-table">| </span><span class="org-table"><span class="org-verbatim">=int square(int)=</span></span><span class="org-table"> | </span><span class="org-formula"><span class="org-verbatim">=0xFF000000=</span></span><span class="org-formula"> -- </span><span class="org-formula"><span class="org-verbatim">=0x?=</span></span><span class="org-formula">        </span><span class="org-table">|              |</span>
+<span class="org-table">|                   | </span><span class="org-formula"><span class="org-verbatim">=..........=</span></span><span class="org-formula">                 </span><span class="org-table">|              |</span>
+<span class="org-table">| </span><span class="org-table"><span class="org-verbatim">=x=</span></span><span class="org-table">               | </span><span class="org-formula"><span class="org-verbatim">=0xABCDEF00=</span></span><span class="org-formula"> -- </span><span class="org-formula"><span class="org-verbatim">=0xABCDEF03=</span></span><span class="org-formula"> </span><span class="org-table">| 4            |</span>
+<span class="org-table">|                   | </span><span class="org-formula"><span class="org-verbatim">=0xABCDEF04=</span></span><span class="org-formula">                 </span><span class="org-table">|              |</span>
+<span class="org-table">|                   | </span><span class="org-formula"><span class="org-verbatim">=0xABCDEF08=</span></span><span class="org-formula">                 </span><span class="org-table">|              |</span>
+<span class="org-table">|                   | </span><span class="org-formula"><span class="org-verbatim">=0xABCDEF0C=</span></span><span class="org-formula">                 </span><span class="org-table">|              |</span>
+<span class="org-table">|                   | </span><span class="org-formula"><span class="org-verbatim">=..........=</span></span><span class="org-formula">                 </span><span class="org-table">|              |</span>
+<span class="org-table">| </span><span class="org-table"><span class="org-verbatim">=x_pointer=</span></span><span class="org-table">       | </span><span class="org-formula"><span class="org-verbatim">=0xAAAAAA00=</span></span><span class="org-formula">                 </span><span class="org-table">| </span><span class="org-table"><span class="org-verbatim">=0xABCDEF00=</span></span><span class="org-table"> |</span>
+<span class="org-table">|                   | </span><span class="org-formula"><span class="org-verbatim">=..........=</span></span><span class="org-formula">                 </span><span class="org-table">|              |</span>
+
+So what's happened here?  We've added another variable, <span class="org-verbatim">=x_pointer=</span>,
+that holds the memory address of <span class="org-verbatim">=x=</span> (the value returned by <span class="org-verbatim">=&amp;x=</span>) at
+memory location <span class="org-verbatim">=0xAAAAAA00=</span>.  <span class="org-verbatim">=&amp;=</span> is an unary (one-argument) operator
+that gives the <span class="italic">/memory address/</span> of its argument.  So, <span class="org-verbatim">=&amp;x=</span> would
+return the <span class="italic">/memory address/</span> of our variable <span class="org-verbatim">=x=</span>.  We put this value in
+<span class="org-verbatim">=x_pointer=</span>, a variable specifically set up to hold the memory address
+of an integer.  Thus, the value of <span class="org-verbatim">=x_pointer=</span> is now <span class="org-verbatim">=0xABCDEF00=</span>,
+the <span class="italic">/memory address/</span> of <span class="org-verbatim">=x=</span>.
+
+Continuing, note that even though <span class="org-verbatim">=x_pointer=</span> contains a special value
+that we don't normally work with, C allows us to manipulate it.  This
+is where the real fun begins.
+
+C defines the following operations on <span class="italic">/all/</span> pointers (where <span class="org-verbatim">=T *p=</span> is
+some pointer of base-type <span class="org-verbatim">=T=</span>):
+
+- <span class="org-verbatim"><span class="org-list-dt">=*p=</span></span><span class="org-list-dt"> ::</span> Gets the data at the <span class="italic">/memory address/</span> stored in <span class="org-verbatim">=p=</span>.
+- <span class="org-verbatim"><span class="org-list-dt">=p + &lt;int&gt;=</span></span><span class="org-list-dt"> ::</span> Returns a memory address such that there can lie
+                 <span class="org-verbatim">=&lt;int&gt;=</span> variables of type <span class="org-verbatim">=T=</span> between <span class="org-verbatim">=p=</span> and the
+                 returned address.  (Obviously, <span class="org-verbatim">=+==</span> and <span class="org-verbatim">=-==</span> work as
+                 you'd then expect.)
+
+These two operations define everything that can be done with
+pointers (besides the address-of operator, <span class="org-verbatim">=&amp;=</span>).
+<span class="org-level-3">*** Double-Dipping</span>
+As an aside, what if I introduced another pointer <span class="org-verbatim">=x_pointer2 = &amp;x=</span>?
+It would point to <span class="org-verbatim">=x=</span> just as <span class="org-verbatim">=x_pointer=</span> does now.  If I so chose, I
+could manipulate <span class="org-verbatim">=x=</span> using both <span class="org-verbatim">=x_pointer=</span> and <span class="org-verbatim">=x_pointer2=</span> without
+worrying about which one I was using (so long as they both maintained
+equal values).  They point to the same address.  Whatever I do to <span class="org-verbatim">=x=</span>
+using <span class="org-verbatim">=x_pointer=</span> will be reflected when I look at <span class="org-verbatim">=x=</span> using
+<span class="org-verbatim">=x_pointer2=</span>.
+
+This is important to understand.  As an analogy, let's say you went
+out and got a P.O. box today and started receiving mail there.  Even
+though your P.O. box address isn't the same as your home address, they
+still send mail to the same person.  So it is with pointers: even
+though the pointers may have different names, all that matters in most
+cases is what they point to.  Anything mailed to <span class="org-verbatim">=x=</span> using <span class="org-verbatim">=x_pointer=</span>
+might as well have come from <span class="org-verbatim">=x_pointer2=</span> -- they refer to the same
+<span class="org-verbatim">=x=</span>.
+<span class="org-level-2">** Indirection</span>
+<span class="org-meta-line">#+name: SIMPLE_C_PROGRAM</span>
+<span class="org-block-begin-line">#+begin_src C +n -r
+</span><span class="org-block-background">     x_pointer += 1;                               (ref:incr-pointer)
+</span><span class="org-block-end-line">#+end_src
+</span>
+Quickly now, the memory table looks something like this:
+
+<span class="org-meta-line">#+CAPTION: /Memory/</span>
+<span class="org-meta-line">#+ATTR_HTML: border="2" frame="border"</span>
+<span class="org-table">| Symbol            | Address Block                | Data         |</span>
+<span class="org-table">|-------------------+------------------------------+--------------|</span>
+<span class="org-table">| </span><span class="org-table"><span class="org-verbatim">=int square(int)=</span></span><span class="org-table"> | </span><span class="org-formula"><span class="org-verbatim">=0xFF000000=</span></span><span class="org-formula"> -- </span><span class="org-formula"><span class="org-verbatim">=0x?=</span></span><span class="org-formula">        </span><span class="org-table">|              |</span>
+<span class="org-table">| </span><span class="org-table"><span class="org-verbatim">=x=</span></span><span class="org-table">               | </span><span class="org-formula"><span class="org-verbatim">=0xABCDEF00=</span></span><span class="org-formula"> -- </span><span class="org-formula"><span class="org-verbatim">=0xABCDEF03=</span></span><span class="org-formula"> </span><span class="org-table">| 4            |</span>
+<span class="org-table">|                   | </span><span class="org-formula"><span class="org-verbatim">=0xABCDEF04=</span></span><span class="org-formula"> -- </span><span class="org-formula"><span class="org-verbatim">=0xABCDEF07=</span></span><span class="org-formula"> </span><span class="org-table">|              |</span>
+<span class="org-table">|                   | </span><span class="org-formula"><span class="org-verbatim">=0xABCDEF08=</span></span><span class="org-formula"> -- </span><span class="org-formula"><span class="org-verbatim">=0xABCDEF0B=</span></span><span class="org-formula"> </span><span class="org-table">|              |</span>
+<span class="org-table">|                   | ............................ |              |</span>
+<span class="org-table">| </span><span class="org-table"><span class="org-verbatim">=x_pointer=</span></span><span class="org-table">       | </span><span class="org-formula"><span class="org-verbatim">=0xBACDEF00=</span></span><span class="org-formula"> -- </span><span class="org-formula"><span class="org-verbatim">=0xBACDEF03=</span></span><span class="org-formula"> </span><span class="org-table">| </span><span class="org-table"><span class="org-verbatim">=0xABCDEF00=</span></span><span class="org-table"> |</span>
+
+Notice that <span class="org-verbatim">=x_pointer=</span> has indeed assumed the address of <span class="org-verbatim">=x=</span>.  When
+we <span class="org-link"><a href="(incr-pointer)">increment the pointer</a></span>, we advance the address it holds such that
+exactly one integer's worth of memory lies between its old value and
+its new value, like so:
+
+<span class="org-meta-line">#+CAPTION: /Memory/</span>
+<span class="org-meta-line">#+ATTR_HTML: border="2" frame="border"</span>
+<span class="org-table">| Symbol            | Address Block                | Data         |</span>
+<span class="org-table">|-------------------+------------------------------+--------------|</span>
+<span class="org-table">| </span><span class="org-table"><span class="org-verbatim">=int square(int)=</span></span><span class="org-table"> | </span><span class="org-formula"><span class="org-verbatim">=0xFF000000=</span></span><span class="org-formula"> -- </span><span class="org-formula"><span class="org-verbatim">=0x?=</span></span><span class="org-formula">        </span><span class="org-table">|              |</span>
+<span class="org-table">| </span><span class="org-table"><span class="org-verbatim">=x=</span></span><span class="org-table">               | </span><span class="org-formula"><span class="org-verbatim">=0xABCDEF00=</span></span><span class="org-formula"> -- </span><span class="org-formula"><span class="org-verbatim">=0xABCDEF03=</span></span><span class="org-formula"> </span><span class="org-table">| 4            |</span>
+<span class="org-table">|                   | </span><span class="org-formula"><span class="org-verbatim">=0xABCDEF04=</span></span><span class="org-formula"> -- </span><span class="org-formula"><span class="org-verbatim">=0xABCDEF07=</span></span><span class="org-formula"> </span><span class="org-table">|              |</span>
+<span class="org-table">|                   | </span><span class="org-formula"><span class="org-verbatim">=0xABCDEF08=</span></span><span class="org-formula"> -- </span><span class="org-formula"><span class="org-verbatim">=0xABCDEF11=</span></span><span class="org-formula"> </span><span class="org-table">|              |</span>
+<span class="org-table">|                   | ............................ |              |</span>
+<span class="org-table">| </span><span class="org-table"><span class="org-verbatim">=x_pointer=</span></span><span class="org-table">       | </span><span class="org-formula"><span class="org-verbatim">=0xBACDEF00=</span></span><span class="org-formula"> -- </span><span class="org-formula"><span class="org-verbatim">=0xBACDEF03=</span></span><span class="org-formula"> </span><span class="org-table">| </span><span class="org-table"><span class="org-verbatim">=0xABCDEF04=</span></span><span class="org-table"> |</span>
+
+<span class="org-meta-line">#+name: SIMPLE_C_PROGRAM</span>
+<span class="org-block-begin-line">#+begin_src C +n -r
+</span><span class="org-block-background">    *x_pointer  = 12;                              (ref:dereference)
+</span><span class="org-block-end-line">#+end_src
+</span>
+Then, when we <span class="org-link"><a href="(dereference)">dereference</a></span> <span class="org-verbatim">=x_pointer=</span> at its new value, we are given
+<span class="italic">/the next `integer-slot' available/</span> after <span class="org-verbatim">=x=</span>.  When we set it to
+<span class="org-verbatim">=12=</span>, something <span class="italic">/amazing/</span> happens: (to be read in the voice of the
+little boy from <span class="italic">/The Incredibles/</span>)
+
+<span class="org-meta-line">#+CAPTION: /Memory/</span>
+<span class="org-meta-line">#+ATTR_HTML: border="2" frame="border"</span>
+<span class="org-table">| Symbol            | Address Block                |         Data |</span>
+<span class="org-table">|-------------------+------------------------------+--------------|</span>
+<span class="org-table">| </span><span class="org-table"><span class="org-verbatim">=int square(int)=</span></span><span class="org-table"> | </span><span class="org-formula"><span class="org-verbatim">=0xFF000000=</span></span><span class="org-formula"> -- </span><span class="org-formula"><span class="org-verbatim">=0x?=</span></span><span class="org-formula">        </span><span class="org-table">|              |</span>
+<span class="org-table">| </span><span class="org-table"><span class="org-verbatim">=x=</span></span><span class="org-table">               | </span><span class="org-formula"><span class="org-verbatim">=0xABCDEF00=</span></span><span class="org-formula"> -- </span><span class="org-formula"><span class="org-verbatim">=0xABCDEF03=</span></span><span class="org-formula"> </span><span class="org-table">|            4 |</span>
+<span class="org-table">|                   | </span><span class="org-formula"><span class="org-verbatim">=0xABCDEF04=</span></span><span class="org-formula"> -- </span><span class="org-formula"><span class="org-verbatim">=0xABCDEF07=</span></span><span class="org-formula"> </span><span class="org-table">|           12 |</span>
+<span class="org-table">|                   | </span><span class="org-formula"><span class="org-verbatim">=0xABCDEF08=</span></span><span class="org-formula"> -- </span><span class="org-formula"><span class="org-verbatim">=0xABCDEF0B=</span></span><span class="org-formula"> </span><span class="org-table">|              |</span>
+<span class="org-table">|                   | ............................ |              |</span>
+<span class="org-table">| </span><span class="org-table"><span class="org-verbatim">=x_pointer=</span></span><span class="org-table">       | </span><span class="org-formula"><span class="org-verbatim">=0xBACDEF00=</span></span><span class="org-formula"> -- </span><span class="org-formula"><span class="org-verbatim">=0xBACDEF03=</span></span><span class="org-formula"> </span><span class="org-table">| </span><span class="org-table"><span class="org-verbatim">=0xABCDEF04=</span></span><span class="org-table"> |</span>
+
+We have <span class="italic">/indirectly/</span> set the value of a spot in memory without ever
+giving it a name.  We never said <span class="org-verbatim">=int x2=</span> or anything of the sort; we
+manipulated memory to achieve what we wanted.  This phenomenon is
+called <span class="italic">/indirection/</span>, and manipulating memory like this is usually
+called `using indirection.'  Since you don't have to explicitly
+declare any variables, indirection is thus the foundation of both
+using arrays and implementing dynamic arrays.
+<span class="org-level-2">** Function Pointers</span>
+Going forward,
+
+<span class="org-meta-line">#+name: SIMPLE_C_PROGRAM</span>
+<span class="org-block-begin-line">#+begin_src C +n -r
+</span><span class="org-block-background">     x_pointer = &amp;x;                               (ref:reset-pointer)
+     </span><span class="type"><span class="org-block-background">int</span></span><span class="org-block-background"> (*</span><span class="function-name"><span class="org-block-background">function_pointer</span></span><span class="org-block-background">)(</span><span class="type"><span class="org-block-background">int</span></span><span class="org-block-background">);                 (ref:func_pointer)
+     function_pointer = &amp;square;                   (ref:assign-fptr)
+    *(x_pointer + 2) = function_pointer(x);        (ref:array-intr)
+</span><span class="org-block-end-line">#+end_src
+</span>
+We effectively `<span class="org-link"><a href="(reset-pointer)">reset</a></span>' the value of <span class="org-verbatim">=x_pointer=</span> so that it points back
+to <span class="org-verbatim">=x=</span> (you can also say <span class="org-verbatim">=x_pointer--;=</span> in this particular case).
+Then, something <span class="italic">/even more amazing/</span> happens: we <span class="org-link"><a href="(func_pointer)">declare</a></span> a <span class="italic">/function
+pointer/</span>.  Functions pointers are, in essence, just like normal
+pointers, although they are a bit different in their use.  I'm not
+sure what would happen if you were to increment a function pointer.
+I'm not sure what would happen if you tried to dereference one.
+Function pointers yet have their use.  Once `bound' to a function (as
+<span class="org-verbatim">=function_pointer=</span> is <span class="org-link"><a href="(assign-fptr)">bound to =square=</a></span>), the pointer can be used just
+as a normal function, as seen on the <span class="org-link"><a href="(array-intr)">next line</a></span>.  It is important to
+note also on <span class="org-link"><a href="(array-intr)">that line</a></span> the `shorthand' for working with pointers as
+arrays.  Can you guess what it did?
+
+<span class="org-meta-line">#+CAPTION: /Memory/</span>
+<span class="org-meta-line">#+ATTR_HTML: border="2" frame="border"</span>
+<span class="org-table">| Symbol             | Address Block                |         Data |</span>
+<span class="org-table">|--------------------+------------------------------+--------------|</span>
+<span class="org-table">| </span><span class="org-table"><span class="org-verbatim">=int square(int)=</span></span><span class="org-table">  | </span><span class="org-formula"><span class="org-verbatim">=0xFF000000=</span></span><span class="org-formula"> -- </span><span class="org-formula"><span class="org-verbatim">=0x?=</span></span><span class="org-formula">        </span><span class="org-table">|              |</span>
+<span class="org-table">|                    | </span><span class="org-formula"><span class="org-verbatim">=..........=</span></span><span class="org-formula">                 </span><span class="org-table">|              |</span>
+<span class="org-table">| </span><span class="org-table"><span class="org-verbatim">=x=</span></span><span class="org-table">                | </span><span class="org-formula"><span class="org-verbatim">=0xABCDEF00=</span></span><span class="org-formula"> -- </span><span class="org-formula"><span class="org-verbatim">=0xABCDEF03=</span></span><span class="org-formula"> </span><span class="org-table">|            4 |</span>
+<span class="org-table">|                    | </span><span class="org-formula"><span class="org-verbatim">=0xABCDEF04=</span></span><span class="org-formula"> -- </span><span class="org-formula"><span class="org-verbatim">=0xABCDEF07=</span></span><span class="org-formula"> </span><span class="org-table">|           12 |</span>
+<span class="org-table">|                    | </span><span class="org-formula"><span class="org-verbatim">=0xABCDEF08=</span></span><span class="org-formula"> -- </span><span class="org-formula"><span class="org-verbatim">=0xABCDEF0B=</span></span><span class="org-formula"> </span><span class="org-table">|           16 |</span>
+<span class="org-table">|                    | </span><span class="org-formula"><span class="org-verbatim">=0xABCDEF0C=</span></span><span class="org-formula"> -- </span><span class="org-formula"><span class="org-verbatim">=0xABCDEF0F=</span></span><span class="org-formula"> </span><span class="org-table">|              |</span>
+<span class="org-table">|                    | </span><span class="org-formula"><span class="org-verbatim">=..........=</span></span><span class="org-formula">                 </span><span class="org-table">|              |</span>
+<span class="org-table">| </span><span class="org-table"><span class="org-verbatim">=x_pointer=</span></span><span class="org-table">        | </span><span class="org-formula"><span class="org-verbatim">=0xAAAAAA00=</span></span><span class="org-formula">                 </span><span class="org-table">| </span><span class="org-table"><span class="org-verbatim">=0xABCDEF00=</span></span><span class="org-table"> |</span>
+<span class="org-table">|                    | </span><span class="org-formula"><span class="org-verbatim">=..........=</span></span><span class="org-formula">                 </span><span class="org-table">|              |</span>
+<span class="org-table">| </span><span class="org-table"><span class="org-verbatim">=function_pointer=</span></span><span class="org-table"> | </span><span class="org-formula"><span class="org-verbatim">=0xBBBBBB00=</span></span><span class="org-formula">                 </span><span class="org-table">| </span><span class="org-table"><span class="org-verbatim">=0xFF000000=</span></span><span class="org-table"> |</span>
+<span class="org-table">|                    | </span><span class="org-formula"><span class="org-verbatim">=..........=</span></span><span class="org-formula">                 </span><span class="org-table">|              |</span>
+
+Thus, using <span class="org-link"><a href="(array-intr)">=function\_pointer=</a></span> was the same as using <span class="org-link"><a href="(assign-fptr)">=square=</a></span>, and
+referred to the same function in memory.  The resultant value (16) was
+stored two <span class="org-verbatim">=int=</span>-spaces from <span class="org-verbatim">=x_pointer=</span> (<span class="org-verbatim">=x_pointer + 2=</span>), whose
+value contained the address of <span class="org-verbatim">=x=</span>.  As we know, however, there is a
+far easier way of expressing the form <span class="org-verbatim">=*(p + i)=</span>.  After a lengthy
+debate with <span class="org-link"><a href="http://faculty.smcm.edu/sread/">Dr. Simon Read</a></span> (who had to consult his resources),
+<span class="org-verbatim">=p[i]=</span> := <span class="org-verbatim">=*(p + i)=</span>.
+<span class="org-level-2">** Arrays and Summary</span>
+By far the most common use of pointers is for <span class="italic">/arrays/</span>, so naturally
+this use found its way into C syntax (use of the brackets is called
+<span class="italic">/array notation/</span>).
+
+So, pointers can be used simply as so, (note <span class="org-verbatim">=%p=</span> is a <span class="org-verbatim">=printf=</span> format
+flag for addresses (<span class="italic">/p/</span> is for <span class="italic">/pointer/</span>!)):
+
+<span class="org-meta-line">#+name: SIMPLE_C_PROGRAM</span>
+<span class="org-block-begin-line">#+begin_src C +n -r
+</span><span class="org-block-background">    </span><span class="keyword"><span class="org-block-background">for</span></span><span class="org-block-background">(</span><span class="type"><span class="org-block-background">int</span></span><span class="org-block-background"> </span><span class="variable-name"><span class="org-block-background">i</span></span><span class="org-block-background"> = 0; i &lt; 3; i++) {                   (ref:loop)
+      printf(</span><span class="string"><span class="org-block-background">"Address \"%p\" holds \"%d\".\n"</span></span><span class="org-block-background">,     (ref:anal-mem)
+              x_pointer + i, x_pointer[i]);        (ref:array-nota)
+    }                                              (ref:end-loop)
+</span><span class="org-block-end-line">#+end_src
+</span>
+This would print out as
+
+<span class="org-block-begin-line">#+begin_example
+</span><span class="org-block">Address "0xABCDEF00" holds "4".
+Address "0xABCDEF04" holds "12".
+Address "0xABCDEF08" holds "16".
+</span><span class="org-block-end-line">#+end_example
+</span>
+And thus, we have finished the guts of the program.  What follows are
+the necessary statements needed to make this a valid C program.
+
+<span class="org-meta-line">#+name: SIMPLE_C_PROGRAM</span>
+<span class="org-block-begin-line">#+begin_src C +n -r
+</span><span class="org-block-background">    puts(</span><span class="string"><span class="org-block-background">"All done."</span></span><span class="org-block-background">);                             (ref:final-print)
+    </span><span class="keyword"><span class="org-block-background">return</span></span><span class="org-block-background"> 0;
+  }
+
+  </span><span class="type"><span class="org-block-background">int</span></span><span class="org-block-background"> </span><span class="function-name"><span class="org-block-background">square</span></span><span class="org-block-background">(</span><span class="type"><span class="org-block-background">int</span></span><span class="org-block-background"> </span><span class="variable-name"><span class="org-block-background">a</span></span><span class="org-block-background">) {                              (ref:defun-square)
+    </span><span class="keyword"><span class="org-block-background">return</span></span><span class="org-block-background"> a * a;
+  }
+</span><span class="org-block-end-line">#+end_src
+</span>
+And there you have it!  Remember everything you've learned so far;
+it's important that you're comfortable with it before you can
+implement what lies ahead...
+
+- Functions and variables have memory addresses
+- These addresses can be accessed using the address-of operator, <span class="org-verbatim">=&amp;=</span>
+- Addresses are stored in pointers
+- You can get the value stored at an address using the dereferencing
+  operator, <span class="org-verbatim">=*=</span>
+
+Know what is going on in these statements (there is not necessarily
+any coherence within them):
+
+<span class="org-block-begin-line">#+BEGIN_SRC C
+</span><span class="type"><span class="org-block-background">int</span></span><span class="org-block-background"> *</span><span class="variable-name"><span class="org-block-background">p</span></span><span class="org-block-background"> = &amp;v;
+
+</span><span class="type"><span class="org-block-background">char</span></span><span class="org-block-background"> *</span><span class="variable-name"><span class="org-block-background">s</span></span><span class="org-block-background"> = malloc(7 * </span><span class="keyword"><span class="org-block-background">sizeof</span></span><span class="org-block-background">(</span><span class="type"><span class="org-block-background">char</span></span><span class="org-block-background">));
+
+</span><span class="type"><span class="org-block-background">void</span></span><span class="org-block-background"> (*</span><span class="function-name"><span class="org-block-background">fp</span></span><span class="org-block-background">)(</span><span class="type"><span class="org-block-background">void</span></span><span class="org-block-background">) = &amp;hi;
+
+s[0] = </span><span class="string"><span class="org-block-background">'H'</span></span><span class="org-block-background">;
+s[1] = </span><span class="string"><span class="org-block-background">'e'</span></span><span class="org-block-background">;
+s[2] = </span><span class="string"><span class="org-block-background">'l'</span></span><span class="org-block-background">;
+s[3] = </span><span class="string"><span class="org-block-background">'l'</span></span><span class="org-block-background">;
+s[4] = </span><span class="string"><span class="org-block-background">'o'</span></span><span class="org-block-background">;
+s[5] = </span><span class="string"><span class="org-block-background">'!'</span></span><span class="org-block-background">;
+s[6] = </span><span class="string"><span class="org-block-background">'\0'</span></span><span class="org-block-background">;
+</span><span class="org-block-end-line">#+END_SRC
+</span>
+A few extra things to note for the above:
+
+- <span class="org-verbatim">=sizeof(T)=</span> is a special function that takes a type (such as <span class="org-verbatim">=int=</span>
+  or <span class="org-verbatim">=struct MyStruct=</span>) and returns a <span class="org-verbatim">=sizet=</span> (a size-type; basically
+  an <span class="org-verbatim">=unsigned int=</span>) of how many bytes it takes to store a complete
+  variable of that type.  On 32-bit systems, for example, <span class="org-verbatim">=sizeof(int)
+  = 4=</span>.
+- <span class="org-verbatim">=malloc(sizet)=</span> is a function (included in <span class="org-verbatim">=stdlib.h=</span>) that returns
+  an address that marks the beginning of a block of free memory.  Use
+  of this function is <span class="italic">/always/</span> recommended, as it also protects the
+  memory you ask for from being written over by another part of the
+  program (it <span class="italic">/allocates/</span> the <span class="italic">/memory/</span> for you).
+- Since there are no explicit bounds on `arrays' (since these are just
+  pointers), there is no real way to `stop' an array.  Thus, since C
+  strings are just arrays of characters, each string in C is ended by
+  the null character, <span class="org-verbatim">=\0=</span>.  (C-strings are so-called
+  <span class="italic">/null-terminated/</span> strings.)
+
+A complete reference for all of these functions can be found at <span class="org-link"><a href="http://www.cplusplus.com/reference/">the
+C++ Reference Page</a></span>.  It is an excellent and highly recommended
+resource.
+<span class="org-level-1">* Object Orientism</span>
+You are just about ready to delve into object-oriented C.  From here
+on out, there will be almost <span class="italic">/no immediately relevant code/</span> (at least
+until after the project is due).  C is a language that is not
+immediately well-suited for object-oriented techniques, however, a
+firm understanding of <span class="italic">/exactly what object-orientism is/</span> will be
+invaluable in your endeavors.  Let us begin.
+<span class="org-level-2">** Objects?  What are Objects?</span>
+What <span class="italic">/are/</span> objects?  Think back to your days of 120, where everything
+was so simple and orderly.  You always knew exactly what was going to
+happen at any given moment (or at least, looking back now you can).
+Everything happened in order, exactly as you instructed.  You made
+variables and <span class="org-verbatim">=for=</span> loops and <span class="org-verbatim">=while=</span> loops and all arrangements of
+<span class="org-verbatim">=if=</span> statements, and you thought you reached the limits of what Java
+could do.
+
+This is pretty much what C is like at first glance.  While everything
+can be done in the <span class="org-verbatim">=main=</span> function, it would be ugly and untenable --
+impossible to manage or comprehend.  A lot of functionality would be
+lost to you unless you <span class="italic">/really/</span> knew what you were doing with those
+`pointer' things up there.  But in Java, you didn't stop at the <span class="org-verbatim">=main=</span>
+function; you went on to create other functions inside the same file.
+You went on to put variables, free from any function, inside that file
+as well.  <span class="italic">/Then you even started using that entire file as a singly
+entity from another file./</span>
+<span class="org-level-2">** Methods for Models</span>
+This is the essence of object-orientism.  Going back to 120, what is
+an object?  For example's sake, let's assume that in the previous
+illustration, you created a <span class="org-verbatim">=Person=</span> class and a <span class="org-verbatim">=Car=</span> class, where
+<span class="org-verbatim">=Car=</span> was using <span class="org-verbatim">=Person=</span>.  An object is often seen as the sum of its
+parts:
+
+- <span class="org-list-dt">state ::</span> Each variable in <span class="org-verbatim">=Person=</span> described what a <span class="org-verbatim">=Person=</span> could
+           <span class="italic">/be/</span>.  Did the <span class="org-verbatim">=Person=</span> have brown hair or gray hair?  Did
+           they have hair at all?  How long were their legs?  Where
+           they long enough to reach the ground?  Each free-standing
+           variable (the ones not included in functions (or <span class="italic">/methods/</span>,
+           as they should now be called)) consistently and instantly
+           described a particular quality of a <span class="org-verbatim">=Person=</span> unambiguously.
+           Each <span class="org-verbatim">=Person=</span> object had the same types of qualities, but
+           they did not have to be identical <span class="italic">/in those/</span> qualities.  In
+           short, objects <span class="italic">/are/</span> things.
+- <span class="org-list-dt">behavior ::</span> Since each <span class="italic">/function/</span> in the file really described any
+              <span class="org-verbatim">=Person=</span>'s abilities, they are more appropriately
+              described as <span class="italic">/methods/</span> of the class.  Each <span class="org-verbatim">=Person=</span> had
+              the same abilities and the same way for performing those
+              abilities.  In short, objects can <span class="italic">/do/</span> things.
+- <span class="org-list-dt">identity ::</span> No two objects created via constructor are the same
+              object.  Every object is mutually distinct from every
+              other object unless one was explicitly instructed to
+              copy another.
+
+The possession of state and behavior are by far the most evident
+qualities of what it is to be an object.  They are everything you
+would write down in a class file in Java.  Each object has a set of
+attributes according to a specific model, and each class has methods
+that act on the models they were designed for.  In this way, it is
+common to see the `model' and the `state of an object' to mean the
+same thing -- and likewise with `methods' and `behavior'.
+<span class="org-level-2">** Identity</span>
+So the first two were easy to understand, but the last may confuse you.
+Consider the following example in Java, where the <span class="org-verbatim">=Person=</span> class
+already exists:
+
+<span class="org-block-begin-line">#+BEGIN_SRC java
+</span><span class="org-block-background">  </span><span class="type"><span class="org-block-background">Person</span></span><span class="org-block-background"> </span><span class="variable-name"><span class="org-block-background">a</span></span><span class="org-block-background"> = </span><span class="keyword"><span class="org-block-background">new</span></span><span class="org-block-background"> </span><span class="type"><span class="org-block-background">Person</span></span><span class="org-block-background">(</span><span class="string"><span class="org-block-background">"John"</span></span><span class="org-block-background">);
+  </span><span class="type"><span class="org-block-background">Person</span></span><span class="org-block-background"> </span><span class="variable-name"><span class="org-block-background">b</span></span><span class="org-block-background"> = </span><span class="keyword"><span class="org-block-background">new</span></span><span class="org-block-background"> </span><span class="type"><span class="org-block-background">Person</span></span><span class="org-block-background">(</span><span class="string"><span class="org-block-background">"John"</span></span><span class="org-block-background">);
+  
+  </span><span class="keyword"><span class="org-block-background">if</span></span><span class="org-block-background"> (a == b) {
+      System.out.println(</span><span class="string"><span class="org-block-background">"They have the same data,\n"</span></span><span class="org-block-background">
+                       + </span><span class="string"><span class="org-block-background">"so they are the same object."</span></span><span class="org-block-background">);
+  }
+</span><span class="org-block-end-line">#+END_SRC
+</span>
+Would that printout occur?  Are the <span class="org-verbatim">=Person=</span> objects <span class="org-verbatim">=a=</span> and <span class="org-verbatim">=b=</span> equal
+to each other?  They have the same name, but I'm sure you share your name
+with another person you know.  Are you two then the same person?
+Of course not!  <span class="org-verbatim">=a=</span> has an identity <span class="italic">/apart from/</span> <span class="org-verbatim">=b=</span>.  <span class="org-verbatim">=a!=b=</span>.
+
+So then, what does it mean for one object to be equal to another?
+It's not sufficient that they have the same name; something else is
+going on that Java's syntax is hiding from us.  Let's look at another
+example.
+
+<span class="org-block-begin-line">#+BEGIN_SRC java
+</span><span class="org-block-background">  </span><span class="type"><span class="org-block-background">Person</span></span><span class="org-block-background"> </span><span class="variable-name"><span class="org-block-background">a</span></span><span class="org-block-background"> = </span><span class="keyword"><span class="org-block-background">new</span></span><span class="org-block-background"> </span><span class="type"><span class="org-block-background">Person</span></span><span class="org-block-background">(</span><span class="string"><span class="org-block-background">"John"</span></span><span class="org-block-background">);
+  </span><span class="type"><span class="org-block-background">Person</span></span><span class="org-block-background"> </span><span class="variable-name"><span class="org-block-background">b</span></span><span class="org-block-background"> = a;
+
+  </span><span class="keyword"><span class="org-block-background">if</span></span><span class="org-block-background"> (a == b) {
+      System.out.println(</span><span class="string"><span class="org-block-background">"whee!"</span></span><span class="org-block-background">);
+  }
+</span><span class="org-block-end-line">#+END_SRC
+</span>
+Will this print out?  (Hint: the constructor for <span class="org-verbatim">=Person=</span> was only
+called once).  The written medium unfortunately cannot wait for an
+answer; yes they will.  Only one <span class="org-verbatim">=Person=</span> object (<span class="org-verbatim">=a=</span>) was actually
+created; <span class="org-verbatim">=b=</span> was simply assigned to equal whatever <span class="org-verbatim">=a=</span> equaled at the
+time.  Does this remind you of anything?  Have we <span class="org-link"><a href="Double-Dipping">double-dipped</a></span> into
+the one <span class="org-verbatim">=Person=</span> object created?  What does this imply about <span class="org-verbatim">=a=</span> and
+<span class="org-verbatim">=b=</span>?  <span class="italic">/They're pointers?!?/</span>
+
+<span class="bold">*Every object in Java is a pointer to a place in memory where the
+object's data is held.*</span>
+<span class="org-level-1">* Conclusions and Hints</span>
+Let's review what we know about objects in general and what we have
+observed from Java:
+
+- A class defines two things:
+  - a model of data that each member of the class will have unique to
+    itself (<span class="italic">/state/</span>)
+  - a collection of methods that are designed to operate on such
+    models (<span class="italic">/behavior/</span>)
+- An object in Java is merely a pointer to its data, the object's
+  data may be copied, but to be an object is to be a reference to a
+  specific point in memory (<span class="italic">/identity/</span>)
+
+Let's review what we know about C:
+
+- C has easy access to and manipulation of memory address through pointers
+- C can define new types (structures<span class="org-footnote">[fn:3]</span>) as compositions of base
+  types (<span class="org-verbatim">=int=</span>, <span class="org-verbatim">=char=</span>, <span class="italic">/pointers/</span>, etc.)<span class="org-footnote">[fn:4]</span>
+- C can have pointers to functions that, for all intents and purposes,
+  mostly act like regular variables.
+
+How can you apply what you know about structures, pointers, and
+object-orientism to complete this project?  Let's review the
+requirements:
+
+- <span class="org-list-dt">To get an 85 ::</span> A "class" that includes fields and functions; a
+                  piece of demonstration code with a full class
+                  implementation of something simple (Rectangle,
+                  Student, etc.).
+
+You already know how to do this.  (In fact, if you've read this entire
+document, you already know how to get a 100.)  What is a class?  A
+class has <span class="italic">/state/</span> (a model of data) and <span class="italic">/behavior/</span> (a collection of
+methods to work with that data).  If you're having trouble figuring
+out how you're going to make many data come as a single entity, you
+may want to check out the <span class="org-verbatim">=struct=</span> again.  This one isn't too fancy.
+
+- <span class="org-list-dt">To get a 90 ::</span> Add "instantiation".  This would include multiple
+                 constructors.  An extra 5 points if you handle
+                 multiple constructors as functions with the same name
+                 but different number of parameters.
+
+What is a constructor but something that prepares the house and hands
+you a key?  Metaphors, man.  (Confucius says: "the key to your
+understanding is <span class="italic">/pointers/</span>.")
+
+- <span class="org-list-dt">To get a 100 ::</span> Add "object" variables to classes.  This will
+                  require you to create two classes, and have one
+                  inside of the other (for instance a Point object
+                  inside of a Shape class).
+
+This one is dead simple.  What are objects but keys to a house?
+
+- <span class="org-list-dt">To get a 110 ::</span> Add public and private scope
+
+You might want to have a public (hint: <span class="org-verbatim">=static=</span>) key and a private
+key.  And you thought get/set methods were completely useless!
+
+Or perhaps you'd fancy a global, omniscient, sentient key-chain?
+
+- <span class="org-list-dt">To get a 120 ::</span> Add inheritance. (no hints from the instructor or
+                  TAs here)
+
+I am neither the instructor nor a TA, but I still find it fun to say
+'it sucks to be you.'
+
+However, I will point you to an invaluable resource that is available
+<span class="org-link"><a href="http://www.cs.rit.edu/~ats/books/ooc.pdf">here</a></span>.  Inside, Schreiner describes a quite different (but much more
+versatile and consequently a little more advanced) practical approach
+to object-oriented C.  There really is <span class="italic">/very little/</span> to the syntax of
+C, and it is consistent.  With a firm knowledge of C's syntax (and the
+humility to Google what you don't know), I have complete confidence
+that you'll be able to understand it (since it's really not all that
+complex).  Who knows?  If you can manage to write your own <span class="org-verbatim">=ooc=</span>
+preprocessor as Schreiner describes, this project can become very,
+very easy.  I mean, nobody has told you to write <span class="org-verbatim">=ooc=</span> in C, have
+they?
+
+Good luck, folks.
+<span class="org-level-1">* Footnotes</span>
+<span class="org-footnote">[fn:1]</span> There are several steps to build a C program.  The program is
+compiled, assembled, and then linked.  The linker is what associates
+definitions with calls.
+
+<span class="org-footnote">[fn:2]</span> This is often shortened <span class="org-verbatim">=int*=</span>, but there are problems with
+this, to be discussed later.
+
+<span class="org-footnote">[fn:3]</span> C has <span class="org-verbatim">=structs=</span> that effectively define new types.  They are
+assumed knowledge for this document, but you can find out more about
+them over at the reference pages.
+
+<span class="org-footnote">[fn:4]</span> Hint: pointers can point to either functions or variables <span class="italic">/of any type/</span>.
+<span class="org-level-1">* Endnotes</span>
+This document was written using Emacs' <span class="org-verbatim">=org-mode=</span>.  The source is
+available <span class="org-link"><a href="http://localhost:4000/assets/s13-251-p1.org.html">here</a></span> for reference.
+</pre>
+  </body>
+</html>

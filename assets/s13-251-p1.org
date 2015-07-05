@@ -1,0 +1,718 @@
+#+TITLE: Solution Sketch
+#+AUTHOR: Sean Allred
+#+DATE: [2013-02-02 Sat]
+
+* Disclaimer
+I'm a fallible human being.
+* The Assignment
+:PROPERTIES:
+:ID: 8B23EA1A-AE81-44EA-8473-325E33D2CBD9
+:END:
+*Objective:* Create the core of the current programming paradigm --
+objects!
+
+*Your Task:* In C (not C++!), you will be creating the functionality
+to implement objects, thus retracing the steps of computer scientists
+of 30 years ago.
+
+Specifically, I would like you to create the ability to implement a
+class like we do in C++. Note, that I'm not expecting you to do
+everything that C++ can do with a class, but I am expecting you to be
+able to show me some code that represents the baseline aspects of
+class structures: fields/variables and functions.  The more
+functionality that you can bring to the table, the higher your grade.
+As a summary:
+
+- To get an 85 :: A "class" that includes fields and functions; a
+                  piece of demonstration code with a full class
+                  implementation of something simple (Rectangle,
+                  Student, etc.).
+- To get a 90 :: Add "instantiation".  This would include multiple
+                 constructors.  An extra 5 points if you handle
+                 multiple constructors as functions with the same name
+                 but different number of parameters.
+- To get a 100 :: Add "object" variables to classes.  This will
+                  require you to create two classes, and have one
+                  inside of the other (for instance a Point object
+                  inside of a Shape class).
+- To get a 110 :: Add public and private scope
+- To get a 120 :: Add inheritance. (no hints from the instructor or
+                  TAs here)
+
+Some quick hints: you are going to need to leverage both structs and
+function pointers for this project.  This project is challenging, do
+not put it off!  You do not need to be able to mimic the syntax of C++
+classes, just the functionality.
+
+*Deliverables:* your source code and a one-page writeup of the
+ approach that you've taken for your solution.
+
+*Learning Targets:* struct usage, pointer manipulation, C usage,
+ origin of the object-oriented paradigm.
+
+*Expectation:* The code should be clean, concise, well-commented, and
+correct.  If you use an outside source, be sure to document that
+source.  Significant use of outside sources will result in a
+deduction.  Grading rubric will be provided a week ahead of the due
+date.  You may work in pairs for this project -- your partner may be
+in your section of in the other 251 section.  Teammate selection
+emails due 1 February by 5pm.
+
+*DUE:* February 17th, 11:59pm via Blackboard.
+* Introduction
+What are the main ideas of object-orientism?
+- Modularity :: make it a complete package
+- Reusability :: never write the same thing twice!
+- Encapsulation :: a class is a complete thought
+
+What do each of these mean?  To be /modular/ is to be portable -- the
+code written can be lifted, taken elsewhere, and should still work the
+same (barring technical details).  This does not preclude packages
+with dependencies, but such dependencies should be reasonable and by
+no means restrictive.
+
+To be /reusable/ is similar to being modular, but code reusability
+implies that you won't (manually) duplicate functionality elsewhere in
+the project, i.e. /inheritance/.
+
+To be /encapsulated/ is to be complete and careful.  Members that
+should be private, such as number of extant Persons, should be made so
+(or perhaps read-only to the outside world).  Members that should only
+be available to `friends' should be made so.  Likewise with public
+members.  Give only enough information to offer the full range of
+motion for your class -- nothing more, nothing less.
+
+But how can we implement these things using only the low-level
+constructs available to us in K&R C?  To understand how to do that, we
+need to delve a little deeper into how a program written in C runs.
+
+The rest of this document will assume that you already have a basic
+working knowledge about C.  Several topics are of paramount
+importance:
+
+- variables and variable declaration
+- basic arithmetical operators
+- a complete understanding of the control constructs =if=, =while=,
+  and =for=
+- function declaration and use
+- structs
+- type casting
+- multiple-source programs (the separation of header from source)
+- programming the C preprocessor (=#define=, =#undef=, =#if=,
+  =#ifdef=, =#endif=)
+
+and the following are /highly recommended/:
+
+- /all/ of the C preprocessor directives
+- use of =assert()=
+- =typedef=
+- =static=, =const=, and /all/ of the different types (there aren't
+  that many -- look for patterns)
+
+All of these topic (and others) are discussed in depth at [[http://www.acm.uiuc.edu/webmonkeys/book/c_guide/][the C
+Library Reference Guide]] and at [[http://www.cplusplus.com/reference/][the C++ Reference Guide]], both of which
+are worth skimming through at least once.
+
+The rest of this document attempts to explain pointers, memory
+management, and object-oriented techniques in a practical and
+easy-to-understand, easy-to-reference manner.  If you have /any/
+questions on the material below, please do not hesitate to contact me
+via Facebook.  Who knows?  You might even get another hint out of me.
+
+*Important:* If you would like me to release the materials (in BCPL)
+upon which this project was based, like the status of mine that shared
+it with you no later than [2013-02-13 Wed].  If more than half the
+roster likes the status, I will promptly release it on this page.
+
+I would like to take this time to personally apologize for this
+project.
+
+Oh!  And don't forget to give Marissa a hard time -- this is all her
+fault somehow.
+* A Simple Snippet
+:PROPERTIES:
+:ID: 2FD56A76-09C4-4FB7-9D8A-2BE969A95D52
+:END:
+*Disclaimer:* I don't actually know all this for absolute certain.
+All of this will, of course, depend on the compiler you use.  However,
+the general concepts should be consistent whichever compiler you
+choose to utilize.  For reference, I've gathered this information
+based purely on inferences garnered from the hex-explorer of programs
+being debugged with =gdb=.  With that settled, I'm assuming that you
+know the very basics of computer memory, so I'm not going to go over
+that.  Let's take it from the top, going through a simple C program
+that covers all of the necessary points.
+** The Basics
+First, know that (for our purposes) there are essentially two
+structures always present with a running program: a *symbols table*
+and the *memory*.  The symbols table keeps a record of what is defined
+and where it is, while the memory actually holds the defined data.
+These both start out empty.  For the purposes of this document, these
+two structures are going to be combined into one table:
+
+#+CAPTION: /Memory/
+#+ATTR_HTML: border="2" frame="border"
+| Symbol        | Address Block                | Data |
+|---------------+------------------------------+------|
+| =some_symbol= | =0x12345678= -- =0x1234567C= |    0 |
+
+Let's look at this program.
+
+#+name: SIMPLE_C_PROGRAM
+#+begin_src C -n -r
+  #include <stdio.h>                               (ref:include)
+  
+  int square(int);                                 (ref:decl-square)
+#+end_src
+
+In [[(include)][the first line]], we see the familiar directive =#include=.  This
+preprocessor directive simply pulls the file contents of =stdio.h=
+(from the standard library) right into your source file.  These
+declare the availability of functions, just as [[(decl-square)][line 3]] does.  I'm not
+sure about what happens internally, but think of it as if you are
+telling the C compiler, "I don't know what this function should do
+yet, but it's going to look like /this/."  [[(decl-square)][Line 3]] is what is called a
+*function prototype* -- it's a declaration of what a function looks
+like as opposed to what it should do.  Specifically, it allows you to
+use this function before you define what exactly it is.
+
+This is a crucial concept for object-oriented C.  You do not have to
+write the function out before you can use it, you merely have to
+declare its proper use.  Note that this does not mean functions don't
+have to be defined at run-time at the point of use.[fn:1] In other words,
+all functions must be defined by the actual time they're called (not
+when they're written, but when they're called).
+
+Reviewing the memory table,
+
+#+CAPTION: /Memory/
+#+ATTR_HTML: border="2" frame="border"
+| Symbol            | Address Block | Data |
+|-------------------+---------------+------|
+| =int square(int)= | =0xFF000000=  |      |
+
+
+#+name: SIMPLE_C_PROGRAM
+#+begin_src C +n -r
+  int main(char *argc, char **argv) {              (ref:main)
+    int x;                                         (ref:new-var)
+    x = 4;                                         (ref:set-var)
+    printf("My number is %d.\n", x);               (ref:retrieve)
+#+end_src
+
+The [[(main)][entry point of our program]] declares that the main function (what
+is run when the program itself is run) takes two arguments: the number
+of arguments and the arguments themselves.  We will cover exactly how
+this information is transferred shortly.  The [[(new-var)][next line]] declares the
+availability of a variable =x=.  At this point, our memory table looks
+a bit cooler:
+
+#+CAPTION: /Memory/
+#+ATTR_HTML: border="2" frame="border"
+| Symbol            | Address Block         | Data |
+|-------------------+-----------------------+------|
+| =int square(int)= | =0xFF000000= -- =0x?= |      |
+| =x=               | =0x00000000=          |      |
+
+Notice the memory address of =x= -- this is what is known as =NULL=.
+A variable at =NULL= cannot be used.
+
+[[(set-var)][After that]], we simply set =x='s value to =4=, and after that, [[(retrieve)][printf]]
+retrieves the value of =x= and formats it on-screen as
+
+#+BEGIN_EXAMPLE -n
+My number is 4.
+
+#+END_EXAMPLE
+
+Notice that =\n= is the /new-line/ character; since it is
+non-printing, this escape sequence denotes the presence of a new line.
+Look up =printf= in the specification for a more in-depth discussion.
+Let's take a look at our /Memory/ table now:
+
+#+CAPTION: /Memory/
+#+ATTR_HTML: border="2" frame="border"
+| Symbol            | Address Block                | Data |
+|-------------------+------------------------------+------|
+| =int square(int)= | =0xFF000000= -- =0x?=        |      |
+| =x=               | =0xABCDEF00= -- =0xABCDEF03= |    4 |
+
+Besides the function (which we will address, pun intended), we have
+one named variable =x=, and it's holding the value =4= at memory
+address =0xABCDEF01=.  (Obviously, I'm the memory locations in this
+document are somewhat contrived, but the core concepts are consistent;
+it's their interrelations that are important.)
+** Pointers
+Now we come to the next major portion of our example program:
+
+#+name: SIMPLE_C_PROGRAM
+#+begin_src C +n -r
+    int *x_pointer = &x;                           (ref:new-pointer)
+#+end_src
+
+It is here where we find the center of all of the power of C (and the
+secret to its object-oriented application).  We [[(new-pointer)][declare]] an =int=
+*pointer*.  (Dramatic pause.)
+
+What is a pointer?  Why does it point?  Does it have any purpose in
+existence?  Is its purpose solely to point its accusatory finger
+forever aimlessly?  Funny names aside, a pointer is a special `type'
+of variable.  It's a variation on the type, as it were.  To say I have
+an =int= pointer[fn:2] is to say that I have some variable that contains
+the /memory address of/ a variable of that type which it points to.
+
+If this is your first time hearing about these `pointers,' you are
+likely /very/ confused right now.  Don't worry -- I'll explain.  Let's
+take another look at our /Memory/ table.  We have two variables now:
+
+#+CAPTION: /Memory/
+#+ATTR_HTML: border="2" frame="border"
+| Symbol            | Address Block                | Data         |
+|-------------------+------------------------------+--------------|
+| =int square(int)= | =0xFF000000= -- =0x?=        |              |
+|                   | =..........=                 |              |
+| =x=               | =0xABCDEF00= -- =0xABCDEF03= | 4            |
+|                   | =0xABCDEF04=                 |              |
+|                   | =0xABCDEF08=                 |              |
+|                   | =0xABCDEF0C=                 |              |
+|                   | =..........=                 |              |
+| =x_pointer=       | =0xAAAAAA00=                 | =0xABCDEF00= |
+|                   | =..........=                 |              |
+
+So what's happened here?  We've added another variable, =x_pointer=,
+that holds the memory address of =x= (the value returned by =&x=) at
+memory location =0xAAAAAA00=.  =&= is an unary (one-argument) operator
+that gives the /memory address/ of its argument.  So, =&x= would
+return the /memory address/ of our variable =x=.  We put this value in
+=x_pointer=, a variable specifically set up to hold the memory address
+of an integer.  Thus, the value of =x_pointer= is now =0xABCDEF00=,
+the /memory address/ of =x=.
+
+Continuing, note that even though =x_pointer= contains a special value
+that we don't normally work with, C allows us to manipulate it.  This
+is where the real fun begins.
+
+C defines the following operations on /all/ pointers (where =T *p= is
+some pointer of base-type =T=):
+
+- =*p= :: Gets the data at the /memory address/ stored in =p=.
+- =p + <int>= :: Returns a memory address such that there can lie
+                 =<int>= variables of type =T= between =p= and the
+                 returned address.  (Obviously, =+== and =-== work as
+                 you'd then expect.)
+
+These two operations define everything that can be done with
+pointers (besides the address-of operator, =&=).
+*** Double-Dipping
+As an aside, what if I introduced another pointer =x_pointer2 = &x=?
+It would point to =x= just as =x_pointer= does now.  If I so chose, I
+could manipulate =x= using both =x_pointer= and =x_pointer2= without
+worrying about which one I was using (so long as they both maintained
+equal values).  They point to the same address.  Whatever I do to =x=
+using =x_pointer= will be reflected when I look at =x= using
+=x_pointer2=.
+
+This is important to understand.  As an analogy, let's say you went
+out and got a P.O. box today and started receiving mail there.  Even
+though your P.O. box address isn't the same as your home address, they
+still send mail to the same person.  So it is with pointers: even
+though the pointers may have different names, all that matters in most
+cases is what they point to.  Anything mailed to =x= using =x_pointer=
+might as well have come from =x_pointer2= -- they refer to the same
+=x=.
+** Indirection
+#+name: SIMPLE_C_PROGRAM
+#+begin_src C +n -r
+     x_pointer += 1;                               (ref:incr-pointer)
+#+end_src
+
+Quickly now, the memory table looks something like this:
+
+#+CAPTION: /Memory/
+#+ATTR_HTML: border="2" frame="border"
+| Symbol            | Address Block                | Data         |
+|-------------------+------------------------------+--------------|
+| =int square(int)= | =0xFF000000= -- =0x?=        |              |
+| =x=               | =0xABCDEF00= -- =0xABCDEF03= | 4            |
+|                   | =0xABCDEF04= -- =0xABCDEF07= |              |
+|                   | =0xABCDEF08= -- =0xABCDEF0B= |              |
+|                   | ............................ |              |
+| =x_pointer=       | =0xBACDEF00= -- =0xBACDEF03= | =0xABCDEF00= |
+
+Notice that =x_pointer= has indeed assumed the address of =x=.  When
+we [[(incr-pointer)][increment the pointer]], we advance the address it holds such that
+exactly one integer's worth of memory lies between its old value and
+its new value, like so:
+
+#+CAPTION: /Memory/
+#+ATTR_HTML: border="2" frame="border"
+| Symbol            | Address Block                | Data         |
+|-------------------+------------------------------+--------------|
+| =int square(int)= | =0xFF000000= -- =0x?=        |              |
+| =x=               | =0xABCDEF00= -- =0xABCDEF03= | 4            |
+|                   | =0xABCDEF04= -- =0xABCDEF07= |              |
+|                   | =0xABCDEF08= -- =0xABCDEF11= |              |
+|                   | ............................ |              |
+| =x_pointer=       | =0xBACDEF00= -- =0xBACDEF03= | =0xABCDEF04= |
+
+#+name: SIMPLE_C_PROGRAM
+#+begin_src C +n -r
+    *x_pointer  = 12;                              (ref:dereference)
+#+end_src
+
+Then, when we [[(dereference)][dereference]] =x_pointer= at its new value, we are given
+/the next `integer-slot' available/ after =x=.  When we set it to
+=12=, something /amazing/ happens: (to be read in the voice of the
+little boy from /The Incredibles/)
+
+#+CAPTION: /Memory/
+#+ATTR_HTML: border="2" frame="border"
+| Symbol            | Address Block                |         Data |
+|-------------------+------------------------------+--------------|
+| =int square(int)= | =0xFF000000= -- =0x?=        |              |
+| =x=               | =0xABCDEF00= -- =0xABCDEF03= |            4 |
+|                   | =0xABCDEF04= -- =0xABCDEF07= |           12 |
+|                   | =0xABCDEF08= -- =0xABCDEF0B= |              |
+|                   | ............................ |              |
+| =x_pointer=       | =0xBACDEF00= -- =0xBACDEF03= | =0xABCDEF04= |
+
+We have /indirectly/ set the value of a spot in memory without ever
+giving it a name.  We never said =int x2= or anything of the sort; we
+manipulated memory to achieve what we wanted.  This phenomenon is
+called /indirection/, and manipulating memory like this is usually
+called `using indirection.'  Since you don't have to explicitly
+declare any variables, indirection is thus the foundation of both
+using arrays and implementing dynamic arrays.
+** Function Pointers
+Going forward,
+
+#+name: SIMPLE_C_PROGRAM
+#+begin_src C +n -r
+     x_pointer = &x;                               (ref:reset-pointer)
+     int (*function_pointer)(int);                 (ref:func_pointer)
+     function_pointer = &square;                   (ref:assign-fptr)
+    *(x_pointer + 2) = function_pointer(x);        (ref:array-intr)
+#+end_src
+
+We effectively `[[(reset-pointer)][reset]]' the value of =x_pointer= so that it points back
+to =x= (you can also say =x_pointer--;= in this particular case).
+Then, something /even more amazing/ happens: we [[(func_pointer)][declare]] a /function
+pointer/.  Functions pointers are, in essence, just like normal
+pointers, although they are a bit different in their use.  I'm not
+sure what would happen if you were to increment a function pointer.
+I'm not sure what would happen if you tried to dereference one.
+Function pointers yet have their use.  Once `bound' to a function (as
+=function_pointer= is [[(assign-fptr)][bound to =square=]]), the pointer can be used just
+as a normal function, as seen on the [[(array-intr)][next line]].  It is important to
+note also on [[(array-intr)][that line]] the `shorthand' for working with pointers as
+arrays.  Can you guess what it did?
+
+#+CAPTION: /Memory/
+#+ATTR_HTML: border="2" frame="border"
+| Symbol             | Address Block                |         Data |
+|--------------------+------------------------------+--------------|
+| =int square(int)=  | =0xFF000000= -- =0x?=        |              |
+|                    | =..........=                 |              |
+| =x=                | =0xABCDEF00= -- =0xABCDEF03= |            4 |
+|                    | =0xABCDEF04= -- =0xABCDEF07= |           12 |
+|                    | =0xABCDEF08= -- =0xABCDEF0B= |           16 |
+|                    | =0xABCDEF0C= -- =0xABCDEF0F= |              |
+|                    | =..........=                 |              |
+| =x_pointer=        | =0xAAAAAA00=                 | =0xABCDEF00= |
+|                    | =..........=                 |              |
+| =function_pointer= | =0xBBBBBB00=                 | =0xFF000000= |
+|                    | =..........=                 |              |
+
+Thus, using [[(array-intr)][=function\_pointer=]] was the same as using [[(assign-fptr)][=square=]], and
+referred to the same function in memory.  The resultant value (16) was
+stored two =int=-spaces from =x_pointer= (=x_pointer + 2=), whose
+value contained the address of =x=.  As we know, however, there is a
+far easier way of expressing the form =*(p + i)=.  After a lengthy
+debate with [[http://faculty.smcm.edu/sread/][Dr. Simon Read]] (who had to consult his resources),
+=p[i]= := =*(p + i)=.
+** Arrays and Summary
+By far the most common use of pointers is for /arrays/, so naturally
+this use found its way into C syntax (use of the brackets is called
+/array notation/).
+
+So, pointers can be used simply as so, (note =%p= is a =printf= format
+flag for addresses (/p/ is for /pointer/!)):
+
+#+name: SIMPLE_C_PROGRAM
+#+begin_src C +n -r
+    for(int i = 0; i < 3; i++) {                   (ref:loop)
+      printf("Address \"%p\" holds \"%d\".\n",     (ref:anal-mem)
+              x_pointer + i, x_pointer[i]);        (ref:array-nota)
+    }                                              (ref:end-loop)
+#+end_src
+
+This would print out as
+
+#+begin_example
+Address "0xABCDEF00" holds "4".
+Address "0xABCDEF04" holds "12".
+Address "0xABCDEF08" holds "16".
+#+end_example
+
+And thus, we have finished the guts of the program.  What follows are
+the necessary statements needed to make this a valid C program.
+
+#+name: SIMPLE_C_PROGRAM
+#+begin_src C +n -r
+    puts("All done.");                             (ref:final-print)
+    return 0;
+  }
+
+  int square(int a) {                              (ref:defun-square)
+    return a * a;
+  }
+#+end_src
+
+And there you have it!  Remember everything you've learned so far;
+it's important that you're comfortable with it before you can
+implement what lies ahead...
+
+- Functions and variables have memory addresses
+- These addresses can be accessed using the address-of operator, =&=
+- Addresses are stored in pointers
+- You can get the value stored at an address using the dereferencing
+  operator, =*=
+
+Know what is going on in these statements (there is not necessarily
+any coherence within them):
+
+#+BEGIN_SRC C
+int *p = &v;
+
+char *s = malloc(7 * sizeof(char));
+
+void (*fp)(void) = &hi;
+
+s[0] = 'H';
+s[1] = 'e';
+s[2] = 'l';
+s[3] = 'l';
+s[4] = 'o';
+s[5] = '!';
+s[6] = '\0';
+#+END_SRC
+
+A few extra things to note for the above:
+
+- =sizeof(T)= is a special function that takes a type (such as =int=
+  or =struct MyStruct=) and returns a =sizet= (a size-type; basically
+  an =unsigned int=) of how many bytes it takes to store a complete
+  variable of that type.  On 32-bit systems, for example, =sizeof(int)
+  = 4=.
+- =malloc(sizet)= is a function (included in =stdlib.h=) that returns
+  an address that marks the beginning of a block of free memory.  Use
+  of this function is /always/ recommended, as it also protects the
+  memory you ask for from being written over by another part of the
+  program (it /allocates/ the /memory/ for you).
+- Since there are no explicit bounds on `arrays' (since these are just
+  pointers), there is no real way to `stop' an array.  Thus, since C
+  strings are just arrays of characters, each string in C is ended by
+  the null character, =\0=.  (C-strings are so-called
+  /null-terminated/ strings.)
+
+A complete reference for all of these functions can be found at [[http://www.cplusplus.com/reference/][the
+C++ Reference Page]].  It is an excellent and highly recommended
+resource.
+* Object Orientism
+You are just about ready to delve into object-oriented C.  From here
+on out, there will be almost /no immediately relevant code/ (at least
+until after the project is due).  C is a language that is not
+immediately well-suited for object-oriented techniques, however, a
+firm understanding of /exactly what object-orientism is/ will be
+invaluable in your endeavors.  Let us begin.
+** Objects?  What are Objects?
+What /are/ objects?  Think back to your days of 120, where everything
+was so simple and orderly.  You always knew exactly what was going to
+happen at any given moment (or at least, looking back now you can).
+Everything happened in order, exactly as you instructed.  You made
+variables and =for= loops and =while= loops and all arrangements of
+=if= statements, and you thought you reached the limits of what Java
+could do.
+
+This is pretty much what C is like at first glance.  While everything
+can be done in the =main= function, it would be ugly and untenable --
+impossible to manage or comprehend.  A lot of functionality would be
+lost to you unless you /really/ knew what you were doing with those
+`pointer' things up there.  But in Java, you didn't stop at the =main=
+function; you went on to create other functions inside the same file.
+You went on to put variables, free from any function, inside that file
+as well.  /Then you even started using that entire file as a singly
+entity from another file./
+** Methods for Models
+This is the essence of object-orientism.  Going back to 120, what is
+an object?  For example's sake, let's assume that in the previous
+illustration, you created a =Person= class and a =Car= class, where
+=Car= was using =Person=.  An object is often seen as the sum of its
+parts:
+
+- state :: Each variable in =Person= described what a =Person= could
+           /be/.  Did the =Person= have brown hair or gray hair?  Did
+           they have hair at all?  How long were their legs?  Where
+           they long enough to reach the ground?  Each free-standing
+           variable (the ones not included in functions (or /methods/,
+           as they should now be called)) consistently and instantly
+           described a particular quality of a =Person= unambiguously.
+           Each =Person= object had the same types of qualities, but
+           they did not have to be identical /in those/ qualities.  In
+           short, objects /are/ things.
+- behavior :: Since each /function/ in the file really described any
+              =Person='s abilities, they are more appropriately
+              described as /methods/ of the class.  Each =Person= had
+              the same abilities and the same way for performing those
+              abilities.  In short, objects can /do/ things.
+- identity :: No two objects created via constructor are the same
+              object.  Every object is mutually distinct from every
+              other object unless one was explicitly instructed to
+              copy another.
+
+The possession of state and behavior are by far the most evident
+qualities of what it is to be an object.  They are everything you
+would write down in a class file in Java.  Each object has a set of
+attributes according to a specific model, and each class has methods
+that act on the models they were designed for.  In this way, it is
+common to see the `model' and the `state of an object' to mean the
+same thing -- and likewise with `methods' and `behavior'.
+** Identity
+So the first two were easy to understand, but the last may confuse you.
+Consider the following example in Java, where the =Person= class
+already exists:
+
+#+BEGIN_SRC java
+  Person a = new Person("John");
+  Person b = new Person("John");
+  
+  if (a == b) {
+      System.out.println("They have the same data,\n"
+                       + "so they are the same object.");
+  }
+#+END_SRC
+
+Would that printout occur?  Are the =Person= objects =a= and =b= equal
+to each other?  They have the same name, but I'm sure you share your name
+with another person you know.  Are you two then the same person?
+Of course not!  =a= has an identity /apart from/ =b=.  =a!=b=.
+
+So then, what does it mean for one object to be equal to another?
+It's not sufficient that they have the same name; something else is
+going on that Java's syntax is hiding from us.  Let's look at another
+example.
+
+#+BEGIN_SRC java
+  Person a = new Person("John");
+  Person b = a;
+
+  if (a == b) {
+      System.out.println("whee!");
+  }
+#+END_SRC
+
+Will this print out?  (Hint: the constructor for =Person= was only
+called once).  The written medium unfortunately cannot wait for an
+answer; yes they will.  Only one =Person= object (=a=) was actually
+created; =b= was simply assigned to equal whatever =a= equaled at the
+time.  Does this remind you of anything?  Have we [[Double-Dipping][double-dipped]] into
+the one =Person= object created?  What does this imply about =a= and
+=b=?  /They're pointers?!?/
+
+*Every object in Java is a pointer to a place in memory where the
+object's data is held.*
+* Conclusions and Hints
+Let's review what we know about objects in general and what we have
+observed from Java:
+
+- A class defines two things:
+  - a model of data that each member of the class will have unique to
+    itself (/state/)
+  - a collection of methods that are designed to operate on such
+    models (/behavior/)
+- An object in Java is merely a pointer to its data, the object's
+  data may be copied, but to be an object is to be a reference to a
+  specific point in memory (/identity/)
+
+Let's review what we know about C:
+
+- C has easy access to and manipulation of memory address through pointers
+- C can define new types (structures[fn:3]) as compositions of base
+  types (=int=, =char=, /pointers/, etc.)[fn:4]
+- C can have pointers to functions that, for all intents and purposes,
+  mostly act like regular variables.
+
+How can you apply what you know about structures, pointers, and
+object-orientism to complete this project?  Let's review the
+requirements:
+
+- To get an 85 :: A "class" that includes fields and functions; a
+                  piece of demonstration code with a full class
+                  implementation of something simple (Rectangle,
+                  Student, etc.).
+
+You already know how to do this.  (In fact, if you've read this entire
+document, you already know how to get a 100.)  What is a class?  A
+class has /state/ (a model of data) and /behavior/ (a collection of
+methods to work with that data).  If you're having trouble figuring
+out how you're going to make many data come as a single entity, you
+may want to check out the =struct= again.  This one isn't too fancy.
+
+- To get a 90 :: Add "instantiation".  This would include multiple
+                 constructors.  An extra 5 points if you handle
+                 multiple constructors as functions with the same name
+                 but different number of parameters.
+
+What is a constructor but something that prepares the house and hands
+you a key?  Metaphors, man.  (Confucius says: "the key to your
+understanding is /pointers/.")
+
+- To get a 100 :: Add "object" variables to classes.  This will
+                  require you to create two classes, and have one
+                  inside of the other (for instance a Point object
+                  inside of a Shape class).
+
+This one is dead simple.  What are objects but keys to a house?
+
+- To get a 110 :: Add public and private scope
+
+You might want to have a public (hint: =static=) key and a private
+key.  And you thought get/set methods were completely useless!
+
+Or perhaps you'd fancy a global, omniscient, sentient key-chain?
+
+- To get a 120 :: Add inheritance. (no hints from the instructor or
+                  TAs here)
+
+I am neither the instructor nor a TA, but I still find it fun to say
+'it sucks to be you.'
+
+However, I will point you to an invaluable resource that is available
+[[http://www.cs.rit.edu/~ats/books/ooc.pdf][here]].  Inside, Schreiner describes a quite different (but much more
+versatile and consequently a little more advanced) practical approach
+to object-oriented C.  There really is /very little/ to the syntax of
+C, and it is consistent.  With a firm knowledge of C's syntax (and the
+humility to Google what you don't know), I have complete confidence
+that you'll be able to understand it (since it's really not all that
+complex).  Who knows?  If you can manage to write your own =ooc=
+preprocessor as Schreiner describes, this project can become very,
+very easy.  I mean, nobody has told you to write =ooc= in C, have
+they?
+
+Good luck, folks.
+* Footnotes
+[fn:1] There are several steps to build a C program.  The program is
+compiled, assembled, and then linked.  The linker is what associates
+definitions with calls.
+
+[fn:2] This is often shortened =int*=, but there are problems with
+this, to be discussed later.
+
+[fn:3] C has =structs= that effectively define new types.  They are
+assumed knowledge for this document, but you can find out more about
+them over at the reference pages.
+
+[fn:4] Hint: pointers can point to either functions or variables /of any type/.
+* Endnotes
+This document was written using Emacs' =org-mode=.  The source is
+available [[http://localhost:4000/assets/s13-251-p1.org.html][here]] for reference.

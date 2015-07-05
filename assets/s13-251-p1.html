@@ -1,0 +1,1571 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<head>
+<title>Solution Sketch</title>
+<!-- 2015-07-05 Sun 11:11 -->
+<meta  http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<meta  name="generator" content="Org-mode" />
+<meta  name="author" content="Sean Allred" />
+<style type="text/css">
+ <!--/*--><![CDATA[/*><!--*/
+  .title  { text-align: center; }
+  .todo   { font-family: monospace; color: red; }
+  .done   { color: green; }
+  .tag    { background-color: #eee; font-family: monospace;
+            padding: 2px; font-size: 80%; font-weight: normal; }
+  .timestamp { color: #bebebe; }
+  .timestamp-kwd { color: #5f9ea0; }
+  .right  { margin-left: auto; margin-right: 0px;  text-align: right; }
+  .left   { margin-left: 0px;  margin-right: auto; text-align: left; }
+  .center { margin-left: auto; margin-right: auto; text-align: center; }
+  .underline { text-decoration: underline; }
+  #postamble p, #preamble p { font-size: 90%; margin: .2em; }
+  p.verse { margin-left: 3%; }
+  pre {
+    border: 1px solid #ccc;
+    box-shadow: 3px 3px 3px #eee;
+    padding: 8pt;
+    font-family: monospace;
+    overflow: auto;
+    margin: 1.2em;
+  }
+  pre.src {
+    position: relative;
+    overflow: visible;
+    padding-top: 1.2em;
+  }
+  pre.src:before {
+    display: none;
+    position: absolute;
+    background-color: white;
+    top: -10px;
+    right: 10px;
+    padding: 3px;
+    border: 1px solid black;
+  }
+  pre.src:hover:before { display: inline;}
+  pre.src-sh:before    { content: 'sh'; }
+  pre.src-bash:before  { content: 'sh'; }
+  pre.src-emacs-lisp:before { content: 'Emacs Lisp'; }
+  pre.src-R:before     { content: 'R'; }
+  pre.src-perl:before  { content: 'Perl'; }
+  pre.src-java:before  { content: 'Java'; }
+  pre.src-sql:before   { content: 'SQL'; }
+
+  table { border-collapse:collapse; }
+  caption.t-above { caption-side: top; }
+  caption.t-bottom { caption-side: bottom; }
+  td, th { vertical-align:top;  }
+  th.right  { text-align: center;  }
+  th.left   { text-align: center;   }
+  th.center { text-align: center; }
+  td.right  { text-align: right;  }
+  td.left   { text-align: left;   }
+  td.center { text-align: center; }
+  dt { font-weight: bold; }
+  .footpara:nth-child(2) { display: inline; }
+  .footpara { display: block; }
+  .footdef  { margin-bottom: 1em; }
+  .figure { padding: 1em; }
+  .figure p { text-align: center; }
+  .inlinetask {
+    padding: 10px;
+    border: 2px solid gray;
+    margin: 10px;
+    background: #ffffcc;
+  }
+  #org-div-home-and-up
+   { text-align: right; font-size: 70%; white-space: nowrap; }
+  textarea { overflow-x: auto; }
+  .linenr { font-size: smaller }
+  .code-highlighted { background-color: #ffff00; }
+  .org-info-js_info-navigation { border-style: none; }
+  #org-info-js_console-label
+    { font-size: 10px; font-weight: bold; white-space: nowrap; }
+  .org-info-js_search-highlight
+    { background-color: #ffff00; color: #000000; font-weight: bold; }
+  /*]]>*/-->
+</style>
+<script type="text/javascript">
+/*
+@licstart  The following is the entire license notice for the
+JavaScript code in this tag.
+
+Copyright (C) 2012-2013 Free Software Foundation, Inc.
+
+The JavaScript code in this tag is free software: you can
+redistribute it and/or modify it under the terms of the GNU
+General Public License (GNU GPL) as published by the Free Software
+Foundation, either version 3 of the License, or (at your option)
+any later version.  The code is distributed WITHOUT ANY WARRANTY;
+without even the implied warranty of MERCHANTABILITY or FITNESS
+FOR A PARTICULAR PURPOSE.  See the GNU GPL for more details.
+
+As additional permission under GNU GPL version 3 section 7, you
+may distribute non-source (e.g., minimized or compacted) forms of
+that code without the copy of the GNU GPL normally required by
+section 4, provided you include this license notice and a URL
+through which recipients can access the Corresponding Source.
+
+
+@licend  The above is the entire license notice
+for the JavaScript code in this tag.
+*/
+<!--/*--><![CDATA[/*><!--*/
+ function CodeHighlightOn(elem, id)
+ {
+   var target = document.getElementById(id);
+   if(null != target) {
+     elem.cacheClassElem = elem.className;
+     elem.cacheClassTarget = target.className;
+     target.className = "code-highlighted";
+     elem.className   = "code-highlighted";
+   }
+ }
+ function CodeHighlightOff(elem, id)
+ {
+   var target = document.getElementById(id);
+   if(elem.cacheClassElem)
+     elem.className = elem.cacheClassElem;
+   if(elem.cacheClassTarget)
+     target.className = elem.cacheClassTarget;
+ }
+/*]]>*///-->
+</script>
+</head>
+<body>
+<div id="content">
+<h1 class="title">Solution Sketch</h1>
+<div id="table-of-contents">
+<h2>Table of Contents</h2>
+<div id="text-table-of-contents">
+<ul>
+<li><a href="#sec-1">1. Disclaimer</a></li>
+<li><a href="#sec-2">2. The Assignment</a></li>
+<li><a href="#sec-3">3. Introduction</a></li>
+<li><a href="#sec-4">4. A Simple Snippet</a>
+<ul>
+<li><a href="#sec-4-1">4.1. The Basics</a></li>
+<li><a href="#sec-4-2">4.2. Pointers</a>
+<ul>
+<li><a href="#sec-4-2-1">4.2.1. Double-Dipping</a></li>
+</ul>
+</li>
+<li><a href="#sec-4-3">4.3. Indirection</a></li>
+<li><a href="#sec-4-4">4.4. Function Pointers</a></li>
+<li><a href="#sec-4-5">4.5. Arrays and Summary</a></li>
+</ul>
+</li>
+<li><a href="#sec-5">5. Object Orientism</a>
+<ul>
+<li><a href="#sec-5-1">5.1. Objects?  What are Objects?</a></li>
+<li><a href="#sec-5-2">5.2. Methods for Models</a></li>
+<li><a href="#sec-5-3">5.3. Identity</a></li>
+</ul>
+</li>
+<li><a href="#sec-6">6. Conclusions and Hints</a></li>
+<li><a href="#sec-7">7. Endnotes</a></li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-sec-1" class="outline-2">
+<h2 id="sec-1"><span class="section-number-2">1</span> Disclaimer</h2>
+<div class="outline-text-2" id="text-1">
+<p>
+I'm a fallible human being.
+</p>
+</div>
+</div>
+<div id="outline-container-sec-2" class="outline-2">
+<h2 id="sec-2"><a id="ID-8B23EA1A-AE81-44EA-8473-325E33D2CBD9" name="ID-8B23EA1A-AE81-44EA-8473-325E33D2CBD9"></a><span class="section-number-2">2</span> The Assignment</h2>
+<div class="outline-text-2" id="text-2">
+<p>
+<b>Objective:</b> Create the core of the current programming paradigm &#x2013;
+objects!
+</p>
+
+<p>
+<b>Your Task:</b> In C (not C++!), you will be creating the functionality
+to implement objects, thus retracing the steps of computer scientists
+of 30 years ago.
+</p>
+
+<p>
+Specifically, I would like you to create the ability to implement a
+class like we do in C++. Note, that I'm not expecting you to do
+everything that C++ can do with a class, but I am expecting you to be
+able to show me some code that represents the baseline aspects of
+class structures: fields/variables and functions.  The more
+functionality that you can bring to the table, the higher your grade.
+As a summary:
+</p>
+
+<dl class="org-dl">
+<dt> To get an 85 </dt><dd>A "class" that includes fields and functions; a
+piece of demonstration code with a full class
+implementation of something simple (Rectangle,
+Student, etc.).
+</dd>
+<dt> To get a 90 </dt><dd>Add "instantiation".  This would include multiple
+constructors.  An extra 5 points if you handle
+multiple constructors as functions with the same name
+but different number of parameters.
+</dd>
+<dt> To get a 100 </dt><dd>Add "object" variables to classes.  This will
+require you to create two classes, and have one
+inside of the other (for instance a Point object
+inside of a Shape class).
+</dd>
+<dt> To get a 110 </dt><dd>Add public and private scope
+</dd>
+<dt> To get a 120 </dt><dd>Add inheritance. (no hints from the instructor or
+TAs here)
+</dd>
+</dl>
+
+<p>
+Some quick hints: you are going to need to leverage both structs and
+function pointers for this project.  This project is challenging, do
+not put it off!  You do not need to be able to mimic the syntax of C++
+classes, just the functionality.
+</p>
+
+<p>
+<b>Deliverables:</b> your source code and a one-page writeup of the
+ approach that you've taken for your solution.
+</p>
+
+<p>
+<b>Learning Targets:</b> struct usage, pointer manipulation, C usage,
+ origin of the object-oriented paradigm.
+</p>
+
+<p>
+<b>Expectation:</b> The code should be clean, concise, well-commented, and
+correct.  If you use an outside source, be sure to document that
+source.  Significant use of outside sources will result in a
+deduction.  Grading rubric will be provided a week ahead of the due
+date.  You may work in pairs for this project &#x2013; your partner may be
+in your section of in the other 251 section.  Teammate selection
+emails due 1 February by 5pm.
+</p>
+
+<p>
+<b>DUE:</b> February 17th, 11:59pm via Blackboard.
+</p>
+</div>
+</div>
+<div id="outline-container-sec-3" class="outline-2">
+<h2 id="sec-3"><span class="section-number-2">3</span> Introduction</h2>
+<div class="outline-text-2" id="text-3">
+<p>
+What are the main ideas of object-orientism?
+</p>
+<dl class="org-dl">
+<dt> Modularity </dt><dd>make it a complete package
+</dd>
+<dt> Reusability </dt><dd>never write the same thing twice!
+</dd>
+<dt> Encapsulation </dt><dd>a class is a complete thought
+</dd>
+</dl>
+
+<p>
+What do each of these mean?  To be <i>modular</i> is to be portable &#x2013; the
+code written can be lifted, taken elsewhere, and should still work the
+same (barring technical details).  This does not preclude packages
+with dependencies, but such dependencies should be reasonable and by
+no means restrictive.
+</p>
+
+<p>
+To be <i>reusable</i> is similar to being modular, but code reusability
+implies that you won't (manually) duplicate functionality elsewhere in
+the project, i.e. <i>inheritance</i>.
+</p>
+
+<p>
+To be <i>encapsulated</i> is to be complete and careful.  Members that
+should be private, such as number of extant Persons, should be made so
+(or perhaps read-only to the outside world).  Members that should only
+be available to `friends' should be made so.  Likewise with public
+members.  Give only enough information to offer the full range of
+motion for your class &#x2013; nothing more, nothing less.
+</p>
+
+<p>
+But how can we implement these things using only the low-level
+constructs available to us in K&amp;R C?  To understand how to do that, we
+need to delve a little deeper into how a program written in C runs.
+</p>
+
+<p>
+The rest of this document will assume that you already have a basic
+working knowledge about C.  Several topics are of paramount
+importance:
+</p>
+
+<ul class="org-ul">
+<li>variables and variable declaration
+</li>
+<li>basic arithmetical operators
+</li>
+<li>a complete understanding of the control constructs <code>if</code>, <code>while</code>,
+and <code>for</code>
+</li>
+<li>function declaration and use
+</li>
+<li>structs
+</li>
+<li>type casting
+</li>
+<li>multiple-source programs (the separation of header from source)
+</li>
+<li>programming the C preprocessor (<code>#define</code>, <code>#undef</code>, <code>#if</code>,
+<code>#ifdef</code>, <code>#endif</code>)
+</li>
+</ul>
+
+<p>
+and the following are <i>highly recommended</i>:
+</p>
+
+<ul class="org-ul">
+<li><i>all</i> of the C preprocessor directives
+</li>
+<li>use of <code>assert()</code>
+</li>
+<li><code>typedef</code>
+</li>
+<li><code>static</code>, <code>const</code>, and <i>all</i> of the different types (there aren't
+that many &#x2013; look for patterns)
+</li>
+</ul>
+
+<p>
+All of these topic (and others) are discussed in depth at <a href="http://www.acm.uiuc.edu/webmonkeys/book/c_guide/">the C
+Library Reference Guide</a> and at <a href="http://www.cplusplus.com/reference/">the C++ Reference Guide</a>, both of which
+are worth skimming through at least once.
+</p>
+
+<p>
+The rest of this document attempts to explain pointers, memory
+management, and object-oriented techniques in a practical and
+easy-to-understand, easy-to-reference manner.  If you have <i>any</i>
+questions on the material below, please do not hesitate to contact me
+via Facebook.  Who knows?  You might even get another hint out of me.
+</p>
+
+<p>
+<b>Important:</b> If you would like me to release the materials (in BCPL)
+upon which this project was based, like the status of mine that shared
+it with you no later than <span class="timestamp-wrapper"><span class="timestamp">[2013-02-13 Wed]</span></span>.  If more than half the
+roster likes the status, I will promptly release it on this page.
+</p>
+
+<p>
+I would like to take this time to personally apologize for this
+project.
+</p>
+
+<p>
+Oh!  And don't forget to give Marissa a hard time &#x2013; this is all her
+fault somehow.
+</p>
+</div>
+</div>
+<div id="outline-container-sec-4" class="outline-2">
+<h2 id="sec-4"><a id="ID-2FD56A76-09C4-4FB7-9D8A-2BE969A95D52" name="ID-2FD56A76-09C4-4FB7-9D8A-2BE969A95D52"></a><span class="section-number-2">4</span> A Simple Snippet</h2>
+<div class="outline-text-2" id="text-4">
+<p>
+<b>Disclaimer:</b> I don't actually know all this for absolute certain.
+All of this will, of course, depend on the compiler you use.  However,
+the general concepts should be consistent whichever compiler you
+choose to utilize.  For reference, I've gathered this information
+based purely on inferences garnered from the hex-explorer of programs
+being debugged with <code>gdb</code>.  With that settled, I'm assuming that you
+know the very basics of computer memory, so I'm not going to go over
+that.  Let's take it from the top, going through a simple C program
+that covers all of the necessary points.
+</p>
+</div>
+<div id="outline-container-sec-4-1" class="outline-3">
+<h3 id="sec-4-1"><span class="section-number-3">4.1</span> The Basics</h3>
+<div class="outline-text-3" id="text-4-1">
+<p>
+First, know that (for our purposes) there are essentially two
+structures always present with a running program: a <b>symbols table</b>
+and the <b>memory</b>.  The symbols table keeps a record of what is defined
+and where it is, while the memory actually holds the defined data.
+These both start out empty.  For the purposes of this document, these
+two structures are going to be combined into one table:
+</p>
+
+<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+<caption class="t-above"><span class="table-number">Table 1:</span> <i>Memory</i></caption>
+
+<colgroup>
+<col  class="left" />
+
+<col  class="left" />
+
+<col  class="right" />
+</colgroup>
+<thead>
+<tr>
+<th scope="col" class="left">Symbol</th>
+<th scope="col" class="left">Address Block</th>
+<th scope="col" class="right">Data</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="left"><code>some_symbol</code></td>
+<td class="left"><code>0x12345678</code> &#x2013; <code>0x1234567C</code></td>
+<td class="right">0</td>
+</tr>
+</tbody>
+</table>
+
+<p>
+Let's look at this program.
+</p>
+
+<div class="org-src-container">
+
+<pre class="src src-C" id="SIMPLE_C_PROGRAM"><span id="coderef-include" class="coderef-off"><span class="linenr">1: </span><span style="color: #F92672;">#include</span> <span style="color: #E6DB74;">&lt;stdio.h&gt;</span></span>
+<span class="linenr">2: </span>
+<span id="coderef-decl-square" class="coderef-off"><span class="linenr">3: </span><span style="color: #66D9EF;">int</span> <span style="color: #A6E22E;">square</span>(<span style="color: #66D9EF;">int</span>);</span>
+</pre>
+</div>
+
+<p>
+In <a href="#coderef-include"class="coderef" onmouseover="CodeHighlightOn(this, 'coderef-include');" onmouseout="CodeHighlightOff(this, 'coderef-include');">the first line</a>, we see the familiar directive <code>#include</code>.  This
+preprocessor directive simply pulls the file contents of <code>stdio.h</code>
+(from the standard library) right into your source file.  These
+declare the availability of functions, just as <a href="#coderef-decl-square"class="coderef" onmouseover="CodeHighlightOn(this, 'coderef-decl-square');" onmouseout="CodeHighlightOff(this, 'coderef-decl-square');">line 3</a> does.  I'm not
+sure about what happens internally, but think of it as if you are
+telling the C compiler, "I don't know what this function should do
+yet, but it's going to look like <i>this</i>."  <a href="#coderef-decl-square"class="coderef" onmouseover="CodeHighlightOn(this, 'coderef-decl-square');" onmouseout="CodeHighlightOff(this, 'coderef-decl-square');">Line 3</a> is what is called a
+<b>function prototype</b> &#x2013; it's a declaration of what a function looks
+like as opposed to what it should do.  Specifically, it allows you to
+use this function before you define what exactly it is.
+</p>
+
+<p>
+This is a crucial concept for object-oriented C.  You do not have to
+write the function out before you can use it, you merely have to
+declare its proper use.  Note that this does not mean functions don't
+have to be defined at run-time at the point of use.<sup><a id="fnr.1" name="fnr.1" class="footref" href="#fn.1">1</a></sup> In other words,
+all functions must be defined by the actual time they're called (not
+when they're written, but when they're called).
+</p>
+
+<p>
+Reviewing the memory table,
+</p>
+
+<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+<caption class="t-above"><span class="table-number">Table 2:</span> <i>Memory</i></caption>
+
+<colgroup>
+<col  class="left" />
+
+<col  class="left" />
+
+<col  class="left" />
+</colgroup>
+<thead>
+<tr>
+<th scope="col" class="left">Symbol</th>
+<th scope="col" class="left">Address Block</th>
+<th scope="col" class="left">Data</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="left"><code>int square(int)</code></td>
+<td class="left"><code>0xFF000000</code></td>
+<td class="left">&#xa0;</td>
+</tr>
+</tbody>
+</table>
+
+
+<div class="org-src-container">
+
+<pre class="src src-C" id="SIMPLE_C_PROGRAM"><span id="coderef-main" class="coderef-off"><span class="linenr">4: </span><span style="color: #66D9EF;">int</span> <span style="color: #A6E22E;">main</span>(<span style="color: #66D9EF;">char</span> *<span style="color: #FD971F;">argc</span>, <span style="color: #66D9EF;">char</span> **<span style="color: #FD971F;">argv</span>) {</span>
+<span id="coderef-new-var" class="coderef-off"><span class="linenr">5: </span>  <span style="color: #66D9EF;">int</span> <span style="color: #FD971F;">x</span>;</span>
+<span id="coderef-set-var" class="coderef-off"><span class="linenr">6: </span>  x = 4;</span>
+<span id="coderef-retrieve" class="coderef-off"><span class="linenr">7: </span>  printf(<span style="color: #E6DB74;">"My number is %d.\n"</span>, x);</span>
+</pre>
+</div>
+
+<p>
+The <a href="#coderef-main"class="coderef" onmouseover="CodeHighlightOn(this, 'coderef-main');" onmouseout="CodeHighlightOff(this, 'coderef-main');">entry point of our program</a> declares that the main function (what
+is run when the program itself is run) takes two arguments: the number
+of arguments and the arguments themselves.  We will cover exactly how
+this information is transferred shortly.  The <a href="#coderef-new-var"class="coderef" onmouseover="CodeHighlightOn(this, 'coderef-new-var');" onmouseout="CodeHighlightOff(this, 'coderef-new-var');">next line</a> declares the
+availability of a variable <code>x</code>.  At this point, our memory table looks
+a bit cooler:
+</p>
+
+<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+<caption class="t-above"><span class="table-number">Table 3:</span> <i>Memory</i></caption>
+
+<colgroup>
+<col  class="left" />
+
+<col  class="left" />
+
+<col  class="left" />
+</colgroup>
+<thead>
+<tr>
+<th scope="col" class="left">Symbol</th>
+<th scope="col" class="left">Address Block</th>
+<th scope="col" class="left">Data</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="left"><code>int square(int)</code></td>
+<td class="left"><code>0xFF000000</code> &#x2013; <code>0x?</code></td>
+<td class="left">&#xa0;</td>
+</tr>
+
+<tr>
+<td class="left"><code>x</code></td>
+<td class="left"><code>0x00000000</code></td>
+<td class="left">&#xa0;</td>
+</tr>
+</tbody>
+</table>
+
+<p>
+Notice the memory address of <code>x</code> &#x2013; this is what is known as <code>NULL</code>.
+A variable at <code>NULL</code> cannot be used.
+</p>
+
+<p>
+<a href="#coderef-set-var"class="coderef" onmouseover="CodeHighlightOn(this, 'coderef-set-var');" onmouseout="CodeHighlightOff(this, 'coderef-set-var');">After that</a>, we simply set <code>x</code>'s value to <code>4</code>, and after that, <a href="#coderef-retrieve"class="coderef" onmouseover="CodeHighlightOn(this, 'coderef-retrieve');" onmouseout="CodeHighlightOff(this, 'coderef-retrieve');">printf</a>
+retrieves the value of <code>x</code> and formats it on-screen as
+</p>
+
+<pre class="example">
+<span class="linenr">1: </span>My number is 4.
+</pre>
+
+<p>
+Notice that <code>\n</code> is the <i>new-line</i> character; since it is
+non-printing, this escape sequence denotes the presence of a new line.
+Look up <code>printf</code> in the specification for a more in-depth discussion.
+Let's take a look at our <i>Memory</i> table now:
+</p>
+
+<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+<caption class="t-above"><span class="table-number">Table 4:</span> <i>Memory</i></caption>
+
+<colgroup>
+<col  class="left" />
+
+<col  class="left" />
+
+<col  class="left" />
+</colgroup>
+<thead>
+<tr>
+<th scope="col" class="left">Symbol</th>
+<th scope="col" class="left">Address Block</th>
+<th scope="col" class="left">Data</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="left"><code>int square(int)</code></td>
+<td class="left"><code>0xFF000000</code> &#x2013; <code>0x?</code></td>
+<td class="left">&#xa0;</td>
+</tr>
+
+<tr>
+<td class="left"><code>x</code></td>
+<td class="left"><code>0xABCDEF00</code> &#x2013; <code>0xABCDEF03</code></td>
+<td class="left">4</td>
+</tr>
+</tbody>
+</table>
+
+<p>
+Besides the function (which we will address, pun intended), we have
+one named variable <code>x</code>, and it's holding the value <code>4</code> at memory
+address <code>0xABCDEF01</code>.  (Obviously, I'm the memory locations in this
+document are somewhat contrived, but the core concepts are consistent;
+it's their interrelations that are important.)
+</p>
+</div>
+</div>
+<div id="outline-container-sec-4-2" class="outline-3">
+<h3 id="sec-4-2"><span class="section-number-3">4.2</span> Pointers</h3>
+<div class="outline-text-3" id="text-4-2">
+<p>
+Now we come to the next major portion of our example program:
+</p>
+
+<div class="org-src-container">
+
+<pre class="src src-C" id="SIMPLE_C_PROGRAM"><span id="coderef-new-pointer" class="coderef-off"><span class="linenr">2: </span><span style="color: #66D9EF;">int</span> *<span style="color: #FD971F;">x_pointer</span> = &amp;x;</span>
+</pre>
+</div>
+
+<p>
+It is here where we find the center of all of the power of C (and the
+secret to its object-oriented application).  We <a href="#coderef-new-pointer"class="coderef" onmouseover="CodeHighlightOn(this, 'coderef-new-pointer');" onmouseout="CodeHighlightOff(this, 'coderef-new-pointer');">declare</a> an <code>int</code>
+<b>pointer</b>.  (Dramatic pause.)
+</p>
+
+<p>
+What is a pointer?  Why does it point?  Does it have any purpose in
+existence?  Is its purpose solely to point its accusatory finger
+forever aimlessly?  Funny names aside, a pointer is a special `type'
+of variable.  It's a variation on the type, as it were.  To say I have
+an <code>int</code> pointer<sup><a id="fnr.2" name="fnr.2" class="footref" href="#fn.2">2</a></sup> is to say that I have some variable that contains
+the <i>memory address of</i> a variable of that type which it points to.
+</p>
+
+<p>
+If this is your first time hearing about these `pointers,' you are
+likely <i>very</i> confused right now.  Don't worry &#x2013; I'll explain.  Let's
+take another look at our <i>Memory</i> table.  We have two variables now:
+</p>
+
+<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+<caption class="t-above"><span class="table-number">Table 5:</span> <i>Memory</i></caption>
+
+<colgroup>
+<col  class="left" />
+
+<col  class="left" />
+
+<col  class="right" />
+</colgroup>
+<thead>
+<tr>
+<th scope="col" class="left">Symbol</th>
+<th scope="col" class="left">Address Block</th>
+<th scope="col" class="right">Data</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="left"><code>int square(int)</code></td>
+<td class="left"><code>0xFF000000</code> &#x2013; <code>0x?</code></td>
+<td class="right">&#xa0;</td>
+</tr>
+
+<tr>
+<td class="left">&#xa0;</td>
+<td class="left"><code>..........</code></td>
+<td class="right">&#xa0;</td>
+</tr>
+
+<tr>
+<td class="left"><code>x</code></td>
+<td class="left"><code>0xABCDEF00</code> &#x2013; <code>0xABCDEF03</code></td>
+<td class="right">4</td>
+</tr>
+
+<tr>
+<td class="left">&#xa0;</td>
+<td class="left"><code>0xABCDEF04</code></td>
+<td class="right">&#xa0;</td>
+</tr>
+
+<tr>
+<td class="left">&#xa0;</td>
+<td class="left"><code>0xABCDEF08</code></td>
+<td class="right">&#xa0;</td>
+</tr>
+
+<tr>
+<td class="left">&#xa0;</td>
+<td class="left"><code>0xABCDEF0C</code></td>
+<td class="right">&#xa0;</td>
+</tr>
+
+<tr>
+<td class="left">&#xa0;</td>
+<td class="left"><code>..........</code></td>
+<td class="right">&#xa0;</td>
+</tr>
+
+<tr>
+<td class="left"><code>x_pointer</code></td>
+<td class="left"><code>0xAAAAAA00</code></td>
+<td class="right"><code>0xABCDEF00</code></td>
+</tr>
+
+<tr>
+<td class="left">&#xa0;</td>
+<td class="left"><code>..........</code></td>
+<td class="right">&#xa0;</td>
+</tr>
+</tbody>
+</table>
+
+<p>
+So what's happened here?  We've added another variable, <code>x_pointer</code>,
+that holds the memory address of <code>x</code> (the value returned by <code>&amp;x</code>) at
+memory location <code>0xAAAAAA00</code>.  <code>&amp;</code> is an unary (one-argument) operator
+that gives the <i>memory address</i> of its argument.  So, <code>&amp;x</code> would
+return the <i>memory address</i> of our variable <code>x</code>.  We put this value in
+<code>x_pointer</code>, a variable specifically set up to hold the memory address
+of an integer.  Thus, the value of <code>x_pointer</code> is now <code>0xABCDEF00</code>,
+the <i>memory address</i> of <code>x</code>.
+</p>
+
+<p>
+Continuing, note that even though <code>x_pointer</code> contains a special value
+that we don't normally work with, C allows us to manipulate it.  This
+is where the real fun begins.
+</p>
+
+<p>
+C defines the following operations on <i>all</i> pointers (where <code>T *p</code> is
+some pointer of base-type <code>T</code>):
+</p>
+
+<dl class="org-dl">
+<dt> <code>*p</code> </dt><dd>Gets the data at the <i>memory address</i> stored in <code>p</code>.
+</dd>
+<dt> <code>p + &lt;int&gt;</code> </dt><dd>Returns a memory address such that there can lie
+<code>&lt;int&gt;</code> variables of type <code>T</code> between <code>p</code> and the
+returned address.  (Obviously, <code>+=</code> and <code>-=</code> work as
+you'd then expect.)
+</dd>
+</dl>
+
+<p>
+These two operations define everything that can be done with
+pointers (besides the address-of operator, <code>&amp;</code>).
+</p>
+</div>
+<div id="outline-container-sec-4-2-1" class="outline-4">
+<h4 id="sec-4-2-1"><span class="section-number-4">4.2.1</span> Double-Dipping</h4>
+<div class="outline-text-4" id="text-4-2-1">
+<p>
+As an aside, what if I introduced another pointer <code>x_pointer2 = &amp;x</code>?
+It would point to <code>x</code> just as <code>x_pointer</code> does now.  If I so chose, I
+could manipulate <code>x</code> using both <code>x_pointer</code> and <code>x_pointer2</code> without
+worrying about which one I was using (so long as they both maintained
+equal values).  They point to the same address.  Whatever I do to <code>x</code>
+using <code>x_pointer</code> will be reflected when I look at <code>x</code> using
+<code>x_pointer2</code>.
+</p>
+
+<p>
+This is important to understand.  As an analogy, let's say you went
+out and got a P.O. box today and started receiving mail there.  Even
+though your P.O. box address isn't the same as your home address, they
+still send mail to the same person.  So it is with pointers: even
+though the pointers may have different names, all that matters in most
+cases is what they point to.  Anything mailed to <code>x</code> using <code>x_pointer</code>
+might as well have come from <code>x_pointer2</code> &#x2013; they refer to the same
+<code>x</code>.
+</p>
+</div>
+</div>
+</div>
+<div id="outline-container-sec-4-3" class="outline-3">
+<h3 id="sec-4-3"><span class="section-number-3">4.3</span> Indirection</h3>
+<div class="outline-text-3" id="text-4-3">
+<div class="org-src-container">
+
+<pre class="src src-C" id="SIMPLE_C_PROGRAM"><span id="coderef-incr-pointer" class="coderef-off"><span class="linenr">3: </span>x_pointer += 1;</span>
+</pre>
+</div>
+
+<p>
+Quickly now, the memory table looks something like this:
+</p>
+
+<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+<caption class="t-above"><span class="table-number">Table 6:</span> <i>Memory</i></caption>
+
+<colgroup>
+<col  class="left" />
+
+<col  class="left" />
+
+<col  class="right" />
+</colgroup>
+<thead>
+<tr>
+<th scope="col" class="left">Symbol</th>
+<th scope="col" class="left">Address Block</th>
+<th scope="col" class="right">Data</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="left"><code>int square(int)</code></td>
+<td class="left"><code>0xFF000000</code> &#x2013; <code>0x?</code></td>
+<td class="right">&#xa0;</td>
+</tr>
+
+<tr>
+<td class="left"><code>x</code></td>
+<td class="left"><code>0xABCDEF00</code> &#x2013; <code>0xABCDEF03</code></td>
+<td class="right">4</td>
+</tr>
+
+<tr>
+<td class="left">&#xa0;</td>
+<td class="left"><code>0xABCDEF04</code> &#x2013; <code>0xABCDEF07</code></td>
+<td class="right">&#xa0;</td>
+</tr>
+
+<tr>
+<td class="left">&#xa0;</td>
+<td class="left"><code>0xABCDEF08</code> &#x2013; <code>0xABCDEF0B</code></td>
+<td class="right">&#xa0;</td>
+</tr>
+
+<tr>
+<td class="left">&#xa0;</td>
+<td class="left">&#x2026;&#x2026;&#x2026;&#x2026;&#x2026;&#x2026;&#x2026;&#x2026;&#x2026;.</td>
+<td class="right">&#xa0;</td>
+</tr>
+
+<tr>
+<td class="left"><code>x_pointer</code></td>
+<td class="left"><code>0xBACDEF00</code> &#x2013; <code>0xBACDEF03</code></td>
+<td class="right"><code>0xABCDEF00</code></td>
+</tr>
+</tbody>
+</table>
+
+<p>
+Notice that <code>x_pointer</code> has indeed assumed the address of <code>x</code>.  When
+we <a href="#coderef-incr-pointer"class="coderef" onmouseover="CodeHighlightOn(this, 'coderef-incr-pointer');" onmouseout="CodeHighlightOff(this, 'coderef-incr-pointer');">increment the pointer</a>, we advance the address it holds such that
+exactly one integer's worth of memory lies between its old value and
+its new value, like so:
+</p>
+
+<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+<caption class="t-above"><span class="table-number">Table 7:</span> <i>Memory</i></caption>
+
+<colgroup>
+<col  class="left" />
+
+<col  class="left" />
+
+<col  class="right" />
+</colgroup>
+<thead>
+<tr>
+<th scope="col" class="left">Symbol</th>
+<th scope="col" class="left">Address Block</th>
+<th scope="col" class="right">Data</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="left"><code>int square(int)</code></td>
+<td class="left"><code>0xFF000000</code> &#x2013; <code>0x?</code></td>
+<td class="right">&#xa0;</td>
+</tr>
+
+<tr>
+<td class="left"><code>x</code></td>
+<td class="left"><code>0xABCDEF00</code> &#x2013; <code>0xABCDEF03</code></td>
+<td class="right">4</td>
+</tr>
+
+<tr>
+<td class="left">&#xa0;</td>
+<td class="left"><code>0xABCDEF04</code> &#x2013; <code>0xABCDEF07</code></td>
+<td class="right">&#xa0;</td>
+</tr>
+
+<tr>
+<td class="left">&#xa0;</td>
+<td class="left"><code>0xABCDEF08</code> &#x2013; <code>0xABCDEF11</code></td>
+<td class="right">&#xa0;</td>
+</tr>
+
+<tr>
+<td class="left">&#xa0;</td>
+<td class="left">&#x2026;&#x2026;&#x2026;&#x2026;&#x2026;&#x2026;&#x2026;&#x2026;&#x2026;.</td>
+<td class="right">&#xa0;</td>
+</tr>
+
+<tr>
+<td class="left"><code>x_pointer</code></td>
+<td class="left"><code>0xBACDEF00</code> &#x2013; <code>0xBACDEF03</code></td>
+<td class="right"><code>0xABCDEF04</code></td>
+</tr>
+</tbody>
+</table>
+
+<div class="org-src-container">
+
+<pre class="src src-C" id="SIMPLE_C_PROGRAM"><span id="coderef-dereference" class="coderef-off"><span class="linenr">4: </span>*x_pointer  = 12;</span>
+</pre>
+</div>
+
+<p>
+Then, when we <a href="#coderef-dereference"class="coderef" onmouseover="CodeHighlightOn(this, 'coderef-dereference');" onmouseout="CodeHighlightOff(this, 'coderef-dereference');">dereference</a> <code>x_pointer</code> at its new value, we are given
+<i>the next `integer-slot' available</i> after <code>x</code>.  When we set it to
+<code>12</code>, something <i>amazing</i> happens: (to be read in the voice of the
+little boy from <i>The Incredibles</i>)
+</p>
+
+<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+<caption class="t-above"><span class="table-number">Table 8:</span> <i>Memory</i></caption>
+
+<colgroup>
+<col  class="left" />
+
+<col  class="left" />
+
+<col  class="right" />
+</colgroup>
+<thead>
+<tr>
+<th scope="col" class="left">Symbol</th>
+<th scope="col" class="left">Address Block</th>
+<th scope="col" class="right">Data</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="left"><code>int square(int)</code></td>
+<td class="left"><code>0xFF000000</code> &#x2013; <code>0x?</code></td>
+<td class="right">&#xa0;</td>
+</tr>
+
+<tr>
+<td class="left"><code>x</code></td>
+<td class="left"><code>0xABCDEF00</code> &#x2013; <code>0xABCDEF03</code></td>
+<td class="right">4</td>
+</tr>
+
+<tr>
+<td class="left">&#xa0;</td>
+<td class="left"><code>0xABCDEF04</code> &#x2013; <code>0xABCDEF07</code></td>
+<td class="right">12</td>
+</tr>
+
+<tr>
+<td class="left">&#xa0;</td>
+<td class="left"><code>0xABCDEF08</code> &#x2013; <code>0xABCDEF0B</code></td>
+<td class="right">&#xa0;</td>
+</tr>
+
+<tr>
+<td class="left">&#xa0;</td>
+<td class="left">&#x2026;&#x2026;&#x2026;&#x2026;&#x2026;&#x2026;&#x2026;&#x2026;&#x2026;.</td>
+<td class="right">&#xa0;</td>
+</tr>
+
+<tr>
+<td class="left"><code>x_pointer</code></td>
+<td class="left"><code>0xBACDEF00</code> &#x2013; <code>0xBACDEF03</code></td>
+<td class="right"><code>0xABCDEF04</code></td>
+</tr>
+</tbody>
+</table>
+
+<p>
+We have <i>indirectly</i> set the value of a spot in memory without ever
+giving it a name.  We never said <code>int x2</code> or anything of the sort; we
+manipulated memory to achieve what we wanted.  This phenomenon is
+called <i>indirection</i>, and manipulating memory like this is usually
+called `using indirection.'  Since you don't have to explicitly
+declare any variables, indirection is thus the foundation of both
+using arrays and implementing dynamic arrays.
+</p>
+</div>
+</div>
+<div id="outline-container-sec-4-4" class="outline-3">
+<h3 id="sec-4-4"><span class="section-number-3">4.4</span> Function Pointers</h3>
+<div class="outline-text-3" id="text-4-4">
+<p>
+Going forward,
+</p>
+
+<div class="org-src-container">
+
+<pre class="src src-C" id="SIMPLE_C_PROGRAM"><span id="coderef-reset-pointer" class="coderef-off"><span class="linenr">5: </span> x_pointer = &amp;x;</span>
+<span id="coderef-func_pointer" class="coderef-off"><span class="linenr">6: </span> <span style="color: #66D9EF;">int</span> (*<span style="color: #A6E22E;">function_pointer</span>)(<span style="color: #66D9EF;">int</span>);</span>
+<span id="coderef-assign-fptr" class="coderef-off"><span class="linenr">7: </span> function_pointer = &amp;square;</span>
+<span id="coderef-array-intr" class="coderef-off"><span class="linenr">8: </span>*(x_pointer + 2) = function_pointer(x);</span>
+</pre>
+</div>
+
+<p>
+We effectively `<a href="#coderef-reset-pointer"class="coderef" onmouseover="CodeHighlightOn(this, 'coderef-reset-pointer');" onmouseout="CodeHighlightOff(this, 'coderef-reset-pointer');">reset</a>' the value of <code>x_pointer</code> so that it points back
+to <code>x</code> (you can also say <code>x_pointer--;</code> in this particular case).
+Then, something <i>even more amazing</i> happens: we <a href="#coderef-func_pointer"class="coderef" onmouseover="CodeHighlightOn(this, 'coderef-func_pointer');" onmouseout="CodeHighlightOff(this, 'coderef-func_pointer');">declare</a> a <i>function
+pointer</i>.  Functions pointers are, in essence, just like normal
+pointers, although they are a bit different in their use.  I'm not
+sure what would happen if you were to increment a function pointer.
+I'm not sure what would happen if you tried to dereference one.
+Function pointers yet have their use.  Once `bound' to a function (as
+<code>function_pointer</code> is <a href="#coderef-assign-fptr"class="coderef" onmouseover="CodeHighlightOn(this, 'coderef-assign-fptr');" onmouseout="CodeHighlightOff(this, 'coderef-assign-fptr');">bound to <code>square</code></a>), the pointer can be used just
+as a normal function, as seen on the <a href="#coderef-array-intr"class="coderef" onmouseover="CodeHighlightOn(this, 'coderef-array-intr');" onmouseout="CodeHighlightOff(this, 'coderef-array-intr');">next line</a>.  It is important to
+note also on <a href="#coderef-array-intr"class="coderef" onmouseover="CodeHighlightOn(this, 'coderef-array-intr');" onmouseout="CodeHighlightOff(this, 'coderef-array-intr');">that line</a> the `shorthand' for working with pointers as
+arrays.  Can you guess what it did?
+</p>
+
+<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+<caption class="t-above"><span class="table-number">Table 9:</span> <i>Memory</i></caption>
+
+<colgroup>
+<col  class="left" />
+
+<col  class="left" />
+
+<col  class="left" />
+</colgroup>
+<thead>
+<tr>
+<th scope="col" class="left">Symbol</th>
+<th scope="col" class="left">Address Block</th>
+<th scope="col" class="left">Data</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="left"><code>int square(int)</code></td>
+<td class="left"><code>0xFF000000</code> &#x2013; <code>0x?</code></td>
+<td class="left">&#xa0;</td>
+</tr>
+
+<tr>
+<td class="left">&#xa0;</td>
+<td class="left"><code>..........</code></td>
+<td class="left">&#xa0;</td>
+</tr>
+
+<tr>
+<td class="left"><code>x</code></td>
+<td class="left"><code>0xABCDEF00</code> &#x2013; <code>0xABCDEF03</code></td>
+<td class="left">4</td>
+</tr>
+
+<tr>
+<td class="left">&#xa0;</td>
+<td class="left"><code>0xABCDEF04</code> &#x2013; <code>0xABCDEF07</code></td>
+<td class="left">12</td>
+</tr>
+
+<tr>
+<td class="left">&#xa0;</td>
+<td class="left"><code>0xABCDEF08</code> &#x2013; <code>0xABCDEF0B</code></td>
+<td class="left">16</td>
+</tr>
+
+<tr>
+<td class="left">&#xa0;</td>
+<td class="left"><code>0xABCDEF0C</code> &#x2013; <code>0xABCDEF0F</code></td>
+<td class="left">&#xa0;</td>
+</tr>
+
+<tr>
+<td class="left">&#xa0;</td>
+<td class="left"><code>..........</code></td>
+<td class="left">&#xa0;</td>
+</tr>
+
+<tr>
+<td class="left"><code>x_pointer</code></td>
+<td class="left"><code>0xAAAAAA00</code></td>
+<td class="left"><code>0xABCDEF00</code></td>
+</tr>
+
+<tr>
+<td class="left">&#xa0;</td>
+<td class="left"><code>..........</code></td>
+<td class="left">&#xa0;</td>
+</tr>
+
+<tr>
+<td class="left"><code>function_pointer</code></td>
+<td class="left"><code>0xBBBBBB00</code></td>
+<td class="left"><code>0xFF000000</code></td>
+</tr>
+
+<tr>
+<td class="left">&#xa0;</td>
+<td class="left"><code>..........</code></td>
+<td class="left">&#xa0;</td>
+</tr>
+</tbody>
+</table>
+
+<p>
+Thus, using <a href="#coderef-array-intr"class="coderef" onmouseover="CodeHighlightOn(this, 'coderef-array-intr');" onmouseout="CodeHighlightOff(this, 'coderef-array-intr');"><code>function\_pointer</code></a> was the same as using <a href="#coderef-assign-fptr"class="coderef" onmouseover="CodeHighlightOn(this, 'coderef-assign-fptr');" onmouseout="CodeHighlightOff(this, 'coderef-assign-fptr');"><code>square</code></a>, and
+referred to the same function in memory.  The resultant value (16) was
+stored two <code>int</code>-spaces from <code>x_pointer</code> (<code>x_pointer + 2</code>), whose
+value contained the address of <code>x</code>.  As we know, however, there is a
+far easier way of expressing the form <code>*(p + i)</code>.  After a lengthy
+debate with <a href="http://faculty.smcm.edu/sread/">Dr. Simon Read</a> (who had to consult his resources),
+<code>p[i]</code> := <code>*(p + i)</code>.
+</p>
+</div>
+</div>
+<div id="outline-container-sec-4-5" class="outline-3">
+<h3 id="sec-4-5"><span class="section-number-3">4.5</span> Arrays and Summary</h3>
+<div class="outline-text-3" id="text-4-5">
+<p>
+By far the most common use of pointers is for <i>arrays</i>, so naturally
+this use found its way into C syntax (use of the brackets is called
+<i>array notation</i>).
+</p>
+
+<p>
+So, pointers can be used simply as so, (note <code>%p</code> is a <code>printf</code> format
+flag for addresses (<i>p</i> is for <i>pointer</i>!)):
+</p>
+
+<div class="org-src-container">
+
+<pre class="src src-C" id="SIMPLE_C_PROGRAM"><span id="coderef-loop" class="coderef-off"><span class="linenr"> 9: </span><span style="color: #F92672;">for</span>(<span style="color: #66D9EF;">int</span> <span style="color: #FD971F;">i</span> = 0; i &lt; 3; i++) {</span>
+<span id="coderef-anal-mem" class="coderef-off"><span class="linenr">10: </span>  printf(<span style="color: #E6DB74;">"Address \"%p\" holds \"%d\".\n"</span>,</span>
+<span id="coderef-array-nota" class="coderef-off"><span class="linenr">11: </span>          x_pointer + i, x_pointer[i]);</span>
+<span id="coderef-end-loop" class="coderef-off"><span class="linenr">12: </span>}</span>
+</pre>
+</div>
+
+<p>
+This would print out as
+</p>
+
+<pre class="example">
+Address "0xABCDEF00" holds "4".
+Address "0xABCDEF04" holds "12".
+Address "0xABCDEF08" holds "16".
+</pre>
+
+<p>
+And thus, we have finished the guts of the program.  What follows are
+the necessary statements needed to make this a valid C program.
+</p>
+
+<div class="org-src-container">
+
+<pre class="src src-C" id="SIMPLE_C_PROGRAM"><span id="coderef-final-print" class="coderef-off"><span class="linenr">13: </span>  puts(<span style="color: #E6DB74;">"All done."</span>);</span>
+<span class="linenr">14: </span>  <span style="color: #F92672;">return</span> 0;
+<span class="linenr">15: </span>}
+<span class="linenr">16: </span>
+<span id="coderef-defun-square" class="coderef-off"><span class="linenr">17: </span><span style="color: #66D9EF;">int</span> <span style="color: #A6E22E;">square</span>(<span style="color: #66D9EF;">int</span> <span style="color: #FD971F;">a</span>) {</span>
+<span class="linenr">18: </span>  <span style="color: #F92672;">return</span> a * a;
+<span class="linenr">19: </span>}
+</pre>
+</div>
+
+<p>
+And there you have it!  Remember everything you've learned so far;
+it's important that you're comfortable with it before you can
+implement what lies ahead&#x2026;
+</p>
+
+<ul class="org-ul">
+<li>Functions and variables have memory addresses
+</li>
+<li>These addresses can be accessed using the address-of operator, <code>&amp;</code>
+</li>
+<li>Addresses are stored in pointers
+</li>
+<li>You can get the value stored at an address using the dereferencing
+operator, <code>*</code>
+</li>
+</ul>
+
+<p>
+Know what is going on in these statements (there is not necessarily
+any coherence within them):
+</p>
+
+<div class="org-src-container">
+
+<pre class="src src-C"><span style="color: #66D9EF;">int</span> *<span style="color: #FD971F;">p</span> = &amp;v;
+
+<span style="color: #66D9EF;">char</span> *<span style="color: #FD971F;">s</span> = malloc(7 * <span style="color: #F92672;">sizeof</span>(<span style="color: #66D9EF;">char</span>));
+
+<span style="color: #66D9EF;">void</span> (*<span style="color: #A6E22E;">fp</span>)(<span style="color: #66D9EF;">void</span>) = &amp;hi;
+
+s[0] = <span style="color: #E6DB74;">'H'</span>;
+s[1] = <span style="color: #E6DB74;">'e'</span>;
+s[2] = <span style="color: #E6DB74;">'l'</span>;
+s[3] = <span style="color: #E6DB74;">'l'</span>;
+s[4] = <span style="color: #E6DB74;">'o'</span>;
+s[5] = <span style="color: #E6DB74;">'!'</span>;
+s[6] = <span style="color: #E6DB74;">'\0'</span>;
+</pre>
+</div>
+
+<p>
+A few extra things to note for the above:
+</p>
+
+<ul class="org-ul">
+<li><code>sizeof(T)</code> is a special function that takes a type (such as <code>int</code>
+or <code>struct MyStruct</code>) and returns a <code>sizet</code> (a size-type; basically
+an <code>unsigned int</code>) of how many bytes it takes to store a complete
+variable of that type.  On 32-bit systems, for example, <code>sizeof(int)
+  = 4</code>.
+</li>
+<li><code>malloc(sizet)</code> is a function (included in <code>stdlib.h</code>) that returns
+an address that marks the beginning of a block of free memory.  Use
+of this function is <i>always</i> recommended, as it also protects the
+memory you ask for from being written over by another part of the
+program (it <i>allocates</i> the <i>memory</i> for you).
+</li>
+<li>Since there are no explicit bounds on `arrays' (since these are just
+pointers), there is no real way to `stop' an array.  Thus, since C
+strings are just arrays of characters, each string in C is ended by
+the null character, <code>\0</code>.  (C-strings are so-called
+<i>null-terminated</i> strings.)
+</li>
+</ul>
+
+<p>
+A complete reference for all of these functions can be found at <a href="http://www.cplusplus.com/reference/">the
+C++ Reference Page</a>.  It is an excellent and highly recommended
+resource.
+</p>
+</div>
+</div>
+</div>
+<div id="outline-container-sec-5" class="outline-2">
+<h2 id="sec-5"><span class="section-number-2">5</span> Object Orientism</h2>
+<div class="outline-text-2" id="text-5">
+<p>
+You are just about ready to delve into object-oriented C.  From here
+on out, there will be almost <i>no immediately relevant code</i> (at least
+until after the project is due).  C is a language that is not
+immediately well-suited for object-oriented techniques, however, a
+firm understanding of <i>exactly what object-orientism is</i> will be
+invaluable in your endeavors.  Let us begin.
+</p>
+</div>
+<div id="outline-container-sec-5-1" class="outline-3">
+<h3 id="sec-5-1"><span class="section-number-3">5.1</span> Objects?  What are Objects?</h3>
+<div class="outline-text-3" id="text-5-1">
+<p>
+What <i>are</i> objects?  Think back to your days of 120, where everything
+was so simple and orderly.  You always knew exactly what was going to
+happen at any given moment (or at least, looking back now you can).
+Everything happened in order, exactly as you instructed.  You made
+variables and <code>for</code> loops and <code>while</code> loops and all arrangements of
+<code>if</code> statements, and you thought you reached the limits of what Java
+could do.
+</p>
+
+<p>
+This is pretty much what C is like at first glance.  While everything
+can be done in the <code>main</code> function, it would be ugly and untenable &#x2013;
+impossible to manage or comprehend.  A lot of functionality would be
+lost to you unless you <i>really</i> knew what you were doing with those
+`pointer' things up there.  But in Java, you didn't stop at the <code>main</code>
+function; you went on to create other functions inside the same file.
+You went on to put variables, free from any function, inside that file
+as well.  <i>Then you even started using that entire file as a singly
+entity from another file.</i>
+</p>
+</div>
+</div>
+<div id="outline-container-sec-5-2" class="outline-3">
+<h3 id="sec-5-2"><span class="section-number-3">5.2</span> Methods for Models</h3>
+<div class="outline-text-3" id="text-5-2">
+<p>
+This is the essence of object-orientism.  Going back to 120, what is
+an object?  For example's sake, let's assume that in the previous
+illustration, you created a <code>Person</code> class and a <code>Car</code> class, where
+<code>Car</code> was using <code>Person</code>.  An object is often seen as the sum of its
+parts:
+</p>
+
+<dl class="org-dl">
+<dt> state </dt><dd>Each variable in <code>Person</code> described what a <code>Person</code> could
+<i>be</i>.  Did the <code>Person</code> have brown hair or gray hair?  Did
+they have hair at all?  How long were their legs?  Where
+they long enough to reach the ground?  Each free-standing
+variable (the ones not included in functions (or <i>methods</i>,
+as they should now be called)) consistently and instantly
+described a particular quality of a <code>Person</code> unambiguously.
+Each <code>Person</code> object had the same types of qualities, but
+they did not have to be identical <i>in those</i> qualities.  In
+short, objects <i>are</i> things.
+</dd>
+<dt> behavior </dt><dd>Since each <i>function</i> in the file really described any
+<code>Person</code>'s abilities, they are more appropriately
+described as <i>methods</i> of the class.  Each <code>Person</code> had
+the same abilities and the same way for performing those
+abilities.  In short, objects can <i>do</i> things.
+</dd>
+<dt> identity </dt><dd>No two objects created via constructor are the same
+object.  Every object is mutually distinct from every
+other object unless one was explicitly instructed to
+copy another.
+</dd>
+</dl>
+
+<p>
+The possession of state and behavior are by far the most evident
+qualities of what it is to be an object.  They are everything you
+would write down in a class file in Java.  Each object has a set of
+attributes according to a specific model, and each class has methods
+that act on the models they were designed for.  In this way, it is
+common to see the `model' and the `state of an object' to mean the
+same thing &#x2013; and likewise with `methods' and `behavior'.
+</p>
+</div>
+</div>
+<div id="outline-container-sec-5-3" class="outline-3">
+<h3 id="sec-5-3"><span class="section-number-3">5.3</span> Identity</h3>
+<div class="outline-text-3" id="text-5-3">
+<p>
+So the first two were easy to understand, but the last may confuse you.
+Consider the following example in Java, where the <code>Person</code> class
+already exists:
+</p>
+
+<div class="org-src-container">
+
+<pre class="src src-java"><span style="color: #66D9EF;">Person</span> <span style="color: #FD971F;">a</span> = <span style="color: #F92672;">new</span> <span style="color: #66D9EF;">Person</span>(<span style="color: #E6DB74;">"John"</span>);
+<span style="color: #66D9EF;">Person</span> <span style="color: #FD971F;">b</span> = <span style="color: #F92672;">new</span> <span style="color: #66D9EF;">Person</span>(<span style="color: #E6DB74;">"John"</span>);
+
+<span style="color: #F92672;">if</span> (a == b) {
+    System.out.println(<span style="color: #E6DB74;">"They have the same data,\n"</span>
+                     + <span style="color: #E6DB74;">"so they are the same object."</span>);
+}
+</pre>
+</div>
+
+<p>
+Would that printout occur?  Are the <code>Person</code> objects <code>a</code> and <code>b</code> equal
+to each other?  They have the same name, but I'm sure you share your name
+with another person you know.  Are you two then the same person?
+Of course not!  <code>a</code> has an identity <i>apart from</i> <code>b</code>.  <code>a!=b</code>.
+</p>
+
+<p>
+So then, what does it mean for one object to be equal to another?
+It's not sufficient that they have the same name; something else is
+going on that Java's syntax is hiding from us.  Let's look at another
+example.
+</p>
+
+<div class="org-src-container">
+
+<pre class="src src-java"><span style="color: #66D9EF;">Person</span> <span style="color: #FD971F;">a</span> = <span style="color: #F92672;">new</span> <span style="color: #66D9EF;">Person</span>(<span style="color: #E6DB74;">"John"</span>);
+<span style="color: #66D9EF;">Person</span> <span style="color: #FD971F;">b</span> = a;
+
+<span style="color: #F92672;">if</span> (a == b) {
+    System.out.println(<span style="color: #E6DB74;">"whee!"</span>);
+}
+</pre>
+</div>
+
+<p>
+Will this print out?  (Hint: the constructor for <code>Person</code> was only
+called once).  The written medium unfortunately cannot wait for an
+answer; yes they will.  Only one <code>Person</code> object (<code>a</code>) was actually
+created; <code>b</code> was simply assigned to equal whatever <code>a</code> equaled at the
+time.  Does this remind you of anything?  Have we <a href="#sec-4-2-1">double-dipped</a> into
+the one <code>Person</code> object created?  What does this imply about <code>a</code> and
+<code>b</code>?  <i>They're pointers?!?</i>
+</p>
+
+<p>
+<b>Every object in Java is a pointer to a place in memory where the
+object's data is held.</b>
+</p>
+</div>
+</div>
+</div>
+<div id="outline-container-sec-6" class="outline-2">
+<h2 id="sec-6"><span class="section-number-2">6</span> Conclusions and Hints</h2>
+<div class="outline-text-2" id="text-6">
+<p>
+Let's review what we know about objects in general and what we have
+observed from Java:
+</p>
+
+<ul class="org-ul">
+<li>A class defines two things:
+<ul class="org-ul">
+<li>a model of data that each member of the class will have unique to
+itself (<i>state</i>)
+</li>
+<li>a collection of methods that are designed to operate on such
+models (<i>behavior</i>)
+</li>
+</ul>
+</li>
+<li>An object in Java is merely a pointer to its data, the object's
+data may be copied, but to be an object is to be a reference to a
+specific point in memory (<i>identity</i>)
+</li>
+</ul>
+
+<p>
+Let's review what we know about C:
+</p>
+
+<ul class="org-ul">
+<li>C has easy access to and manipulation of memory address through pointers
+</li>
+<li>C can define new types (structures<sup><a id="fnr.3" name="fnr.3" class="footref" href="#fn.3">3</a></sup>) as compositions of base
+types (<code>int</code>, <code>char</code>, <i>pointers</i>, etc.)<sup><a id="fnr.4" name="fnr.4" class="footref" href="#fn.4">4</a></sup>
+</li>
+<li>C can have pointers to functions that, for all intents and purposes,
+mostly act like regular variables.
+</li>
+</ul>
+
+<p>
+How can you apply what you know about structures, pointers, and
+object-orientism to complete this project?  Let's review the
+requirements:
+</p>
+
+<dl class="org-dl">
+<dt> To get an 85 </dt><dd>A "class" that includes fields and functions; a
+piece of demonstration code with a full class
+implementation of something simple (Rectangle,
+Student, etc.).
+</dd>
+</dl>
+
+<p>
+You already know how to do this.  (In fact, if you've read this entire
+document, you already know how to get a 100.)  What is a class?  A
+class has <i>state</i> (a model of data) and <i>behavior</i> (a collection of
+methods to work with that data).  If you're having trouble figuring
+out how you're going to make many data come as a single entity, you
+may want to check out the <code>struct</code> again.  This one isn't too fancy.
+</p>
+
+<dl class="org-dl">
+<dt> To get a 90 </dt><dd>Add "instantiation".  This would include multiple
+constructors.  An extra 5 points if you handle
+multiple constructors as functions with the same name
+but different number of parameters.
+</dd>
+</dl>
+
+<p>
+What is a constructor but something that prepares the house and hands
+you a key?  Metaphors, man.  (Confucius says: "the key to your
+understanding is <i>pointers</i>.")
+</p>
+
+<dl class="org-dl">
+<dt> To get a 100 </dt><dd>Add "object" variables to classes.  This will
+require you to create two classes, and have one
+inside of the other (for instance a Point object
+inside of a Shape class).
+</dd>
+</dl>
+
+<p>
+This one is dead simple.  What are objects but keys to a house?
+</p>
+
+<dl class="org-dl">
+<dt> To get a 110 </dt><dd>Add public and private scope
+</dd>
+</dl>
+
+<p>
+You might want to have a public (hint: <code>static</code>) key and a private
+key.  And you thought get/set methods were completely useless!
+</p>
+
+<p>
+Or perhaps you'd fancy a global, omniscient, sentient key-chain?
+</p>
+
+<dl class="org-dl">
+<dt> To get a 120 </dt><dd>Add inheritance. (no hints from the instructor or
+TAs here)
+</dd>
+</dl>
+
+<p>
+I am neither the instructor nor a TA, but I still find it fun to say
+'it sucks to be you.'
+</p>
+
+<p>
+However, I will point you to an invaluable resource that is available
+<a href="http://www.cs.rit.edu/~ats/books/ooc.pdf">here</a>.  Inside, Schreiner describes a quite different (but much more
+versatile and consequently a little more advanced) practical approach
+to object-oriented C.  There really is <i>very little</i> to the syntax of
+C, and it is consistent.  With a firm knowledge of C's syntax (and the
+humility to Google what you don't know), I have complete confidence
+that you'll be able to understand it (since it's really not all that
+complex).  Who knows?  If you can manage to write your own <code>ooc</code>
+preprocessor as Schreiner describes, this project can become very,
+very easy.  I mean, nobody has told you to write <code>ooc</code> in C, have
+they?
+</p>
+
+<p>
+Good luck, folks.
+</p>
+</div>
+</div>
+<div id="outline-container-sec-7" class="outline-2">
+<h2 id="sec-7"><span class="section-number-2">7</span> Endnotes</h2>
+<div class="outline-text-2" id="text-7">
+<p>
+This document was written using Emacs' <code>org-mode</code>.  The source is
+available <a href="http://localhost:4000/assets/s13-251-p1.org.html">here</a> for reference.
+</p>
+</div>
+</div>
+<div id="footnotes">
+<h2 class="footnotes">Footnotes: </h2>
+<div id="text-footnotes">
+
+<div class="footdef"><sup><a id="fn.1" name="fn.1" class="footnum" href="#fnr.1">1</a></sup> <p class="footpara">
+There are several steps to build a C program.  The program is
+compiled, assembled, and then linked.  The linker is what associates
+definitions with calls.
+</p></div>
+
+<div class="footdef"><sup><a id="fn.2" name="fn.2" class="footnum" href="#fnr.2">2</a></sup> <p class="footpara">
+This is often shortened <code>int*</code>, but there are problems with
+this, to be discussed later.
+</p></div>
+
+<div class="footdef"><sup><a id="fn.3" name="fn.3" class="footnum" href="#fnr.3">3</a></sup> <p class="footpara">
+C has <code>structs</code> that effectively define new types.  They are
+assumed knowledge for this document, but you can find out more about
+them over at the reference pages.
+</p></div>
+
+<div class="footdef"><sup><a id="fn.4" name="fn.4" class="footnum" href="#fnr.4">4</a></sup> <p class="footpara">
+Hint: pointers can point to either functions or variables <i>of any type</i>.
+</p></div>
+
+
+</div>
+</div></div>
+<div id="postamble" class="status">
+<p class="date">Date: <span class="timestamp-wrapper"><span class="timestamp">[2013-02-02 Sat]</span></span></p>
+<p class="author">Author: Sean Allred</p>
+<p class="date">Created: 2015-07-05 Sun 11:11</p>
+<p class="creator"><a href="http://www.gnu.org/software/emacs/">Emacs</a> 24.5.1 (<a href="http://orgmode.org">Org</a> mode 8.2.10)</p>
+<p class="validation"><a href="http://validator.w3.org/check?uri=referer">Validate</a></p>
+</div>
+</body>
+</html>
