@@ -4,6 +4,7 @@ category: reviews
 name: syntax
 date: 2010-02-03
 recommend: no
+ctan: syntax-mdw
 summary: >
 
   eh

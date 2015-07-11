@@ -27,7 +27,7 @@ layout: default
   <dl class="annotated-link-list">
     {% capture posts %}
     {% for review in site.categories.reviews %}
-    |{{ review.title | downcase }}#{{ review.url }}#{{review.recommend}}#{{review.link}}#{{review.summary}}
+    |{{ review.title | downcase }}#{{ review.url }}#{{review.recommend}}#{{review.link}}#{{review.ctan}}#{{review.summary}}
     {% endfor %}
     {% endcapture %}
     {% assign sortedposts = posts | split: '|' | sort %}
@@ -38,12 +38,14 @@ layout: default
     {% assign url = postitems[1] %}
     {% assign recommended = postitems[2] %}
     {% assign link = postitems[3] %}
-    {% assign summary = postitems[4] %}
+    {% assign ctan = postitems[4] %}
+    {% assign summary = postitems[5] %}
     <dt class="annotated-link-title">
       <a href="{{ review.url | prepend: site.baseurl }}"
          class="review-name {% if recommended %} review-recommended {% endif %}"
-         >{{title}}</a>&nbsp;{% if link %}
-      <a href="//{{link}}">(homepage)</a>{% else %}
+         >{{title}}</a>&nbsp;{% if link != "" %}
+      <a href="//{{link}}">(homepage)</a>{% elsif ctan != "" %}
+      <a href="//ctan.org/pkg/{{ctan}}">(CTAN)</a>{% else %}
       <a href="//ctan.org/pkg/{{title}}">(CTAN)</a>{% endif %}</dt>
     <dd class="annotated-link-annotation">{{summary}}</dd>
     {% endfor %}
