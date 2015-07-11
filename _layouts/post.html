@@ -15,15 +15,5 @@ layout: default
     {{ content }}
   </article>
 
-  <footer class="github-topic-suggestion">
-    {% if page.github %}
-    This topic was suggested by one of <em>you</em>
-    <a href="http://www.github.com/vermiculus/vermiculus.github.io/issues/{{ page.github }}">submitting an idea on GitHub!</a>
-    {% else %}
-    Did you know you can suggest a topic via the GitHub issue tracker?
-    It's easy!
-    {% endif %}
-    <a href="http://www.github.com/vermiculus/vermiculus.github.io/issues/new">Click here</a> to submit your own idea.
-    No GitHub? <a href="http://www.twitter.com/vermiculus">Tweet me.</a>
-  </footer>
+  {% include suggest.html %}
 </div>
