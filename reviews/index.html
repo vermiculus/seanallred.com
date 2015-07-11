@@ -7,21 +7,45 @@ layout: default
   There are so many packages and tools out there!  Which ones should I use?
   <h2>Recommended Packages</h2>
   <ul class="multicol-list3">
-    {% for review in site.categories['reviews'] %}
+    {% capture posts %}
+    {% for review in site.categories.reviews %}
     {% if review.recommend %}
-    <li><a href="{{ review.url | prepend: site.baseurl }}" class="review-name">{{review.name}}</a></dt>
+    |{{ review.title | downcase }}#{{ review.url }}
     {% endif %}
+    {% endfor %}
+    {% endcapture %}
+    {% assign sortedposts = posts | split: '|' | sort %}
+
+    {% for review in sortedposts offset:1 %}
+    {% assign postitems = review | split: '#' %}
+    {% assign title = postitems[0] | prepend: site.baseurl %}
+    {% assign url = postitems[1] %}
+    <li><a href="{{url}}" class="review-name">{{title}}</a></dt>
     {% endfor %}
   </ul>
   <h2>All Reviews</h2>
   <dl class="annotated-link-list">
-    {% for review in site.categories['reviews'] %}
+    {% capture posts %}
+    {% for review in site.categories.reviews %}
+    |{{ review.title | downcase }}#{{ review.url }}#{{review.recommend}}#{{review.link}}#{{review.summary}}
+    {% endfor %}
+    {% endcapture %}
+    {% assign sortedposts = posts | split: '|' | sort %}
+
+    {% for review in sortedposts offset:1 %}
+    {% assign postitems = review | split: '#' %}
+    {% assign title = postitems[0] | prepend: site.baseurl %}
+    {% assign url = postitems[1] %}
+    {% assign recommended = postitems[2] %}
+    {% assign link = postitems[3] %}
+    {% assign summary = postitems[4] %}
     <dt class="annotated-link-title">
       <a href="{{ review.url | prepend: site.baseurl }}"
-         class="review-name {% if review.recommend %} review-recommended {% endif %}">{{review.name}}</a>&nbsp;{% if review.link %}
-      <a href="//{{ review.link }}">(homepage)</a>{% else %}
-      <a href="//ctan.org/pkg/{{ review.name }}">(CTAN)</a>{% endif %}</dt>
-    <dd class="annotated-link-annotation">{{review.summary}}</dd>
+         class="review-name {% if recommended %} review-recommended {% endif %}"
+         >{{title}}</a>&nbsp;{% if link %}
+      <a href="//{{link}}">(homepage)</a>{% else %}
+      <a href="//ctan.org/pkg/{{title}}">(CTAN)</a>{% endif %}</dt>
+    <dd class="annotated-link-annotation">{{summary}}</dd>
     {% endfor %}
   </dl>
   <p class="rss-subscribe">subscribe <a href="{{ "/feed.xml" | prepend: site.baseurl }}">via RSS</a></p>
