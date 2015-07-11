@@ -1,0 +1,29 @@
+---
+layout: default
+---
+<div class="post">
+
+  <header class="post-header">
+    <h1 class="post-title">Review: {{ page.name }}</h1>
+    {% if page.subtitle %}
+    <h2 class="post-subtitle">{{ page.subtitle }}</h2>
+    {% endif %}
+    <p class="post-meta"><a href="//ctan.org/pkg/{{page.name}}"><span class="review-name">{{page.name}}</span> on CTAN</a> • {{ page.date | date: "%b %-d, %Y" }}{% if page.author %} • {{ page.author }}{% endif %}{% if page.meta %} • {{ page.meta }}{% endif %} • {% include reading-time.html %}</p>
+  </header>
+
+  <article class="post-content">
+    {{ content }}
+  </article>
+  
+  {% if page.related %}
+    <h2>Related Packages</h2>
+    <ul>
+      {% for hash in page.related %}
+        {% for link in hash %}
+          <li><a href="{{ link[1] }}">{{ link[0] }}</a></li>
+        {% endfor %}
+      {% endfor %}
+    </ul>
+  {% endif %}
+  {% include suggest.html %}
+</div>

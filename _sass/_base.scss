@@ -41,7 +41,21 @@ dl {
     padding-bottom: 3ex;
 }
 
+.review-name {
+    font-family: $code-font-family;
+}
+ul.li.review-name {
+    font-weight: bold;
+}
 
+.review-recommended {
+    background-image: url('http://i.imgur.com/Zn5jRg5.png');
+    background-repeat: no-repeat;
+    background-position: 0px 3px;
+    background-size: 15px;
+    margin-left: -20px;
+    padding-left: 20px;
+}
 
 /**
  * Set `margin-bottom` to maintain vertical rhythm

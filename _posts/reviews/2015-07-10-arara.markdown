@@ -1,0 +1,13 @@
+---
+layout: review
+category: reviews
+name: arara
+recommend: true
+summary: >
+
+  the <em>cool</em> TeX automation tool &ndash; standardizing your
+  build steps without log file analysis
+
+---
+
+Content coming soon. This page is here for infrastructure testing.

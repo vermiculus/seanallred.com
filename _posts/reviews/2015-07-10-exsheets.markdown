@@ -1,0 +1,12 @@
+---
+layout: review
+category: reviews
+name: exsheets
+recommend: true
+summary: >
+
+  a powerful, LaTeX3-based package for exams and exercise sheets
+
+---
+
+Content coming soon. This page is here for infrastructure testing.
