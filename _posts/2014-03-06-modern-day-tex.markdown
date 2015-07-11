@@ -20,7 +20,7 @@ If you       use TeX, is it worth it to actively show others?
 If you don't use TeX, is it worth learning,
   and how much do you actually need to learn?
 
-<!-- more -->
+<!--more-->
 
 There are many introductions to TeX and LaTeX on the web,
   so I will not duplicate it them here.

@@ -12,6 +12,7 @@ exclude:
   - Gemfile.lock
   - CONTRIBUTING.md
   - README.md
+excerpt_separator: "<!--more-->"
 
 # Build settings
 markdown: kramdown

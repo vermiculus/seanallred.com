@@ -4,6 +4,7 @@ title: "GitHub Pages with DreamHost"
 date: "2015-05-24 21:35:05 -0500"
 comments: true
 off-topic: true
+category: admin
 ---
 
 It's been a long, confusing day as I've migrated some of my old
@@ -14,6 +15,8 @@ can.  I drive stick with Jekyll on Mac OS X -- I do not use GitHub's
 page generator.  If you want to use the page generator, you may still
 use this guide as a reference, but I'm sorry that it won't line up
 perfectly.
+
+<!--more-->
 
 Assume your GitHub username is `bobbins`, your domain name is
 `bilbo.org`, and you want to use `blog.bilbo.org` for your Jekyll

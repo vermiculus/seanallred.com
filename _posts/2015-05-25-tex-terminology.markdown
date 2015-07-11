@@ -5,8 +5,7 @@ subtitle: "A review of TeX terminology"
 date: 2015-05-25 12:00:00 -0400
 comments: true
 published: true
-categories:
-- tex
+category: tex
 ---
 
 TeX is a great piece of software with a traditionally specific set of
@@ -19,11 +18,11 @@ education on all the different players -- what goes into getting them
 from introduction to installation to a finished product.  I hope this
 article will answer some of these questions you never knew you had.
 
-From the simple to the sublime, we will cover <!-- engines, formats,
-packages and modules, editors, helper tools, build tools,
-distributions, and CTAN.  --> the different aspects of what goes into
-a working TeX system.  This should give you a pretty complete picture
-of this brave, new world you've entered into.
+<!--more-->
+
+From the simple to the sublime, we will cover the different aspects of
+what goes into a working TeX system.  This should give you a pretty
+complete picture of this brave, new world you've entered into.
 
 * TOC
 {:toc}

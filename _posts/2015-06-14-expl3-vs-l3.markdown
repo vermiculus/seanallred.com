@@ -12,6 +12,8 @@ I've seen a few people here and there refer to LaTeX3 and `expl3`
 interchangeably.  While they're very related, they are distinct from
 each other.
 
+<!--more-->
+
 `expl3`
 : The [format-independent][e-v-3] programming layer powering LaTeX3.
 Provides tools to make programming in a TeX environment saner.  Under

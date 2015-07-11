@@ -14,7 +14,7 @@ As I was at the time in a course that more-or-less guided the class
   I eagerly agreed to help her out.
 Turned out to be slightly more than I bargained for.
 
-<!-- more -->
+<!--more-->
 
 She needed (and is still needing;
   I'm currently waiting on a motion sensor from Digikey)
