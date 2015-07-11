@@ -34,20 +34,25 @@ layout: default
 
     {% for review in sortedposts offset:1 %}
     {% assign postitems = review | split: '#' %}
-    {% assign title = postitems[0] | prepend: site.baseurl %}
-    {% assign url = postitems[1] %}
+    {% assign title = postitems[0] %}
+    {% assign url = postitems[1] | prepend: site.baseurl %}
     {% assign recommended = postitems[2] %}
     {% assign link = postitems[3] %}
     {% assign ctan = postitems[4] %}
     {% assign summary = postitems[5] %}
-    <dt class="annotated-link-title">
-      <a href="{{ review.url | prepend: site.baseurl }}"
-         class="review-name {% if recommended == 'true' %} review-recommended {% endif %}"
-         >{{title}}</a>&nbsp;{% if link != "" %}
-      <a href="//{{link}}">(homepage)</a>{% elsif ctan != "" %}
-      <a href="//ctan.org/pkg/{{ctan}}">(CTAN)</a>{% else %}
-      <a href="//ctan.org/pkg/{{title}}">(CTAN)</a>{% endif %}</dt>
-    <dd class="annotated-link-annotation">{{summary}}</dd>
+    <div class="mouse-highlight">
+      <dt class="annotated-link-title">
+        <a href="{{url}}"
+           class="review-name
+                  {% if recommended == 'true' %}
+                  review-recommended
+                  {% endif %}"
+           >{{title}}</a>&nbsp;{% if link != "" %}
+        <a href="//{{link}}">(homepage)</a>{% elsif ctan != "" %}
+        <a href="//ctan.org/pkg/{{ctan}}">(CTAN)</a>{% else %}
+        <a href="//ctan.org/pkg/{{title}}">(CTAN)</a>{% endif %}</dt>
+      <dd class="annotated-link-annotation">{{summary}}</dd>
+    </div>
     {% endfor %}
   </dl>
   <p class="rss-subscribe">subscribe <a href="{{ "/feed.xml" | prepend: site.baseurl }}">via RSS</a></p>

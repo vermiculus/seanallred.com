@@ -57,6 +57,10 @@ ul.li.review-name {
     padding-left: 20px;
 }
 
+.mouse-highlight:hover {
+    background-color: lighten($brand-color, 65%);
+}
+
 /**
  * Set `margin-bottom` to maintain vertical rhythm
  */
