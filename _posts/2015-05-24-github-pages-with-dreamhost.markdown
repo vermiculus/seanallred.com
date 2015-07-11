@@ -5,6 +5,10 @@ date: "2015-05-24 21:35:05 -0500"
 comments: true
 off-topic: true
 category: admin
+links:
+- "GitHub Pages: Basics": //help.github.com/categories/github-pages-basics/
+- Simple width fix for Disqus comments with Jekyll: //gist.github.com/vermiculus/54ff79fc4d98f401bf15
+
 ---
 
 It's been a long, confusing day as I've migrated some of my old
@@ -93,8 +97,3 @@ clicking 'Host DNS Only!'.  After that, change the `CNAME` file in
 your repository to use the `www` subdomain.  After you do this and
 your changes take effect, traffic to `www.bilbo.org` will be
 redirected to your Pages site.
-
-## Further reading
-
-- <https://help.github.com/categories/github-pages-basics/>
-- [Simple width fix for Disqus comments with Jekyll](https://gist.github.com/vermiculus/54ff79fc4d98f401bf15)
