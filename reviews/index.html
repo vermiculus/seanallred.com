@@ -42,7 +42,7 @@ layout: default
     {% assign summary = postitems[5] %}
     <dt class="annotated-link-title">
       <a href="{{ review.url | prepend: site.baseurl }}"
-         class="review-name {% if recommended %} review-recommended {% endif %}"
+         class="review-name {% if recommended == 'true' %} review-recommended {% endif %}"
          >{{title}}</a>&nbsp;{% if link != "" %}
       <a href="//{{link}}">(homepage)</a>{% elsif ctan != "" %}
       <a href="//ctan.org/pkg/{{ctan}}">(CTAN)</a>{% else %}
