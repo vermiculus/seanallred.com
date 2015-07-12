@@ -10,4 +10,52 @@ summary: >
 
 ---
 
-Content coming soon. This page is here for infrastructure testing.
+Arara is a [build tool][tex-term] designed for TeX documents.  Unlike
+most other build tools, arara will only do what you tell it to do.
+`arara` has to be one of my favorite TeX-related tools: it is
+exceptionally simple to use, predictable, reliable, and extensible.
+You can integrate it with most LaTeX editors out there -- instructions
+for doing so are clearly spelled out in its excellent manual.
+
+Instead of trying guessing the next compilation step from the log,
+arara works by reading 'directives' at the top of your file.  These
+directives tell arara what to do with defaults and options configured
+in corresponding 'rules'.  For example, this directive (the line
+beginning with `% arara:`) will call the `pdflatex` *rule* with the
+defaults, which will in turn call the `pdflatex` *program* as
+appropriate.
+
+{% highlight tex %}
+% arara: pdflatex
+\documentclass{article}
+\begin{document}
+hello, world
+\end{document}
+{% endhighlight %}
+
+Specifying options for the directive is easy:
+
+{% highlight tex %}
+% arara: pdflatex: { synctex: yes }
+\documentclass{article}
+\begin{document}
+hello, world
+\end{document}
+{% endhighlight %}
+
+The above will add the appropriate command-line options to generate
+files for SyncTeX.
+
+The greatest advantage of arara comes in its extensibility.  Since
+other tools focus on fully automating the process from start to
+finish, adding a 'new step' involves complex programming to understand
+TeX's output and decide to run that new step.  With arara, you can
+just create a new rule.
+
+> Since arara is coming out with a new version soon, I will wait for
+> the release of that new version before adding an example rule.  More
+> content will also follow that release -- it's filled with fantastic
+> and useful new features :)
+
+[gh]: //www.github.com/cereda/arara
+[tex-term]: {% post_url 2015-05-25-tex-terminology %}
