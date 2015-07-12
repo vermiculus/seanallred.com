@@ -11,9 +11,8 @@ summary: >
 ---
 
 Arara is a [build tool][tex-term] designed for TeX documents.  Unlike
-most other build tools, arara will only do what you tell it to do.
-`arara` has to be one of my favorite TeX-related tools: it is
-exceptionally simple to use, predictable, reliable, and extensible.
+most other build tools, arara will only do what you tell it to do.  It
+is exceptionally simple to use, predictable, reliable, and extensible.
 You can integrate it with most LaTeX editors out there -- instructions
 for doing so are clearly spelled out in its excellent manual.
 
