@@ -1,0 +1,9 @@
+baseURL = "http://seanallred.com/"
+languageCode = "en-us"
+title = "(defvar me"
+ignoreFiles = [ "~$" ]
+theme = "ananke"
+description = "a forgotten blog"
+
+[params]
+CopyrightHolder = "Sean Allred"
