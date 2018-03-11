@@ -242,7 +242,8 @@ If you don't feel comfortable asking me,
 
 Toodles!
 
-[1]: http://fluff.info/terrible
+<!-- [1]: http://fluff.info/terrible -->
+[1]: https://web.archive.org/web/20170401165039/fluff.info/terrible
 [2]: Unplugged
 [3]: http://i.imgur.com/3CWCehW.gif
 [4]: https://github.com/vermiculus/smcm-tex/blob/master/smcm-tex/cosc/smcm-cosc-smp.cls
