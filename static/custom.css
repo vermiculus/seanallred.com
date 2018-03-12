@@ -1,0 +1,22 @@
+#TableOfContents {
+}
+#TableOfContents ul {
+    /* padding-left: 0px; */
+    /* text-align: right; */
+    list-style-type: none;
+}
+#TableOfContents ul li:not(:last-child) {
+    padding-bottom: 1ex;
+}
+#TableOfContents ul li a {
+    text-decoration: none;
+}
+#TableOfContents ul li a:link {
+    color: black;
+}
+#TableOfContents ul li a:visited {
+    color: black;
+}
+#TableOfContents ul li a:hover {
+    color: gray;
+}

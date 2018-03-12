@@ -8,6 +8,7 @@ categories:
 - tex
 - social
 url: /tex/social/2014/03/07/modern-day-tex.html
+toc: true
 ---
 
 In the very few venues that TeX known,
@@ -29,10 +30,7 @@ The purpose of this post is not to introduce you to TeX,
   but to show you that it isn't difficult to use
   and that it still very applicable to modern needs---yours and mine.
 
-* TOC
-{:toc}
-
-## The powers that be ##
+# The powers that be
 
 Microsoft *Word*, Google Docs, and similar systems are good tools for some tasks.
 I can't deny that, and I don't intend to [convince you otherwise][1].
@@ -62,7 +60,7 @@ She doesn't catch the terrible typographical mistakes that are being
 She's focusing on writing *as she should be*,
  but even now there is a flaw in the system.
 
-## The great distraction ##
+# The great distraction
 
 My thoughts turn back to the words of F. P. Brooks Jr.
   in his landmark work *The Mythical Man-Month*.
@@ -100,7 +98,7 @@ To allow the average user---say, your grandmother---to make a decently-designed 
   the effectiveness of your expertise in the field
   is crippled as *Word* carts you around in your grandmother's wheelchair.
 
-## How did this happen? ##
+# How did this happen?
 
 For real projects, this isn't a good system for either party involved.
 Why then is it still in use?
@@ -127,7 +125,7 @@ After all,
 
 > An object in motion tends to stay in motion.
 
-## TeX -- an alternative ##
+# TeX -- an alternative
 
 Most TeX systems are not like this to a large extent.
 The most essential TeX setup involves
@@ -196,7 +194,7 @@ It is shown as an example of the time and effort spent struggling with
   the writing distraction that is the software you chose for familiarity.
 (No but seriously [I love you all][3].)
 
-## Is it worth teaching? ##
+# Is it worth teaching?
 
 To those of you who know TeX and are wondering if it is worth teaching others,
   the answer is an emphatic *yes*.
@@ -206,7 +204,7 @@ The friend of mine that decided to use LaTeX for his paper
 Coupled with the spotty pointers I provided him with,
   he was easily able to pick it up and become self-sufficient.
 
-## Is it worth learning? ##
+# Is it worth learning?
 
 I won't say LaTeX doesn't come with a learning curve,
   but I will say that the actual learning curve is gentle.

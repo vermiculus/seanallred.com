@@ -7,7 +7,8 @@ comments: true
 draft: true
 categories:
 - tex
-url: /m
+url: /tex/2015/05/25/principles-of-latex.html
+toc: true
 ---
 
 On Reddit, [it was asked][r-principles] (spelling revised):
@@ -36,9 +37,6 @@ answer, so I provided a [pithy comment][r-p-comment]:
 It was met with no response, so I acknowledged it as insufficient per
 lack of explanation.  You wanted an way to learn LaTeX from the ground
 up so, without further ado, an explanation:
-
-* TOC
-{:toc}
 
 # Why was TeX was created?
 

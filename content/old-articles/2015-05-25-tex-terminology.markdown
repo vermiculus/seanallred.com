@@ -6,6 +6,7 @@ date: 2015-05-25 12:00:00 -0400
 comments: true
 published: true
 category: tex
+toc: true
 url: /tex/2015/05/25/tex-terminology.html
 ---
 
@@ -24,9 +25,6 @@ article will answer some of these questions you never knew you had.
 From the simple to the sublime, we will cover the different aspects of
 what goes into a working TeX system.  This should give you a pretty
 complete picture of this brave, new world you've entered into.
-
-* TOC
-{:toc}
 
 # Engines
 
@@ -291,8 +289,6 @@ recommendations and mentorship: if we start speaking different
 languages, how can we learn from one another?
 
 Happy TeXing!
-
-# Footnotes
 
 [tex-turing-complete]: http://maps.aanhet.net/maps/pdf/16_15.pdf
 <!-- page 47; second column -->
