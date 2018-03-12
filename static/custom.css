@@ -20,3 +20,18 @@
 #TableOfContents ul li a:hover {
     color: gray;
 }
+
+.cover h2 {
+    background-color: rgba(0, 0, 0, 0.3);
+
+}
+.cover a {
+    color: hsla(0,0%,100%,.8);
+    text-decoration: none;
+}
+.cover a:visited {
+    color: white;
+}
+.cover a:hover {
+    color: red;
+}
