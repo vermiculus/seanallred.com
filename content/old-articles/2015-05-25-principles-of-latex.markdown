@@ -7,7 +7,8 @@ comments: true
 draft: true
 categories:
 - tex
-url: /tex/2015/05/25/principles-of-latex.html
+aliases:
+  - /tex/2015/05/25/principles-of-latex.html
 toc: true
 ---
 

@@ -5,7 +5,8 @@ subtitle: "There's a better way!!"
 comments: true
 off-topic: true
 category: cs-theory
-url: /cs-theory/2014/01/10/rpi-dfa.html
+aliases:
+  - /cs-theory/2014/01/10/rpi-dfa.html
 ---
 I've been working on a [project][pisnort] recently for a friend's research,
   which needed a decently specialized piece of hardware.

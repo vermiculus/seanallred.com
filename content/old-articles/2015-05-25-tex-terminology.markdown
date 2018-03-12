@@ -7,7 +7,8 @@ comments: true
 published: true
 category: tex
 toc: true
-url: /tex/2015/05/25/tex-terminology.html
+aliases:
+  - /tex/2015/05/25/tex-terminology.html
 ---
 
 TeX is a great piece of software with a traditionally specific set of

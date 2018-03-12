@@ -7,7 +7,8 @@ published: true
 categories:
 - tex
 - social
-url: /tex/social/2014/03/07/modern-day-tex.html
+aliases:
+  - /tex/social/2014/03/07/modern-day-tex.html
 toc: true
 ---
 

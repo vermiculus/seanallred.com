@@ -11,7 +11,8 @@ links:
 - "What new bits have already been implemented in LaTeX3? Will my current documents (with many packages) still compile with LaTeX3?": http://tex.stackexchange.com/a/400/17423
 - "Why is LaTeX3 taking so long to come out?": http://tex.stackexchange.com/q/953/17423
 - "LaTeX3: Using the layers (Mittelbach and Wright, 2013)": http://latex-project.org/papers/2013-10-24-latex3.pdf
-url: /latex3/2015/06/14/expl3-vs-l3.html
+aliases:
+  - /latex3/2015/06/14/expl3-vs-l3.html
 ---
 
 I've seen a few people here and there refer to LaTeX3 and `expl3`

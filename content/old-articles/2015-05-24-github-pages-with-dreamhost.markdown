@@ -8,7 +8,8 @@ category: admin
 links:
 - "GitHub Pages: Basics": //help.github.com/categories/github-pages-basics/
 - Simple width fix for Disqus comments with Jekyll: //gist.github.com/vermiculus/54ff79fc4d98f401bf15
-url: /admin/2015/05/25/github-pages-with-dreamhost.html
+aliases:
+  - /admin/2015/05/25/github-pages-with-dreamhost.html
 ---
 
 It's been a long, confusing day as I've migrated some of my old

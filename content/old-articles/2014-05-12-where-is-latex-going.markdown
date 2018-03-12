@@ -5,7 +5,8 @@ date: 2014-05-12 20:34:41 -0400
 comments: true
 categories:
 - tex
-url: /tex/2014/05/13/where-is-latex-going.html
+aliases:
+  - /tex/2014/05/13/where-is-latex-going.html
 ---
 
 While I'm not a member of the LaTeX3 Project,
