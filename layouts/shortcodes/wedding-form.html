@@ -1,0 +1,54 @@
+<!-- TODO: need to collect names of all guests -->
+<div class="form">
+  <form id="wedding-rsvp" method="POST"
+        data-form-target="aHR0cHM6Ly9mb3Jtc3ByZWUuaW8vd2VkZGluZ0BzZWFuYWxscmVkLmNvbQ==">
+    <input type="text"  name="name"          placeholder="Your name"     required="true"/>
+    <br />
+    <input type="email" name="_replyto"      placeholder="Email address" required="true"/>
+    <br />
+
+    <input type="radio" name="yesno" value="yes" id="yesno:yes"          required="true"/>
+    <label for="yesno:yes">
+      Yes, we're coming
+    </label>
+    <br />
+    <input type="radio" name="yesno" value="no" id="yesno:no"            required="true"/>
+    <label for="yesno:no">
+      No, we can't come
+    </label>
+
+    <label for="num_guests">
+      Total number of guests (regardless of age)
+    </label>
+    <br class="mt4" />
+    <input type="number" name="num_guests" id="num_guests"
+           required="true" min="0" value="1" />
+
+    <br />
+    <label for="num_guests21">
+      Number of guests 21+
+    </label>
+    <br />
+    <input type="number" name="num_guests21" id="num_guests21"
+           required="true" min="0" value="1"/>
+
+    <br />
+    <label for="num_guests3">
+      Number of guests under 3
+    </label>
+    <br />
+    <input type="number" name="num_guests3" id="num_guests3"
+           required="true" min="0" value="0" />
+
+    <br />
+    <label for="comments">
+      Comments
+    </label>
+
+    <br />
+    <textarea rows="4" placeholder="Allergies, ..." id="comments"></textarea>
+
+    <br />
+    <input type="submit" value="Send RSVP" onclick="fixform('wedding-rsvp');" />
+  </form>
+</div>

@@ -26,12 +26,54 @@
 
 }
 .cover a {
-    color: hsla(0,0%,100%,.8);
+    color: lightblue;
     text-decoration: none;
 }
 .cover a:visited {
-    color: white;
+    color: lightblue;
 }
 .cover a:hover {
     color: red;
+}
+
+.form {
+    min-width: 20em;
+}
+
+.form * {
+    width: 100%;
+}
+
+.form input[type="radio"] {
+    width: 5%;
+}
+
+.form label {
+    width: 50%;
+    font-weight: 500;
+}
+
+.form label:not(:first-child) {
+    display: inline-block;
+    margin-top: 1ex;
+}
+
+.form input[type="text"],input[type="email"] {
+    margin-bottom: 1ex;
+    padding: 1ex;
+}
+
+.form input[type="submit"] {
+    margin-top: 4ex;
+    background-color: #fff;
+    border: #00d solid 4px;
+    font-size: larger;
+    padding: 2ex;
+}
+.form input[type="submit"]:hover {
+    background-color: #ddd;
+}
+.form input[type="submit"]:active {
+    background-color: #00d;
+    color: #fff;
 }
