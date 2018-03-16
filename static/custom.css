@@ -38,6 +38,9 @@
 
 .form {
     min-width: 20em;
+    padding: 4em;
+    border: #aaa solid 3px;
+    background-color: #fafafa;
 }
 
 .form * {
