@@ -10,9 +10,9 @@ footer: "[Photo used with permission](https://www.publicdomainpictures.net/view-
 If you haven't already, please [fill out the RSVP](/wedding/rsvp).
 
 # Hotel Reservations
-A block of reservations have been made at the [Courtyard by
-Marriott][hotel] in Frederick, about [15--20 minutes][hotel-venue]
-southwest of the venue.
+A block of rooms are being held at the [Courtyard by Marriott][hotel]
+in Frederick, about [15--20 minutes][hotel-venue] southwest of the
+venue.
 
 [hotel]: https://goo.gl/maps/FqKmFf7T7mv
 [hotel-venue]: https://goo.gl/maps/XBRctNdfZ1s
