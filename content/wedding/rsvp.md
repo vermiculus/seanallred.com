@@ -1,14 +1,9 @@
 ---
-title: RSVP
+title: RSVP by May 13!
 layout: wedding
-featured_image: https://lh4.ggpht.com/IQRr8aAvaAj0zffYzMjnXw6Y6doRY6GaKMaYm7u-XN6K2tgp0VIxLFM8S97dRVLfng=h900
+featured_image: https://c1.staticflickr.com/7/6216/6321581118_7483c8782c_b.jpg
 description: Let us know if you're coming to the wedding (or [go back](/wedding))
+footer: "[Photo used with permission.](//www.flickr.com/photos/jram23/6321581118)"
 ---
-
-<div class="tc pb5">
-    <strong>
-        Please let us know by <em>May 13th</em>!
-    </strong>
-</div>
 
 {{% wedding-form %}}

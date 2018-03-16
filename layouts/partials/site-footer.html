@@ -4,5 +4,10 @@
     &copy; {{ now.Format "2006" }} {{ .Site.Params.CopyrightHolder | default .Site.Title }}
   </a>
   {{ partial "social-follow.html" . }}
+  {{ with .Params.footer }}
+  <div class="white-70 pv2 ph3">
+    {{ . | markdownify }}
+  </div>
+  {{ end }}
   </div>
 </footer>
