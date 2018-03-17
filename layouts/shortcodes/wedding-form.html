@@ -2,6 +2,7 @@
 <div class="form">
   <form id="wedding-rsvp" method="POST"
         data-action-64="aHR0cHM6Ly9mb3Jtc3ByZWUuaW8vd2VkZGluZ0BzZWFuYWxscmVkLmNvbQ==">
+    <input id="wedding-cc" type="hidden" name="_cc" data-value-64="a2F0Z25pY2hvbHNAZ21haWwuY29t" />
     <input type="text"  name="name"          placeholder="Your name"     required="true"/>
     <br />
     <input type="email" name="_replyto"      placeholder="Email address" required="true"/>
@@ -50,6 +51,7 @@
               placeholder="Allergies? Dietary restrictions? Haiku? Throw 'em in here."></textarea>
 
     <br />
-    <input type="submit" value="Send RSVP" onclick="un64('wedding-rsvp','action');" />
+    <input type="submit" value="Send RSVP"
+           onclick="un64('wedding-rsvp','action');un64('wedding-cc','value');" />
   </form>
 </div>
