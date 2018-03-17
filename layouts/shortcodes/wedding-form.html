@@ -1,7 +1,7 @@
 <!-- TODO: need to collect names of all guests -->
 <div class="form">
   <form id="wedding-rsvp" method="POST"
-        data-form-target="aHR0cHM6Ly9mb3Jtc3ByZWUuaW8vd2VkZGluZ0BzZWFuYWxscmVkLmNvbQ==">
+        data-action-64="aHR0cHM6Ly9mb3Jtc3ByZWUuaW8vd2VkZGluZ0BzZWFuYWxscmVkLmNvbQ==">
     <input type="text"  name="name"          placeholder="Your name"     required="true"/>
     <br />
     <input type="email" name="_replyto"      placeholder="Email address" required="true"/>
@@ -50,6 +50,6 @@
               placeholder="Allergies? Dietary restrictions? Haiku? Throw 'em in here."></textarea>
 
     <br />
-    <input type="submit" value="Send RSVP" onclick="fixform('wedding-rsvp');" />
+    <input type="submit" value="Send RSVP" onclick="un64('wedding-rsvp','action');" />
   </form>
 </div>

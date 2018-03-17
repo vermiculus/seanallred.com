@@ -11,9 +11,9 @@
       gtag('config', 'UA-63442827-2');
     </script>
     <script>
-      function fixform (id) {
-        var form = document.getElementById(id);
-        form.action = atob(form.getAttribute("data-form-target"));
+      function un64 (id, prop) {
+        var node = document.getElementById(id);
+        node[prop] = atob(node.getAttribute('data-'+prop+'-64'));
       }
     </script>
     <meta charset="utf-8">
