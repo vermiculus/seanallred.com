@@ -21,4 +21,4 @@ than hosting.
 [Configuring DreamHost to do this was a nightmare.][dh-dns]
 
 [google-dns]: //domains.google.com
-[dh-dns]: {{< relref "old-articles/2015-05-24-github-pages-with-dreamhost.markdown" >}}
+[dh-dns]: {{< relref "old-articles/github-pages-with-dreamhost.markdown" >}}
