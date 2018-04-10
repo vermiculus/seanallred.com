@@ -10,9 +10,14 @@ footer: "[Photo used with permission](https://www.publicdomainpictures.net/view-
 If you haven't already, please [fill out the RSVP](/wedding/rsvp).
 
 # Hotel Reservations
-A block of rooms are being held at the [Courtyard by Marriott][hotel]
-in Frederick, about [15--20 minutes][hotel-venue] southwest of the
-venue.
+Please feel free to make a reservation in the Frederick, MD area.
+Downtown is about [15--20 minutes away from the venue][dir], so there
+are lots of options!
 
-[hotel]: https://goo.gl/maps/FqKmFf7T7mv
-[hotel-venue]: https://goo.gl/maps/XBRctNdfZ1s
+# Registry Information
+- [Target][target]
+- [Bed Bath & Beyond][bbb]
+
+[bbb]: https://www.bedbathandbeyond.com/store/giftregistry/view_registry_guest.jsp?pwsToken=&eventType=Wedding&inventoryCallEnabled=true&registryId=545698234&pwsurl=
+[target]: https://www.target.com/gift-registry/giftgiver?registryId=d8c26e23886f48af833c6e780acf5bf8&type=WEDDING
+[dir]: https://goo.gl/maps/D3taxp6N9XK2
