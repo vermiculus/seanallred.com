@@ -14,6 +14,13 @@ Please feel free to make a reservation in the Frederick, MD area.
 Downtown is about [15--20 minutes away from the venue][dir], so there
 are lots of options!
 
+# For our Midwest folks...
+If you're flying, BWI is the easiest airport to get in/out of and it's
+no farther than the other options in the area (IAD/Dulles,
+DCA/Reagan).  Traffic on the Capital Beltway is dependably bad --
+think Chicago during rush hour -- so it's best to avoid it if
+possible.
+
 # Registry Information
 - [Target][target]
 - [Bed Bath & Beyond][bbb]
