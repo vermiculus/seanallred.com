@@ -8,9 +8,9 @@ Hello, weary traveller!
 My name is Sean Allred and I am a software developer and enthusiast
 currently enjoying Madison, Wisconsin.  I spend most of my time
 working at [Epic][epic.com] making healthcare safer, but I also
-develop in my free time using a variety of technologies just for
-funsies.  When I'm not at a computer, I enjoy looking outside waiting
-for winter to end.
+[develop in my free time][github.com] using a variety of technologies
+just for funsies.  When I'm not at a computer, I enjoy looking outside
+waiting for winter to end.
 
 [I have no particular affinity towards ducks.][ducks]
 
@@ -24,8 +24,11 @@ this) -- if you come across any broken links, please report them by
 suddenly than I had planned, so bear with me through any issues :-)
 
 Previously, this content tried to be TeX-focused.  I've come to
-realize that kind of focus is a silly idea for me.  I do what I want.
+realize that kind of focus is a silly idea for me.
+
+I do what I want.
 
 [epic.com]: //www.epic.com/
+[github.com]: //github.com/vermiculus
 [github]: //github.com/vermiculus/seanallred.com/issues
 [ducks]: //tex.meta.stackexchange.com/tags/ducks/info
