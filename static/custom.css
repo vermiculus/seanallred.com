@@ -90,3 +90,26 @@ footer a:hover {
     background-color: #00d;
     color: #fff;
 }
+
+dt {
+    font-weight: bold;
+    font-style: italic;
+}
+
+blockquote {
+    padding: 0.25ex;
+    padding-left: 1em;
+    padding-right: 1em;
+    border-radius: 30px;
+    border-color: #000;
+    border-width: 10px;
+    background-color: #ddd;
+}
+
+blockquote ul {
+    padding-left: 1.25em;
+}
+
+aside ul {
+    padding-left: 0.5em;
+}
