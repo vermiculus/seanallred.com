@@ -12,7 +12,7 @@ working at [Epic][epic.com] making healthcare safer, but I also
 just for funsies.  When I'm not at a computer, I enjoy looking outside
 waiting for winter to end.
 
-[I have no particular affinity towards ducks.][ducks]
+[Want to see my résumé?](/resume--allred-sean.pdf)
 
 ---
 
@@ -27,6 +27,8 @@ Previously, this content tried to be TeX-focused.  I've come to
 realize that kind of focus is a silly idea for me.
 
 I do what I want.
+
+[I have no particular affinity towards ducks.][ducks]
 
 [epic.com]: //www.epic.com/
 [github.com]: //github.com/vermiculus
