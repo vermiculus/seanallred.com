@@ -38,5 +38,5 @@ So what goes into research?
 And of course, all of this must be well-organized.
 
 There are many applications that try to solve this problem.  One that
-I've recently been referred to is called graphical application called
+I've recently been referred to is a graphical application called
 *Scrivener*, a fifty-dollar investment.
