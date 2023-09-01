@@ -1,0 +1,68 @@
+site_name: Emacs Starter Kit
+repo_url: https://github.com/vermiculus/seanallred.com
+repo_name: seanallred.com
+edit_uri: -/edit/main/docs
+theme:
+  name: material
+  icon:
+    repo: material/git
+    logo: simple/gnuemacs
+  palette:
+    - media: "(prefers-color-scheme: light)"
+      scheme: default
+      primary: deep purple
+      toggle:
+        icon: material/brightness-7
+        name: Switch to dark mode
+    - media: "(prefers-color-scheme: dark)"
+      scheme: slate
+      primary: deep purple
+      toggle:
+        icon: material/brightness-4
+        name: Switch to light mode
+  features:
+    - navigation.instant
+    - navigation.tracking
+    - navigation.sections
+    - navigation.expand
+    - navigation.top
+    - navigation.footer
+    - content.code.copy
+    - content.code.annotate
+extra_css:
+  - stylesheets/extra.css
+extra_javascript:
+  - scripts/extra.js
+
+plugins:
+  - search
+  - awesome-pages
+  - glightbox
+
+markdown_extensions:
+  - toc:
+      permalink: "#"
+      permalink_title: "Link to this section"
+  - abbr
+  - attr_list
+  - admonition
+  - def_list
+  - footnotes
+  - smarty
+  - pymdownx.details
+  - pymdownx.highlight:
+      pygments_lang_class: true
+  - pymdownx.inlinehilite
+  - pymdownx.keys
+  - pymdownx.snippets:
+      dedent_subsections: true
+  - pymdownx.tabbed:
+      alternate_style: true
+  - pymdownx.emoji:
+      emoji_index: !!python/name:materialx.emoji.twemoji
+      emoji_generator: !!python/name:materialx.emoji.to_svg
+  - pymdownx.superfences:
+      custom_fences:
+        - name: mermaid
+          class: mermaid
+          format: !!python/name:pymdownx.superfences.fence_code_format
