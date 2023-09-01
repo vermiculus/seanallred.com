@@ -1,7 +1,3 @@
-# hello, world
+# Hello there!
 
-and again
-
-and again and again.
-
-and again?
+This website is under (re)construction. Please be patient.
