@@ -1,9 +1,9 @@
 # Work History
 
-My resume lists the work and experience most relevant to what I want
-to do, but that necessarily limits its completeness. Even if just for
-my own memory being what it is, it's helpful to keep a more complete
-record.
+[My resume](resume.md) lists the work and experience most relevant to
+what I want to do, but that necessarily limits its completeness. Even
+if just for my own memory being what it is, it's helpful to keep a
+more complete record.
 
 ## Summary
 
@@ -169,8 +169,8 @@ project of my professional career to date.
 
     I need to call it quits for today (I've written this entire page
     in about 90 minutes and I'd like to get some sun). [My
-    resume](/resume--allred-sean.pdf) has some details on what I've
-    done on this project.
+    resume](resume.md) has some details on what I've done on this
+    project.
 
 ## (2014--2015) GD-AIS
 
