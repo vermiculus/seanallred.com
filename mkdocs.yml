@@ -1,7 +1,6 @@
 site_name: (defvar me
-repo_url: https://github.com/vermiculus/seanallred.com
-repo_name: seanallred.com
-edit_uri: -/edit/main/docs
+site_description: a forgotten blog
+copyright: "&copy; 2023 Sean Allred"
 theme:
   name: material
   icon:
@@ -10,13 +9,13 @@ theme:
   palette:
     - media: "(prefers-color-scheme: light)"
       scheme: default
-      primary: deep purple
+      primary: teal
       toggle:
         icon: material/brightness-7
         name: Switch to dark mode
     - media: "(prefers-color-scheme: dark)"
       scheme: slate
-      primary: deep purple
+      primary: teal
       toggle:
         icon: material/brightness-4
         name: Switch to light mode
@@ -29,10 +28,6 @@ theme:
     - navigation.footer
     - content.code.copy
     - content.code.annotate
-extra_css:
-  - stylesheets/extra.css
-extra_javascript:
-  - scripts/extra.js
 
 plugins:
   - search
