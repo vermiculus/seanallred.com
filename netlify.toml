@@ -1,8 +1,0 @@
-[build]
-publish = "public"
-command = "hugo -b \"$URL\""
-
-[context.production.environment]
-HUGO_VERSION = "0.37.1"
-HUGO_ENV = "production"
-HUGO_ENABLEGITINFO = "true"
