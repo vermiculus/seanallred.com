@@ -2,5 +2,6 @@
 
 nav:
   - "Home": README.md
+  - "Work History": work-history.md
   - "Articles": blog
   - ...
