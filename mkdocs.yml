@@ -5,8 +5,7 @@ theme:
   name: material
   custom_dir: overrides
   icon:
-    repo: material/git
-    logo: simple/gnuemacs
+    logo: material/code-parentheses
   palette:
     - media: "(prefers-color-scheme: light)"
       scheme: default
