@@ -1,0 +1,6 @@
+# -*- yaml -*-
+
+nav:
+  - "Home": README.md
+  - "Articles": blog
+  - ...

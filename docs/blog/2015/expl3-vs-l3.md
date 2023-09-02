@@ -38,12 +38,12 @@ like.
 
 It's important to note that the general format of
 
-{{< highlight latex >}}
+```latex
 \documentclass{<who knows?>}
 \begin{document}
 hello, \emph{world}
 \end{document}
-{{< / highlight >}}
+```
 
 is not likely to change (lest the project fail to be adopted).  While
 the top-level input syntax hasn't really been nailed down, I suspect

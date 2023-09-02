@@ -27,7 +27,7 @@ From the simple to the sublime, we will cover the different aspects of
 what goes into a working TeX system.  This should give you a pretty
 complete picture of this brave, new world you've entered into.
 
-# Engines
+## Engines
 
 Let's start with the absolute basics.  A TeX engine is a compiled
 program.  In that sense, it is just like most of the other programs
@@ -59,7 +59,7 @@ Each of these engines understands all of the original primitives in
 addition to those related to whichever extra features they may
 provide.
 
-# Formats
+## Formats
 
 Next up, we have formats -- comprehensive programs written with TeX
 primitives to provide an expressive and effective user interface to
@@ -73,9 +73,9 @@ TeX primitives.  There are
 
 Since *nobody* wants to be writing things like,
 
-{{< highlight tex >}}
+```tex
 {\fam \char"4 select font cmti10\relax italic text}
-{{< / highlight >}}
+```
 
 TeX formats provide more meaningful ways to say the same thing:
 
@@ -90,17 +90,17 @@ mathematics.
 
 Formats define much of the syntax you use to write your document:
 
-{{< highlight latex >}}
+```latex
 \documentclass{article}
 \begin{document}
 Hello, \textit{world!}
 \end{document}
-{{< / highlight >}}
+```
 
 In this example, `\documentclass`, `\begin`, `\textit`, and `\end` are
 macros provided by LaTeX.
 
-# Extensions
+## Extensions
 
 Since the community using TeX is much more diverse and specialized
 than any one team can hope to accommodate, the major formats define a
@@ -128,7 +128,7 @@ their applicability to an impossibly diverse range of use-cases.
 There are thousands upon thousands of these extensions available
 online.
 
-# Editors
+## Editors
 
 So far, we've only discussed what goes into your document itself as
 you write it and what exactly is producing the finished product.
@@ -146,7 +146,6 @@ that has some level of support for writing a TeX document.[^7]
     provide access to everything you need to write your document
     (except your knowledge, of course).
 
-
 Some popular editors include,[^2]
 
 - TeXworks
@@ -163,7 +162,7 @@ environments for writing with TeX -- in most cases above and beyond
 that of any other editor, specialized or not.  However, I will save
 that discussion for another post.
 
-# Helper Tools
+## Helper Tools
 
 While TeX can theoretically do anything and everything you want it to
 do all on its own, that idea should usually stop at 'theory'.[^3]
@@ -196,7 +195,7 @@ The list goes on and on.  For interested parties, there is a
 you should also look into generic text-based templating engines like
 Liquid, XSLT, Velocity, *etc.*
 
-# Build tools
+## Build tools
 
 Since TeX is a command-line tool at its core, most related tools also
 use the command-line as the 'official' interface.  Most (if not all)
@@ -229,7 +228,7 @@ Of course, since these things *are* command-line based, classic
 automation tools like `make` and other types of generic
 build-management tools are available for use, too.
 
-# Distributions
+## Distributions
 
 As you've learned, there are many things going on in the world of TeX,
 certainly much more than a complete beginner would think even after
@@ -259,7 +258,7 @@ simply download the entire TeX Live distribution from TUG's website.
 Installation on Windows might've been tricky ten years ago, but I can
 vouch that it is seamless at the time of writing.
 
-# CTAN
+## CTAN
 
 In the end, distributions get their files from CTAN, the Comprehensive
 TeX Archive Network.  Distributions don't carry *everything* CTAN has
@@ -275,7 +274,7 @@ Any files that are not available on CTAN were not uploaded by their
 authors.  CTAN can't make anyone upload anything, so a bit of
 Google-searching on the side won't hurt anyone.
 
-# Conclusion
+## Conclusion
 
 While distinct from one another, each of these areas is highly
 dependent on the others for their success.  Without CTAN, it's likely

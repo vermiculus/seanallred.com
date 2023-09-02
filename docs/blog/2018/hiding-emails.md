@@ -1,7 +1,8 @@
 ---
-title: Hiding Emails in Forms from Scrapers
 date: 2018-03-14
 ---
+
+# Hiding Emails from Scrapers
 
 I really enjoy using static site generators.  They allow me to get a
 presence up and going without any real substantial knowledge of how to
@@ -27,26 +28,26 @@ information) and decodes it just-in-time to be used.
 
 We start a simple HTML form:
 
-{{< highlight html >}}
-  <form id="rsvp" method="POST"
-        data-form-target="aHR0cDovL2Zvcm1zcHJlZS5pby9zZWNyZXRAZXhhbXBsZS5jb20=">
-    <input type="text"     name="name"     placeholder="Your name" />
-    <input type="email"    name="_replyto" placeholder="Your email address" />
-    <input type="checkbox" name="yesno" />
-    <label for="yesno">I'll be there!"</label>
-    <input type="submit" value="Send RSVP" onclick="fixform('rsvp');" />
-  </form>
-{{< / highlight >}}
+```html
+<form id="rsvp" method="POST"
+      data-form-target="aHR0cDovL2Zvcm1zcHJlZS5pby9zZWNyZXRAZXhhbXBsZS5jb20=">
+  <input type="text"     name="name"     placeholder="Your name" />
+  <input type="email"    name="_replyto" placeholder="Your email address" />
+  <input type="checkbox" name="yesno" />
+  <label for="yesno">I'll be there!"</label>
+  <input type="submit" value="Send RSVP" onclick="fixform('rsvp');" />
+</form>
+```
 
 Note our `data-form-target` attribute on `#rsvp`.  Our JavaScript
 makes use of this:
 
-{{< highlight js >}}
+```javascript
 function fixform(id) {
   var form = document.getElementById(id);
   form.action = atob(form.getAttribute("data-form-target"));
 }
-{{< / highlight >}}
+```
 
 This function takes a node ID and calculates an `action` attribute
 value from the base-64-encoded value of `data-form-target`.  In this

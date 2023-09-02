@@ -34,7 +34,9 @@ tutorial *before* you start; I backtrack a bit for `www`.)
 
 Create a new repository over at GitHub and name it
 
-    bobbins.github.io
+```text
+bobbins.github.io
+```
 
 You are done on GitHub (unless you use the web to create files, in
 which case, God rest your soul).
@@ -49,7 +51,7 @@ commits everything to a git repository it initializes.  Finally, it
 adds GitHub as the upstream origin for your `master` branch and
 pushes.
 
-{{< highlight sh >}}
+```sh
 mkdir ~/blog && cd ~/blog
 echo "source 'https://rubygems.org'" >> Gemfile
 echo "gem 'github-pages'" >> Gemfile
@@ -63,7 +65,7 @@ git init
 git commit -m "Initial commit"
 git remote add origin git@github.com:bobbins/bobbins.github.io.git
 git push –set-upstream origin master
-{{< / highlight >}}
+```
 
 ## Dreamhost
 
@@ -71,7 +73,7 @@ git push –set-upstream origin master
 2. In the main menu (on the left sidebar), go to Domains → Manage
    Domains.
 3. On the left, just under your domain name, click 'DNS'.
-3. Add a custom DNS record to `bilbo.org` named `blog`, type `CNAME`,
+4. Add a custom DNS record to `bilbo.org` named `blog`, type `CNAME`,
    with a value of `bobbins.github.io`.
 
 You're done!

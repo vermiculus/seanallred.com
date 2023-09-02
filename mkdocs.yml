@@ -3,6 +3,7 @@ site_description: a forgotten blog
 copyright: "&copy; 2023 Sean Allred"
 theme:
   name: material
+  custom_dir: overrides
   icon:
     repo: material/git
     logo: simple/gnuemacs
