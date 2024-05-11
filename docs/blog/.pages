@@ -1,6 +1,0 @@
-# -*- yaml -*-
-
-order: desc
-nav:
-  - ...
-  - "Older?": older

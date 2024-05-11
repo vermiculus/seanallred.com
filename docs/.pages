@@ -1,8 +1,0 @@
-# -*- yaml -*-
-
-nav:
-  - "Home": README.md
-  - "Résumé": resume.md
-  - "Work History": work-history.md
-  - "Articles": blog
-  - ...
